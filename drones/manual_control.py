@@ -3,10 +3,7 @@ from threading import Thread
 import cv2
 from djitellopy import Tello
 
-# magnet drone
-# tello = Tello(host='192.168.0.155')
-# sensor drone
-tello = Tello(host='192.168.0.245')
+tello = Tello(host='192.168.0.154')
 tello.connect()
 keepRecording = True
 tello.streamon()
@@ -57,8 +54,6 @@ def display():
             tello.send_command_without_return('[TELLO] DIY_start')
         elif key == ord('k'):
             tello.send_command_without_return('[TELLO] DIY_stop')
-        elif key == ord('t'):
-            tello.send_command_with_return('1 1 M\r\n')
         elif key == ord('o'):
             tello.land()
         elif key == ord('p'):
@@ -79,7 +74,7 @@ def display():
 # recorder.start()
 
 tello.takeoff()
-# tello.send_keepalive()
+tello.send_keepalive()
 
 displayer = Thread(target=display)
 displayer.start()

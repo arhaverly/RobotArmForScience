@@ -1,7 +1,7 @@
 from sqlalchemy import Integer, String, Float, TIMESTAMP
 from sqlalchemy.sql import func
 
-from robotic_testing.common import data_analysis
+from robotic_testing import data_analysis
 
 configs = {
 

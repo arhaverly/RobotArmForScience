@@ -1,5 +1,7 @@
+import logging
+import os
 from time import sleep
-from typing import List, Dict
+
 import pyautogui
 
 from utils.utils import log_and_print, turn_capslock_off, get_logger
@@ -8,11 +10,10 @@ from utils.utils import log_and_print, turn_capslock_off, get_logger
 class SoftwareControlBase:
     def __init__(self,
                  icons_dir: str,
-                 title: List[str] = None,
-                 menu_icons: List[str] = None,
-                 icons_dict: Dict[str, List[str]] = None,
+                 title: list[str] = None,
+                 menu_icons: list[str] = None,
+                 icons_dict: dict[str, list[str]] = None,
                  exp_name: str = None,
-                 force_print: bool = False,
                  **kwargs
                  ):
         self.name = self.__class__.__name__
@@ -26,7 +27,6 @@ class SoftwareControlBase:
 
         # logger settings
         self.logger = get_logger(exp_name=exp_name, module_name=self.__class__.__name__) if self.to_log else None
-        self.force_print = force_print
 
         # pyautogui settings
         self.confidence = 0.9
@@ -35,7 +35,7 @@ class SoftwareControlBase:
         pyautogui.FAILSAFE = False
 
     def log_and_print(self, level, msg):
-        log_and_print(self.to_log, self.logger, level, msg, self.force_print)
+        log_and_print(self.to_log, self.logger, level, msg)
 
     def pass_screen_grab_error(func):
         def error_passer(self, *args, **kwargs):
@@ -47,11 +47,11 @@ class SoftwareControlBase:
 
         return error_passer
 
-    def get_icon_dir(self, icon_name: List[str]) -> List[str]:
+    def get_icon_dir(self, icon_name: list[str]) -> list[str]:
         return [f'{self.icons_dir}/{i}' for i in icon_name]
 
     @pass_screen_grab_error
-    def move_to_icon(self, file_name_list: List[str], confidence: float = None):
+    def move_to_icon(self, file_name_list: list[str], confidence: float = None):
         file_path_list = self.get_icon_dir(file_name_list)
         confidence = confidence or self.confidence
         # return the first matched icon pos, if no icon detected on screen, will return None
@@ -60,7 +60,7 @@ class SoftwareControlBase:
             if pos:
                 return pos
 
-    def click_button(self, file_name_list: List[str]):
+    def click_button(self, file_name_list: list[str]):
         t = 0
         while t < 100:
             try:
@@ -100,7 +100,7 @@ class SoftwareControlBase:
         turn_capslock_off()
         pyautogui.write(text, **kwargs)
 
-    def icon_exists_on_screen(self, file_name_list: List[str], confidence: float = None) -> bool:
+    def icon_exists_on_screen(self, file_name_list: list[str], confidence: float = None) -> bool:
         return True if self.move_to_icon(file_name_list, confidence) else False
 
 
@@ -109,7 +109,7 @@ class ActiveSoftwareControl(SoftwareControlBase):
     This class is used for software that will be actively actuated, e.g. start, stop
     """
 
-    def __init__(self, title: List[str], menu_icons: List[str], **kwargs):
+    def __init__(self, title: list[str], menu_icons: list[str], **kwargs):
         super().__init__(title=title, menu_icons=menu_icons, **kwargs)
 
     def in_software(self, confidence: float = None) -> bool:
@@ -118,7 +118,7 @@ class ActiveSoftwareControl(SoftwareControlBase):
         if self.icon_exists_on_screen(self.title, confidence):
             return True
         else:
-            self.log_and_print('info', 'not in software yet')
+            self.logger.info('not in software yet')
             return False
 
     def open_software(self):

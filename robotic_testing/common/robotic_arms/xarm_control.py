@@ -126,6 +126,8 @@ class xArm(XArmAPI):
         self.set_gripper_position(self.config.gripper_open_dist, wait=True, speed=5000, auto_enable=True)
 
     def move_to_hover_pos(self, pos, hover_offset, **kwargs):
+        # Raise vertically first to avoid lateral motion while rising.
+        self.set_position(0, 0, hover_offset, 0, 0, 0, relative=True)
         pos_hover = pos.copy()
         pos_hover[2] += hover_offset
         self.move_to_pos(pos_hover, **kwargs)
@@ -167,6 +169,18 @@ class xArm(XArmAPI):
             self.sample_in_flask = False
         else:
             self.move_to_pos(self.config.pos_dict[immerse_option], **self.config.pos_settings_dict['slow_3'])
+            self.sample_in_flask = True
+
+    def sink_in_flask_controlled_speed(self, reverse=False, immerse_option='flask_contact_immersed', speed=0.5):
+        if reverse:
+            self.move_to_hover_pos(
+                self.config.pos_dict['flask_contact_immersed'],
+                self.config.hover_offset_dict['flask'],
+                **self.config.pos_settings_dict[f'megnan_{speed}']
+            )
+            self.sample_in_flask = False
+        else:
+            self.move_to_pos(self.config.pos_dict[immerse_option], **self.config.pos_settings_dict[f'megnan_{speed}'])
             self.sample_in_flask = True
 
     def rinsing(self):

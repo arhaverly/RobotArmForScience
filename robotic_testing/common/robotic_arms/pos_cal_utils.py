@@ -33,7 +33,7 @@ class SamplePosCal:
             rack_grid_starting_pos,
             contact_foil_offset,
     ):
-        """
+        self.foil_ = """
         :param grid_d: the unit distance of the grid
         :param num_slot: number of slots on each rack
         :param rack_grid_pos: the pattern of the rack grid and how they are indexed
@@ -60,13 +60,14 @@ class SamplePosCal:
         target_rack_starting_coord = pos_cal(self.rack_grid_starting_pos, target_rack_grid_offset)
         
         # get the pos of the target sample on the target rack
-        sample_pos = pos_cal(target_rack_starting_coord, (0, self.slot_layout_on_rack[mod]))
+        # offset along X axis across slots
+        sample_pos = pos_cal(target_rack_starting_coord, (self.slot_layout_on_rack[mod], 0))
 
         # add correction offset to the pos
         sample_pos_corrected = pos_cal(sample_pos, self.get_slot_offset(div, mod))
 
         # add contact foil offset to the pos
-        sample_pos_corrected_2 = pos_cal(sample_pos_corrected, (0, -self.contact_foil_offset))
+        sample_pos_corrected_2 = pos_cal(sample_pos_corrected, (-self.contact_foil_offset, 0))
 
         return sample_pos_corrected_2
 
@@ -81,5 +82,6 @@ class SamplePosCal:
         ending_offset = np.array(self.rack_offset[rack_index][1])
         gradient = (ending_offset - starting_offset) / (self.num_slot - 1)
         offset = starting_offset + gradient * slot_index_on_rack
-        return offset
+        # swap X/Y correction when slots run along X
+        return np.array([offset[1], offset[0], offset[2]])
 

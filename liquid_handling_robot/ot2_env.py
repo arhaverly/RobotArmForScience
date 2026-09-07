@@ -26,6 +26,9 @@ class OT2_Env(ABC):
         self.run_configs_path = f'{self.status_path}/run_configs.json'
         self.run_path = f'{self.parent_path}/ot2_run.py'
         self.wireless = wireless
+
+
+
         self.robot_ip = self.robot_ip_detect()
 
     def robot_ip_detect(self):
@@ -68,14 +71,14 @@ class OT2_Env(ABC):
     def execute_protocol(self, file_path, cmd):
         ret_msg = self.execute(f'export RUNNING_ON_PI=1; {cmd} /data/user_storage/protocols/{file_path}')
         return ret_msg
-
+    
     def update_run_config(self, simulate):
         run_config = config_loader(self.exp_name, 'ot2_run_configs')
         run_config['exp_name'] = self.exp_name
         run_config['simulate'] = simulate
         json.dump(json.dumps(run_config), open(self.run_configs_path, "w"))
         self.file_transfer(self.run_configs_path, 'tasks/')
-
+    
     def run_after_simulation(self, file_path, simulate, run):
         if simulate:
             self.update_run_config(simulate=True)
@@ -210,8 +213,7 @@ class OT2_Env(ABC):
         email(email_address, '[Success] sample preparation recording', [content, hyperlapse_video_path])
 
     @abstractmethod
-    def run(self, tasks: pd.DataFrame, benchmark: dict = None, simulate=True, run=True, operator_name=None,
-            recording=True):
+    def run(self, tasks: pd.DataFrame, benchmark: dict = None, simulate=True, run=True, operator_name=None, recording=True):
         pass
 
 
@@ -234,8 +236,7 @@ class OT2_Env_Linux(OT2_Env):
         }
         super().__init__(*args, **kwargs)
 
-    def run(self, tasks: pd.DataFrame, benchmark: dict = None, simulate=True, run=True, operator_name=None,
-            recording=True):
+    def run(self, tasks: pd.DataFrame, benchmark: dict = None, simulate=True, run=True, operator_name=None, recording=True):
         self.create_tasks(tasks, benchmark)
         self.transfer_protocol()
         obs = OBS_Linux(
@@ -252,7 +253,7 @@ class OT2_Env_Win(OT2_Env):
     def __init__(self, *args, **kwargs):
         self.ip_dict = {
             'wired': [
-                '169.254.134.216',
+                '',
             ],
             'wireless': [
                 '',
@@ -260,8 +261,7 @@ class OT2_Env_Win(OT2_Env):
         }
         super().__init__(*args, **kwargs)
 
-    def run(self, tasks: pd.DataFrame, benchmark: dict = None, simulate=True, run=True, operator_name=None,
-            recording=True):
+    def run(self, tasks: pd.DataFrame, benchmark: dict = None, simulate=True, run=True, operator_name=None, recording=True):
         self.create_tasks(tasks, benchmark)
         self.transfer_protocol()
         obs = OBS_Win(
@@ -272,3 +272,4 @@ class OT2_Env_Win(OT2_Env):
         obs.stop() if recording else None
         if operator_name:
             self.email_video(tasks, operator_name)
+

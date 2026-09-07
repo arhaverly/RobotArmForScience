@@ -2,10 +2,7 @@ import ctypes
 import importlib
 import logging
 import os
-import re
-import subprocess
-from datetime import datetime
-from datetime import timedelta
+
 import moviepy.video.fx.all as vfx
 import numpy as np
 import pandas as pd
@@ -15,7 +12,7 @@ import yagmail
 from moviepy.editor import VideoFileClip, AudioFileClip
 from pydub import AudioSegment
 
-from utils.sensitives import url_dict, crest_gmail, crest_app_pw
+from utils.sensitives import ip_ot2, ip_rt, crest_gmail, crest_app_pw
 
 
 def get_project_path():
@@ -30,7 +27,7 @@ def get_project_path():
 def get_logger(exp_name, module_name):
     logger = logging.getLogger(module_name)
     logger.setLevel(logging.INFO)
-    formatter = logging.Formatter('%(asctime)s[%(process)d] - %(name)s - %(levelname)s - %(message)s')
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     # create log file if not exist
     log_dir = get_dir('log_dir', exp_name=exp_name)
     if not os.path.exists(log_dir):
@@ -55,11 +52,11 @@ def turn_capslock_off():
         pya.press("capslock")
 
 
-def log_and_print(to_log: bool, logger: logging.Logger, log_level: str, msg: str, force_print: bool = False):
+def log_and_print(to_log: bool, logger: logging.Logger, log_level: str, msg: str):
     if to_log:
         level_dict = {'debug': logger.debug, 'info': logger.info, 'warning': logger.warning, 'error': logger.error}
         level_dict[log_level](msg)
-    if force_print or log_level in ['warning', 'error']:
+    if log_level in ['warning', 'error']:
         print(msg)
 
 
@@ -164,8 +161,13 @@ def email(email_address, subject, contents: list or str):
     yag.send(email_address, subject, contents)
 
 
-def post_to(target, endpoint, data):
-    response = requests.post(f'{url_dict[target]}/{endpoint}', json=data)
+def post_to_ot2(endpoint, data):
+    response = requests.post(f'{ip_ot2}/{endpoint}', json=data)
+    return response
+
+
+def post_to_rt(endpoint, data):
+    response = requests.post(f'{ip_rt}/{endpoint}', json=data)
     return response
 
 
@@ -185,125 +187,3 @@ def print_gpt_process(content, gpt_process):
 def get_counterpart(var):
     counterparts = {'start': 'stop', 'stop': 'start'}
     return counterparts.get(var, 'Invalid input')
-
-
-def adb_pull_dir(adb_path, android_dir, local_dir):
-    # Make sure android_dir ends with a /
-    if not android_dir.endswith('/'):
-        android_dir += '/'
-
-    # Get a list of all files in the Android directory
-    adb_ls_output = subprocess.check_output([adb_path, "shell", f"ls {android_dir}"]).decode("utf-8").strip()
-    android_files = adb_ls_output.split("\n")
-
-    # Remove hidden files and directories (starting with '.')
-    android_files = [f for f in android_files if not f.startswith('.')]
-
-    # Check which files already exist in the local directory
-    local_files = os.listdir(local_dir)
-
-    # Pull files that don't exist locally
-    for file in android_files:
-        if file not in local_files:
-            subprocess.run([adb_path, "pull", f"{android_dir}{file}", f"{local_dir}/{file}"])
-
-
-def adb_pull_files_after_timestamp(
-        adb_path: str,
-        android_dir: str,
-        android_phone_id: str,
-        local_dir: str,
-        time_threshold: datetime,
-        time_traceback: int = 180,
-):
-    """
-    retrieve files from android phone after a certain time stamp minus a time traceback
-    :param adb_path: adb.exe path
-    :param android_dir: the directory on the android phone to retrieve files from
-    :param android_phone_id: the id of the android phone
-    :param local_dir: the local directory to store the retrieved files
-    :param time_threshold: the time stamp to retrieve files after
-    :param time_traceback: in seconds, retrieve files after time_threshold - time_traceback
-    :return: a list of retrieved files
-    """
-    # Ensure the Android directory path ends with a '/'
-    if not android_dir.endswith('/'):
-        android_dir += '/'
-
-    # Attempt to get a list of all files in the Android directory, sorted by last modification time
-    try:
-        cmd = [adb_path, '-s', android_phone_id, "shell", 'ls', '-lt', f'\"{android_dir}\"']
-        adb_ls_output = subprocess.check_output(cmd, stderr=subprocess.STDOUT).decode(
-            "utf-8").strip()
-    except subprocess.CalledProcessError as e:
-        raise RuntimeError(f"Failed to execute ADB command to list files: {e.output.decode('utf-8')}")
-
-    # Parse the output of the 'ls' command to get file details
-    lines = adb_ls_output.split("\n")
-    retrieved_files = []
-
-    for line in lines:
-        parts = line.split()
-        if len(parts) < 6:
-            continue
-
-        file_name = parts[-1]
-
-        # Use regex to extract date and time from the file name
-        match = re.match(r'(\d{8})_(\d{6})_', file_name)
-        if match:
-            date_str, time_str = match.groups()
-            file_date_str = f"{date_str[:4]}-{date_str[4:6]}-{date_str[6:]} {time_str[:2]}:{time_str[2:4]}:{time_str[4:]}"
-            try:
-                file_date = datetime.strptime(file_date_str, '%Y-%m-%d %H:%M:%S')
-            except ValueError as e:
-                print(f"Failed to parse date from file name {file_name}: {e}")
-                continue  # Skip files that don't have the correct date format in the name
-
-            # Check if file is newer than the timestamp minus the traceback time
-            if file_date > time_threshold - timedelta(seconds=time_traceback) and file_name.endswith('.jpg'):
-                file_name = parts[-1]
-                file_path = f"{android_dir}{file_name}"
-
-                # Pull the file if it's not in the local directory
-                if file_name not in os.listdir(local_dir):
-                    try:
-                        subprocess.run(
-                            [adb_path, "-s", android_phone_id, "pull", file_path, f"{local_dir}/{file_name}"],
-                            check=True)
-                        retrieved_files.append(f"{local_dir}/{file_name}")
-                    except subprocess.CalledProcessError as e:
-                        raise RuntimeError(f"Failed to execute ADB pull command for {file_name}: {e}")
-
-    return retrieved_files
-
-
-def get_latest_file_path(file_dir, time_threshold: datetime = None):
-    latest_time = None
-    latest_file = None
-
-    # List all files in the directory
-    try:
-        files = os.listdir(file_dir)
-    except FileNotFoundError:
-        print(f"The directory {file_dir} was not found.")
-        return None
-
-    # Loop through each file to find the one with the latest time stamp after the provided threshold
-    for file_name in files:
-        full_path = os.path.join(file_dir, file_name)
-
-        # Check if it's a file
-        if not os.path.isfile(full_path):
-            continue
-
-        # Get the modification time of the file
-        file_time = datetime.fromtimestamp(os.path.getmtime(full_path))
-
-        # Compare the modification time with the provided time stamp, if any
-        if time_threshold is None or file_time > time_threshold:
-            if latest_time is None or file_time > latest_time:
-                latest_time = file_time
-                latest_file = full_path
-
-    return latest_file

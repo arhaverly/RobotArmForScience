@@ -1,8 +1,15 @@
+import logging
+import os
 from time import sleep
 
+import pyautogui
+
+from utils.utils import log_and_print, turn_capslock_off, config_loader, get_dir, get_log_path, get_project_path
 from software_control.software_control_base import ActiveSoftwareControl, PassiveSoftwareControl
+from time import sleep
+import logging
+import pyautogui
 from utils.utils import get_project_path, get_counterpart
-from utils.utils import log_and_print
 
 
 class Kamoer(ActiveSoftwareControl):
@@ -660,16 +667,7 @@ class EC_Lab_Win11(EC_Lab):
             'stop': ['stop.png'],
             'save': ['save.png'],
             'channel_1_on_screen': ['channel_1_in_status_bar.png'],
-            'channel_1_buttons': [
-                'channel_1_in.png',
-                'channel_1_in_ox.png',
-                'channel_1_in_red.png',
-                'channel_1_in_relax.png',
-                'channel_1_out.png',
-                'channel_1_out_ox.png',
-                'channel_1_out_red.png',
-                'channel_1_out_relax.png',
-            ],
+            'channel_1_buttons': ['channel_1_in.png', 'channel_1_out.png'],
             'channel_2_on_screen': ['channel_2_in_status_bar.png'],
             'channel_2_buttons': [
                 'channel_2_in.png',
@@ -726,54 +724,3 @@ class EC_Lab_Win10(EC_Lab):
         if self.move_to_icon(self.icons_dict['warning']):
             self.click_button_and_check_change(self.icons_dict['close'])
             log_and_print(self.to_log, self.logger, 'warning', f'warning window bypassed!')
-
-
-class AndroidControl(ActiveSoftwareControl):
-
-    def __init__(
-            self,
-            *args,
-            **kwargs
-    ):
-        super().__init__(
-            *args,
-            **kwargs
-        )
-
-
-class MetaView(AndroidControl):
-
-    def __init__(
-            self,
-            icons_dir=None,
-            title=None,
-            menu_icons=None,
-            icons_dict=None,
-            **kwargs
-    ):
-        icons_dir = icons_dir or f'{get_project_path()}/software_control/icons/MetaView'
-        title = title or ['title.png']
-        menu_icons = menu_icons or ['icon.png']
-        icons_dict = icons_dict or {
-            'import': ['import.png'],
-            'importing': ['importing.png', 'import_starting_soon.png'],
-        }
-        super().__init__(
-            icons_dir=icons_dir,
-            title=title,
-            menu_icons=menu_icons,
-            icons_dict=icons_dict,
-            **kwargs
-        )
-
-    def import_image(self):
-        self.open_software()
-        self.click_button(self.icons_dict['import'])
-        self.log_and_print('info', f'image successfully started')
-
-    def check_import_complete(self):
-        self.open_software()
-        while self.move_to_icon(self.icons_dict['importing']):
-            self.log_and_print('info', 'importing image...')
-            sleep(1)
-        self.log_and_print('info', 'image import complete')

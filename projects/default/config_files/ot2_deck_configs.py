@@ -105,10 +105,7 @@ configs = {
     'pipetting_rate_to_mixing_well': 1,
     'pipetting_rate_to_sample': 0.05,
 
-    # mixing settings
-    'mixing_tip_type': '300ul',
-    'mixing_vol': 300,
-    'mixing_times': 5,
+    # mixing rate settings
     'mixing_rate': 3,
 
     # total vol calculation settings, if mixing vol too small, may lead to mixing failure
@@ -173,7 +170,7 @@ configs = {
             'grid_spacing': [21, -13, 0],
             'grid_spacing_offset': [0, 0, 0],
             'grid_starting_point': [11, 76, 8],
-            'grid_starting_point_offset': [0, 0, -0.5],
+            'grid_starting_point_offset': [0, 0, 0],
         },
         'coin_cell_stage': {
             'grid': [3, 5],

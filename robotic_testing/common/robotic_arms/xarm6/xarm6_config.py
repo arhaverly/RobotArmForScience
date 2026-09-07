@@ -26,6 +26,8 @@ pos_settings_dict = {
     'slow_2': pos_cal_utils.speed_changer(pos_settings_default, ['speed', 'acc'], 0.25),
     'slow_3': pos_cal_utils.speed_changer(pos_settings_default, ['speed', 'acc'], 0.125),
     'fast_1': pos_cal_utils.speed_changer(pos_settings_default, ['speed', 'acc'], 2),
+    'megnan_0.5': pos_cal_utils.speed_changer(pos_settings_default, ['speed', 'acc'], 0.5),
+    'megnan_1': pos_cal_utils.speed_changer(pos_settings_default, ['speed', 'acc'], 1),
 }
 
 ang_settings_dict = {
@@ -35,7 +37,7 @@ ang_settings_dict = {
 
 # pos and ang list, all y value are relative to the bottom right starting point
 pos_dict = {
-    'sample_starting': [603, 588, -88.0, 180.0, 0.0, 0.0], #y=563,595
+    'sample_starting': [603.0, 597.0, -88.0, 180.0, 0.0, 0.0],
     'warm_up': [380, None, 200, 180.0, 0.0, 0.0],
     'mid_station': [500, None, 400, 180.0, -90.0, 0.0],
     'vertical_rotation': [0, 0, 300, 0, -90, 0],

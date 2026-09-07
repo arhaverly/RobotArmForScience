@@ -357,13 +357,11 @@ class OT2_Config:
                 self.pipette(tube, h, volume, 'well', well_target)
 
         # mix precursor in the target well
-        mixing_tip_type = self.config['mixing_tip_type']
-        mixing_vol = self.config['mixing_vol']
-        mixing_times = self.config['mixing_times']
-        mixing_rate = self.config['mixing_rate']
+        mixing_tip_type = '300ul'
+        mixing_vol = self.pipettors[mixing_tip_type].max_volume
         self.pick_up_tip(mixing_tip_type)
-        self.pipettors[mixing_tip_type].mix(mixing_times, mixing_vol, well_target.bottom(self.d_to_well_bottom),
-                                            rate=mixing_rate)
+        self.pipettors[mixing_tip_type].mix(5, mixing_vol, well_target.bottom(self.d_to_well_bottom),
+                                            rate=self.config['mixing_rate'])
 
         # if blow_out_last_mixing
         blow_out_last_mixing = self.config.get('blow_out_last_mixing', False)

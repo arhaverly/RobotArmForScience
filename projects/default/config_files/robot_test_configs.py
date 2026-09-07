@@ -9,10 +9,10 @@ configs = {
     'email': {
         'chu': 'crest.mit.demo@gmail.com',
         'zhen': 'zhang21mit@gmail.com',
-        'Daniel': 'daniel.zheng0211@gmail.com',
         'Ethan': 'eypz@mit.edu',
-        'Dohun': 'zebra11302@gmail.com',
-        'Minsik': 'mkong@mit.edu'
+        'weiyin': 'weiyin@mit.edu',
+        'dohun': 'zebra11302@gmail.com',
+        'yujang': 'yujang@mit.edu',
     },
 
     # ec lab settings

@@ -1,0 +1,1118 @@
+2023-09-29 11:37:55,080 - db_control.database - INFO - Database DFFC_8D_4 connected successfully!
+2023-09-29 11:37:55,225 - db_control.database - INFO - Table recipe already exists on server, checking column consistency...
+2023-09-29 11:37:55,476 - db_control.database - INFO - Table recipe column consistency checked successfully!
+2023-09-29 11:37:55,605 - db_control.database - INFO - Table sample already exists on server, checking column consistency...
+2023-09-29 11:37:55,816 - db_control.database - INFO - Table sample column consistency checked successfully!
+2023-09-29 11:37:55,919 - db_control.database - INFO - Table performance already exists on server, checking column consistency...
+2023-09-29 11:37:56,018 - db_control.database - INFO - Table performance column consistency checked successfully!
+2023-10-16 09:51:47,273[19236] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-16 09:51:47,316[19236] - Database - INFO - Schema active_learning created successfully!
+2023-10-16 09:51:47,323[19236] - Database - INFO - Schema botorch created successfully!
+2023-10-16 09:51:47,330[19236] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-16 09:51:47,447[19236] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-16 09:51:47,554[19236] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-16 09:51:47,653[19236] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-16 09:51:47,755[19236] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-16 09:51:47,873[19236] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-16 09:51:47,981[19236] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-17 16:44:15,646[19236] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-17 16:44:15,646[19236] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-17 16:44:15,678[19236] - Database - INFO - Schema active_learning created successfully!
+2023-10-17 16:44:15,678[19236] - Database - INFO - Schema active_learning created successfully!
+2023-10-17 16:44:15,689[19236] - Database - INFO - Schema botorch created successfully!
+2023-10-17 16:44:15,689[19236] - Database - INFO - Schema botorch created successfully!
+2023-10-17 16:44:15,701[19236] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-17 16:44:15,701[19236] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-17 16:44:15,885[19236] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-17 16:44:15,885[19236] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-17 16:44:16,011[19236] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-17 16:44:16,011[19236] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-17 16:44:16,118[19236] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-17 16:44:16,118[19236] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-17 16:44:16,226[19236] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-17 16:44:16,226[19236] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-17 16:44:16,326[19236] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-17 16:44:16,326[19236] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-17 16:44:16,435[19236] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-17 16:44:16,435[19236] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-17 16:44:22,671[19236] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-17 16:44:22,671[19236] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-17 16:44:22,671[19236] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-17 16:44:22,697[19236] - Database - INFO - Schema active_learning created successfully!
+2023-10-17 16:44:22,697[19236] - Database - INFO - Schema active_learning created successfully!
+2023-10-17 16:44:22,697[19236] - Database - INFO - Schema active_learning created successfully!
+2023-10-17 16:44:22,704[19236] - Database - INFO - Schema botorch created successfully!
+2023-10-17 16:44:22,704[19236] - Database - INFO - Schema botorch created successfully!
+2023-10-17 16:44:22,704[19236] - Database - INFO - Schema botorch created successfully!
+2023-10-17 16:44:22,710[19236] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-17 16:44:22,710[19236] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-17 16:44:22,710[19236] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-17 16:44:22,825[19236] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-17 16:44:22,825[19236] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-17 16:44:22,825[19236] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-17 16:44:22,926[19236] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-17 16:44:22,926[19236] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-17 16:44:22,926[19236] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-17 16:44:23,028[19236] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-17 16:44:23,028[19236] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-17 16:44:23,028[19236] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-17 16:44:23,132[19236] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-17 16:44:23,132[19236] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-17 16:44:23,132[19236] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-17 16:44:23,244[19236] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-17 16:44:23,244[19236] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-17 16:44:23,244[19236] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-17 16:44:23,345[19236] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-17 16:44:23,345[19236] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-17 16:44:23,345[19236] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-18 09:56:44,480[17624] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-18 09:56:44,512[17624] - Database - INFO - Schema active_learning created successfully!
+2023-10-18 09:56:44,519[17624] - Database - INFO - Schema botorch created successfully!
+2023-10-18 09:56:44,526[17624] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-18 09:56:44,688[17624] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-18 09:56:44,830[17624] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-18 09:56:44,987[17624] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-18 09:56:45,161[17624] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-18 09:56:45,301[17624] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-18 09:56:45,438[17624] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-18 09:57:08,403[17624] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-18 09:57:08,403[17624] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-18 09:57:08,429[17624] - Database - INFO - Schema active_learning created successfully!
+2023-10-18 09:57:08,429[17624] - Database - INFO - Schema active_learning created successfully!
+2023-10-18 09:57:08,439[17624] - Database - INFO - Schema botorch created successfully!
+2023-10-18 09:57:08,439[17624] - Database - INFO - Schema botorch created successfully!
+2023-10-18 09:57:08,446[17624] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-18 09:57:08,446[17624] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-18 09:57:08,574[17624] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-18 09:57:08,574[17624] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-18 09:57:08,708[17624] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-18 09:57:08,708[17624] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-18 09:57:08,817[17624] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-18 09:57:08,817[17624] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-18 09:57:08,948[17624] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-18 09:57:08,948[17624] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-18 09:57:09,064[17624] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-18 09:57:09,064[17624] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-18 09:57:09,193[17624] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-18 09:57:09,193[17624] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-18 09:58:41,169[17624] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-18 09:58:41,169[17624] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-18 09:58:41,169[17624] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-18 09:58:41,196[17624] - Database - INFO - Schema active_learning created successfully!
+2023-10-18 09:58:41,196[17624] - Database - INFO - Schema active_learning created successfully!
+2023-10-18 09:58:41,196[17624] - Database - INFO - Schema active_learning created successfully!
+2023-10-18 09:58:41,204[17624] - Database - INFO - Schema botorch created successfully!
+2023-10-18 09:58:41,204[17624] - Database - INFO - Schema botorch created successfully!
+2023-10-18 09:58:41,204[17624] - Database - INFO - Schema botorch created successfully!
+2023-10-18 09:58:41,214[17624] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-18 09:58:41,214[17624] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-18 09:58:41,214[17624] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-18 09:58:41,364[17624] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-18 09:58:41,364[17624] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-18 09:58:41,364[17624] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-18 09:58:41,494[17624] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-18 09:58:41,494[17624] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-18 09:58:41,494[17624] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-18 09:58:41,641[17624] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-18 09:58:41,641[17624] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-18 09:58:41,641[17624] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-18 09:58:41,781[17624] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-18 09:58:41,781[17624] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-18 09:58:41,781[17624] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-18 09:58:41,915[17624] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-18 09:58:41,915[17624] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-18 09:58:41,915[17624] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-18 09:58:42,025[17624] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-18 09:58:42,025[17624] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-18 09:58:42,025[17624] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-18 10:04:35,485[20488] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-18 10:04:35,511[20488] - Database - INFO - Schema active_learning created successfully!
+2023-10-18 10:04:35,517[20488] - Database - INFO - Schema botorch created successfully!
+2023-10-18 10:04:35,527[20488] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-18 10:04:35,653[20488] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-18 10:04:35,774[20488] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-18 10:04:35,894[20488] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-18 10:04:36,005[20488] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-18 10:04:36,120[20488] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-18 10:04:36,233[20488] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-19 00:08:19,673[16048] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-19 00:08:19,702[16048] - Database - INFO - Schema active_learning created successfully!
+2023-10-19 00:08:19,710[16048] - Database - INFO - Schema botorch created successfully!
+2023-10-19 00:08:19,716[16048] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-19 00:08:19,824[16048] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-19 00:08:19,926[16048] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-19 00:08:20,042[16048] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-19 00:08:20,157[16048] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-19 00:08:20,265[16048] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-19 00:08:20,381[16048] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-19 23:37:35,723[24376] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-19 23:37:35,748[24376] - Database - INFO - Schema active_learning created successfully!
+2023-10-19 23:37:35,755[24376] - Database - INFO - Schema botorch created successfully!
+2023-10-19 23:37:35,761[24376] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-19 23:37:35,879[24376] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-19 23:37:35,991[24376] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-19 23:37:36,094[24376] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-19 23:37:36,208[24376] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-19 23:37:36,313[24376] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-19 23:37:36,426[24376] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-19 23:37:37,032[24376] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-19 23:37:37,032[24376] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-19 23:37:37,070[24376] - Database - INFO - Schema active_learning created successfully!
+2023-10-19 23:37:37,070[24376] - Database - INFO - Schema active_learning created successfully!
+2023-10-19 23:37:37,077[24376] - Database - INFO - Schema botorch created successfully!
+2023-10-19 23:37:37,077[24376] - Database - INFO - Schema botorch created successfully!
+2023-10-19 23:37:37,085[24376] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-19 23:37:37,085[24376] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-19 23:37:37,196[24376] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-19 23:37:37,196[24376] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-19 23:37:37,299[24376] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-19 23:37:37,299[24376] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-19 23:37:37,408[24376] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-19 23:37:37,408[24376] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-19 23:37:37,534[24376] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-19 23:37:37,534[24376] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-19 23:37:37,635[24376] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-19 23:37:37,635[24376] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-19 23:37:37,735[24376] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-19 23:37:37,735[24376] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-19 23:39:43,981[24376] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-19 23:39:43,981[24376] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-19 23:39:43,981[24376] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-19 23:39:44,008[24376] - Database - INFO - Schema active_learning created successfully!
+2023-10-19 23:39:44,008[24376] - Database - INFO - Schema active_learning created successfully!
+2023-10-19 23:39:44,008[24376] - Database - INFO - Schema active_learning created successfully!
+2023-10-19 23:39:44,016[24376] - Database - INFO - Schema botorch created successfully!
+2023-10-19 23:39:44,016[24376] - Database - INFO - Schema botorch created successfully!
+2023-10-19 23:39:44,016[24376] - Database - INFO - Schema botorch created successfully!
+2023-10-19 23:39:44,023[24376] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-19 23:39:44,023[24376] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-19 23:39:44,023[24376] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-19 23:39:44,156[24376] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-19 23:39:44,156[24376] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-19 23:39:44,156[24376] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-19 23:39:44,276[24376] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-19 23:39:44,276[24376] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-19 23:39:44,276[24376] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-19 23:39:44,386[24376] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-19 23:39:44,386[24376] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-19 23:39:44,386[24376] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-19 23:39:44,514[24376] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-19 23:39:44,514[24376] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-19 23:39:44,514[24376] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-19 23:39:44,623[24376] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-19 23:39:44,623[24376] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-19 23:39:44,623[24376] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-19 23:39:44,740[24376] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-19 23:39:44,740[24376] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-19 23:39:44,740[24376] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-19 23:58:10,401[7844] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-19 23:58:10,448[7844] - Database - INFO - Schema active_learning created successfully!
+2023-10-19 23:58:10,455[7844] - Database - INFO - Schema botorch created successfully!
+2023-10-19 23:58:10,463[7844] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-19 23:58:10,583[7844] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-19 23:58:10,698[7844] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-19 23:58:10,797[7844] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-19 23:58:10,900[7844] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-19 23:58:11,007[7844] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-19 23:58:11,115[7844] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-19 23:58:12,059[7844] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-19 23:58:12,059[7844] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-19 23:58:12,109[7844] - Database - INFO - Schema active_learning created successfully!
+2023-10-19 23:58:12,109[7844] - Database - INFO - Schema active_learning created successfully!
+2023-10-19 23:58:12,116[7844] - Database - INFO - Schema botorch created successfully!
+2023-10-19 23:58:12,116[7844] - Database - INFO - Schema botorch created successfully!
+2023-10-19 23:58:12,122[7844] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-19 23:58:12,122[7844] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-19 23:58:12,233[7844] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-19 23:58:12,233[7844] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-19 23:58:12,342[7844] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-19 23:58:12,342[7844] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-19 23:58:12,462[7844] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-19 23:58:12,462[7844] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-19 23:58:12,574[7844] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-19 23:58:12,574[7844] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-19 23:58:12,694[7844] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-19 23:58:12,694[7844] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-19 23:58:12,798[7844] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-19 23:58:12,798[7844] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-23 21:28:23,536[15576] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-23 21:28:23,566[15576] - Database - INFO - Schema active_learning created successfully!
+2023-10-23 21:28:23,575[15576] - Database - INFO - Schema botorch created successfully!
+2023-10-23 21:28:23,582[15576] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-23 21:28:23,697[15576] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-23 21:28:23,949[15576] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-23 21:28:24,166[15576] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-23 21:28:24,273[15576] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-23 21:28:24,385[15576] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-23 21:28:24,496[15576] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-23 22:02:25,859[42200] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-23 22:02:25,887[42200] - Database - INFO - Schema active_learning created successfully!
+2023-10-23 22:02:25,896[42200] - Database - INFO - Schema botorch created successfully!
+2023-10-23 22:02:25,903[42200] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-23 22:02:26,037[42200] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-23 22:02:26,159[42200] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-23 22:02:26,289[42200] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-23 22:02:26,411[42200] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-23 22:02:26,530[42200] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-23 22:02:26,645[42200] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-23 23:07:31,513[35556] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-23 23:07:31,572[35556] - Database - INFO - Schema active_learning created successfully!
+2023-10-23 23:07:31,578[35556] - Database - INFO - Schema botorch created successfully!
+2023-10-23 23:07:31,585[35556] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-23 23:07:31,713[35556] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-23 23:07:31,835[35556] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-23 23:07:31,956[35556] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-23 23:07:32,120[35556] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-23 23:07:32,236[35556] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-23 23:07:32,353[35556] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-23 23:19:30,150[28024] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-23 23:19:30,190[28024] - Database - INFO - Schema active_learning created successfully!
+2023-10-23 23:19:30,200[28024] - Database - INFO - Schema botorch created successfully!
+2023-10-23 23:19:30,211[28024] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-23 23:19:30,327[28024] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-23 23:19:30,438[28024] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-23 23:19:30,550[28024] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-23 23:19:30,655[28024] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-23 23:19:30,758[28024] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-23 23:19:30,874[28024] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-24 00:00:51,678[7352] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-24 00:00:51,713[7352] - Database - INFO - Schema active_learning created successfully!
+2023-10-24 00:00:51,721[7352] - Database - INFO - Schema botorch created successfully!
+2023-10-24 00:00:51,733[7352] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-24 00:00:51,865[7352] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-24 00:00:51,996[7352] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-24 00:00:52,121[7352] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-24 00:00:52,389[7352] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-24 00:00:52,558[7352] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-24 00:00:52,695[7352] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-24 00:20:40,506[18056] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-24 00:20:40,531[18056] - Database - INFO - Schema active_learning created successfully!
+2023-10-24 00:20:40,539[18056] - Database - INFO - Schema botorch created successfully!
+2023-10-24 00:20:40,548[18056] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-24 00:20:40,658[18056] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-24 00:20:40,763[18056] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-24 00:20:40,892[18056] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-24 00:20:40,997[18056] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-24 00:20:41,108[18056] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-24 00:20:41,212[18056] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-24 22:56:52,340[18056] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-24 22:56:52,340[18056] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-24 22:56:52,369[18056] - Database - INFO - Schema active_learning created successfully!
+2023-10-24 22:56:52,369[18056] - Database - INFO - Schema active_learning created successfully!
+2023-10-24 22:56:52,378[18056] - Database - INFO - Schema botorch created successfully!
+2023-10-24 22:56:52,378[18056] - Database - INFO - Schema botorch created successfully!
+2023-10-24 22:56:52,385[18056] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-24 22:56:52,385[18056] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-24 22:56:52,513[18056] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-24 22:56:52,513[18056] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-24 22:56:52,624[18056] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-24 22:56:52,624[18056] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-24 22:56:52,733[18056] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-24 22:56:52,733[18056] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-24 22:56:52,840[18056] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-24 22:56:52,840[18056] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-24 22:56:52,946[18056] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-24 22:56:52,946[18056] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-24 22:56:53,049[18056] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-24 22:56:53,049[18056] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-25 10:11:31,774[16824] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-25 10:11:31,798[16824] - Database - INFO - Schema active_learning created successfully!
+2023-10-25 10:11:31,804[16824] - Database - INFO - Schema botorch created successfully!
+2023-10-25 10:11:31,811[16824] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-25 10:11:31,921[16824] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-25 10:11:32,028[16824] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-25 10:11:32,131[16824] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-25 10:11:32,235[16824] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-25 10:11:32,347[16824] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-25 10:11:32,467[16824] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-25 10:14:24,908[16824] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-25 10:14:24,908[16824] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-25 10:14:24,936[16824] - Database - INFO - Schema active_learning created successfully!
+2023-10-25 10:14:24,936[16824] - Database - INFO - Schema active_learning created successfully!
+2023-10-25 10:14:24,944[16824] - Database - INFO - Schema botorch created successfully!
+2023-10-25 10:14:24,944[16824] - Database - INFO - Schema botorch created successfully!
+2023-10-25 10:14:24,950[16824] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-25 10:14:24,950[16824] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-25 10:14:25,058[16824] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-25 10:14:25,058[16824] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-25 10:14:25,157[16824] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-25 10:14:25,157[16824] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-25 10:14:25,265[16824] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-25 10:14:25,265[16824] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-25 10:14:25,384[16824] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-25 10:14:25,384[16824] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-25 10:14:25,485[16824] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-25 10:14:25,485[16824] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-25 10:14:25,599[16824] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-25 10:14:25,599[16824] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-27 10:03:09,853[19728] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-27 10:03:09,879[19728] - Database - INFO - Schema active_learning created successfully!
+2023-10-27 10:03:09,886[19728] - Database - INFO - Schema botorch created successfully!
+2023-10-27 10:03:09,893[19728] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-27 10:03:10,002[19728] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-27 10:03:10,105[19728] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-27 10:03:10,216[19728] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-27 10:03:10,324[19728] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-27 10:03:10,428[19728] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-27 10:03:10,538[19728] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-29 10:02:17,690[32656] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-29 10:02:17,718[32656] - Database - INFO - Schema active_learning created successfully!
+2023-10-29 10:02:17,725[32656] - Database - INFO - Schema botorch created successfully!
+2023-10-29 10:02:17,731[32656] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-29 10:02:17,857[32656] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-29 10:02:17,951[32656] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-29 10:02:18,044[32656] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-29 10:02:18,140[32656] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-29 10:02:18,243[32656] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-29 10:02:18,345[32656] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-30 09:45:44,818[15740] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-30 09:45:44,840[15740] - Database - INFO - Schema active_learning created successfully!
+2023-10-30 09:45:44,848[15740] - Database - INFO - Schema botorch created successfully!
+2023-10-30 09:45:44,855[15740] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-30 09:45:44,964[15740] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-30 09:45:45,060[15740] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-30 09:45:45,159[15740] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-30 09:45:45,256[15740] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-30 09:45:45,357[15740] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-30 09:45:45,454[15740] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-30 09:46:15,277[15740] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-30 09:46:15,277[15740] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-30 09:46:15,300[15740] - Database - INFO - Schema active_learning created successfully!
+2023-10-30 09:46:15,300[15740] - Database - INFO - Schema active_learning created successfully!
+2023-10-30 09:46:15,307[15740] - Database - INFO - Schema botorch created successfully!
+2023-10-30 09:46:15,307[15740] - Database - INFO - Schema botorch created successfully!
+2023-10-30 09:46:15,314[15740] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-30 09:46:15,314[15740] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-30 09:46:15,462[15740] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-30 09:46:15,462[15740] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-30 09:46:15,556[15740] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-30 09:46:15,556[15740] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-30 09:46:15,654[15740] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-30 09:46:15,654[15740] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-30 09:46:15,757[15740] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-30 09:46:15,757[15740] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-30 09:46:15,858[15740] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-30 09:46:15,858[15740] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-30 09:46:15,954[15740] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-30 09:46:15,954[15740] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-31 10:14:44,367[14452] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-31 10:14:44,392[14452] - Database - INFO - Schema active_learning created successfully!
+2023-10-31 10:14:44,400[14452] - Database - INFO - Schema botorch created successfully!
+2023-10-31 10:14:44,407[14452] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-31 10:14:44,528[14452] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-31 10:14:44,632[14452] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-31 10:14:44,733[14452] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-31 10:14:44,843[14452] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-31 10:14:44,957[14452] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-31 10:14:45,056[14452] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-31 10:15:42,606[14452] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-31 10:15:42,606[14452] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-10-31 10:15:42,653[14452] - Database - INFO - Schema active_learning created successfully!
+2023-10-31 10:15:42,653[14452] - Database - INFO - Schema active_learning created successfully!
+2023-10-31 10:15:42,661[14452] - Database - INFO - Schema botorch created successfully!
+2023-10-31 10:15:42,661[14452] - Database - INFO - Schema botorch created successfully!
+2023-10-31 10:15:42,668[14452] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-31 10:15:42,668[14452] - Database - INFO - Schema test_raw_data created successfully!
+2023-10-31 10:15:42,787[14452] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-31 10:15:42,787[14452] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-10-31 10:15:42,883[14452] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-31 10:15:42,883[14452] - Database - INFO - Table recipe column consistency checked successfully!
+2023-10-31 10:15:42,984[14452] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-31 10:15:42,984[14452] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-10-31 10:15:43,083[14452] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-31 10:15:43,083[14452] - Database - INFO - Table sample column consistency checked successfully!
+2023-10-31 10:15:43,183[14452] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-31 10:15:43,183[14452] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-10-31 10:15:43,281[14452] - Database - INFO - Table performance column consistency checked successfully!
+2023-10-31 10:15:43,281[14452] - Database - INFO - Table performance column consistency checked successfully!
+2023-11-01 13:34:15,013[11616] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-11-01 13:34:15,036[11616] - Database - INFO - Schema active_learning created successfully!
+2023-11-01 13:34:15,042[11616] - Database - INFO - Schema botorch created successfully!
+2023-11-01 13:34:15,049[11616] - Database - INFO - Schema test_raw_data created successfully!
+2023-11-01 13:34:15,152[11616] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-11-01 13:34:15,250[11616] - Database - INFO - Table recipe column consistency checked successfully!
+2023-11-01 13:34:15,352[11616] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-11-01 13:34:15,448[11616] - Database - INFO - Table sample column consistency checked successfully!
+2023-11-01 13:34:15,547[11616] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-11-01 13:34:15,658[11616] - Database - INFO - Table performance column consistency checked successfully!
+2023-12-06 11:01:11,381[68176] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-12-06 11:01:11,425[68176] - Database - INFO - Schema active_learning created successfully!
+2023-12-06 11:01:11,436[68176] - Database - INFO - Schema botorch created successfully!
+2023-12-06 11:01:11,445[68176] - Database - INFO - Schema test_raw_data created successfully!
+2023-12-06 11:01:11,647[68176] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-12-06 11:01:11,800[68176] - Database - INFO - Table recipe column consistency checked successfully!
+2023-12-06 11:01:11,972[68176] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-12-06 11:01:12,137[68176] - Database - INFO - Table sample column consistency checked successfully!
+2023-12-06 11:01:12,291[68176] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-12-06 11:01:12,438[68176] - Database - INFO - Table performance column consistency checked successfully!
+2023-12-06 11:01:28,428[68176] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-12-06 11:01:28,428[68176] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2023-12-06 11:01:28,481[68176] - Database - INFO - Schema active_learning created successfully!
+2023-12-06 11:01:28,481[68176] - Database - INFO - Schema active_learning created successfully!
+2023-12-06 11:01:28,492[68176] - Database - INFO - Schema botorch created successfully!
+2023-12-06 11:01:28,492[68176] - Database - INFO - Schema botorch created successfully!
+2023-12-06 11:01:28,502[68176] - Database - INFO - Schema test_raw_data created successfully!
+2023-12-06 11:01:28,502[68176] - Database - INFO - Schema test_raw_data created successfully!
+2023-12-06 11:01:28,672[68176] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-12-06 11:01:28,672[68176] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2023-12-06 11:01:28,822[68176] - Database - INFO - Table recipe column consistency checked successfully!
+2023-12-06 11:01:28,822[68176] - Database - INFO - Table recipe column consistency checked successfully!
+2023-12-06 11:01:28,984[68176] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-12-06 11:01:28,984[68176] - Database - INFO - Table sample already exists on server, checking column consistency...
+2023-12-06 11:01:29,139[68176] - Database - INFO - Table sample column consistency checked successfully!
+2023-12-06 11:01:29,139[68176] - Database - INFO - Table sample column consistency checked successfully!
+2023-12-06 11:01:29,309[68176] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-12-06 11:01:29,309[68176] - Database - INFO - Table performance already exists on server, checking column consistency...
+2023-12-06 11:01:29,483[68176] - Database - INFO - Table performance column consistency checked successfully!
+2023-12-06 11:01:29,483[68176] - Database - INFO - Table performance column consistency checked successfully!
+2024-07-19 11:19:42,223[14440] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2024-07-19 11:19:42,263[14440] - Database - INFO - Schema active_learning created successfully!
+2024-07-19 11:19:42,273[14440] - Database - INFO - Schema botorch created successfully!
+2024-07-19 11:19:42,283[14440] - Database - INFO - Schema test_raw_data created successfully!
+2024-07-19 11:19:42,447[14440] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2024-07-19 11:19:42,596[14440] - Database - INFO - Table recipe column consistency checked successfully!
+2024-07-19 11:19:42,762[14440] - Database - INFO - Table sample already exists on server, checking column consistency...
+2024-07-19 11:19:42,920[14440] - Database - INFO - Table sample column consistency checked successfully!
+2024-07-19 11:19:43,073[14440] - Database - INFO - Table performance already exists on server, checking column consistency...
+2024-07-19 11:19:43,223[14440] - Database - INFO - Table performance column consistency checked successfully!
+2024-07-19 11:20:10,277[14440] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2024-07-19 11:20:10,277[14440] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2024-07-19 11:20:10,338[14440] - Database - INFO - Schema active_learning created successfully!
+2024-07-19 11:20:10,338[14440] - Database - INFO - Schema active_learning created successfully!
+2024-07-19 11:20:10,348[14440] - Database - INFO - Schema botorch created successfully!
+2024-07-19 11:20:10,348[14440] - Database - INFO - Schema botorch created successfully!
+2024-07-19 11:20:10,360[14440] - Database - INFO - Schema test_raw_data created successfully!
+2024-07-19 11:20:10,360[14440] - Database - INFO - Schema test_raw_data created successfully!
+2024-07-19 11:20:10,589[14440] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2024-07-19 11:20:10,589[14440] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2024-07-19 11:20:10,729[14440] - Database - INFO - Table recipe column consistency checked successfully!
+2024-07-19 11:20:10,729[14440] - Database - INFO - Table recipe column consistency checked successfully!
+2024-07-19 11:20:10,896[14440] - Database - INFO - Table sample already exists on server, checking column consistency...
+2024-07-19 11:20:10,896[14440] - Database - INFO - Table sample already exists on server, checking column consistency...
+2024-07-19 11:20:11,049[14440] - Database - INFO - Table sample column consistency checked successfully!
+2024-07-19 11:20:11,049[14440] - Database - INFO - Table sample column consistency checked successfully!
+2024-07-19 11:20:11,195[14440] - Database - INFO - Table performance already exists on server, checking column consistency...
+2024-07-19 11:20:11,195[14440] - Database - INFO - Table performance already exists on server, checking column consistency...
+2024-07-19 11:20:11,333[14440] - Database - INFO - Table performance column consistency checked successfully!
+2024-07-19 11:20:11,333[14440] - Database - INFO - Table performance column consistency checked successfully!
+2025-09-04 13:41:27,132[18400] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2025-09-04 13:41:27,164[18400] - Database - INFO - Schema active_learning created successfully!
+2025-09-04 13:41:27,175[18400] - Database - INFO - Schema botorch created successfully!
+2025-09-04 13:41:27,184[18400] - Database - INFO - Schema test_raw_data created successfully!
+2025-09-04 13:41:27,320[18400] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2025-09-04 13:41:27,458[18400] - Database - INFO - Table recipe column consistency checked successfully!
+2025-09-04 13:41:27,590[18400] - Database - INFO - Table sample already exists on server, checking column consistency...
+2025-09-04 13:41:27,721[18400] - Database - INFO - Table sample column consistency checked successfully!
+2025-09-04 13:41:27,852[18400] - Database - INFO - Table performance already exists on server, checking column consistency...
+2025-09-04 13:41:27,980[18400] - Database - INFO - Table performance column consistency checked successfully!
+2025-09-04 13:41:36,449[18400] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2025-09-04 13:41:36,449[18400] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2025-09-04 13:41:36,479[18400] - Database - INFO - Schema active_learning created successfully!
+2025-09-04 13:41:36,479[18400] - Database - INFO - Schema active_learning created successfully!
+2025-09-04 13:41:36,488[18400] - Database - INFO - Schema botorch created successfully!
+2025-09-04 13:41:36,488[18400] - Database - INFO - Schema botorch created successfully!
+2025-09-04 13:41:36,497[18400] - Database - INFO - Schema test_raw_data created successfully!
+2025-09-04 13:41:36,497[18400] - Database - INFO - Schema test_raw_data created successfully!
+2025-09-04 13:41:36,629[18400] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2025-09-04 13:41:36,629[18400] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2025-09-04 13:41:36,760[18400] - Database - INFO - Table recipe column consistency checked successfully!
+2025-09-04 13:41:36,760[18400] - Database - INFO - Table recipe column consistency checked successfully!
+2025-09-04 13:41:36,895[18400] - Database - INFO - Table sample already exists on server, checking column consistency...
+2025-09-04 13:41:36,895[18400] - Database - INFO - Table sample already exists on server, checking column consistency...
+2025-09-04 13:41:37,029[18400] - Database - INFO - Table sample column consistency checked successfully!
+2025-09-04 13:41:37,029[18400] - Database - INFO - Table sample column consistency checked successfully!
+2025-09-04 13:41:37,156[18400] - Database - INFO - Table performance already exists on server, checking column consistency...
+2025-09-04 13:41:37,156[18400] - Database - INFO - Table performance already exists on server, checking column consistency...
+2025-09-04 13:41:37,282[18400] - Database - INFO - Table performance column consistency checked successfully!
+2025-09-04 13:41:37,282[18400] - Database - INFO - Table performance column consistency checked successfully!
+2025-09-04 13:42:15,388[17100] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2025-09-04 13:42:15,420[17100] - Database - INFO - Schema active_learning created successfully!
+2025-09-04 13:42:15,429[17100] - Database - INFO - Schema botorch created successfully!
+2025-09-04 13:42:15,437[17100] - Database - INFO - Schema test_raw_data created successfully!
+2025-09-04 13:42:15,584[17100] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2025-09-04 13:42:15,721[17100] - Database - INFO - Table recipe column consistency checked successfully!
+2025-09-04 13:42:15,849[17100] - Database - INFO - Table sample already exists on server, checking column consistency...
+2025-09-04 13:42:15,982[17100] - Database - INFO - Table sample column consistency checked successfully!
+2025-09-04 13:42:16,112[17100] - Database - INFO - Table performance already exists on server, checking column consistency...
+2025-09-04 13:42:16,244[17100] - Database - INFO - Table performance column consistency checked successfully!
+2025-09-04 13:42:25,254[17100] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2025-09-04 13:42:25,254[17100] - Database - INFO - Database DFFC_8D_4 connected successfully!
+2025-09-04 13:42:25,302[17100] - Database - INFO - Schema active_learning created successfully!
+2025-09-04 13:42:25,302[17100] - Database - INFO - Schema active_learning created successfully!
+2025-09-04 13:42:25,312[17100] - Database - INFO - Schema botorch created successfully!
+2025-09-04 13:42:25,312[17100] - Database - INFO - Schema botorch created successfully!
+2025-09-04 13:42:25,321[17100] - Database - INFO - Schema test_raw_data created successfully!
+2025-09-04 13:42:25,321[17100] - Database - INFO - Schema test_raw_data created successfully!
+2025-09-04 13:42:25,470[17100] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2025-09-04 13:42:25,470[17100] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2025-09-04 13:42:25,608[17100] - Database - INFO - Table recipe column consistency checked successfully!
+2025-09-04 13:42:25,608[17100] - Database - INFO - Table recipe column consistency checked successfully!
+2025-09-04 13:42:25,740[17100] - Database - INFO - Table sample already exists on server, checking column consistency...
+2025-09-04 13:42:25,740[17100] - Database - INFO - Table sample already exists on server, checking column consistency...
+2025-09-04 13:42:25,868[17100] - Database - INFO - Table sample column consistency checked successfully!
+2025-09-04 13:42:25,868[17100] - Database - INFO - Table sample column consistency checked successfully!
+2025-09-04 13:42:26,003[17100] - Database - INFO - Table performance already exists on server, checking column consistency...
+2025-09-04 13:42:26,003[17100] - Database - INFO - Table performance already exists on server, checking column consistency...
+2025-09-04 13:42:26,140[17100] - Database - INFO - Table performance column consistency checked successfully!
+2025-09-04 13:42:26,140[17100] - Database - INFO - Table performance column consistency checked successfully!
+2025-09-04 14:15:26,876[18764] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20}
+2025-09-04 14:15:32,969[18764] - OBS_Win - INFO - not in software yet
+2025-09-04 14:15:33,294[18764] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-04 14:15:36,758[18764] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:15:40,117[18764] - OBS_Win - INFO - OBS_Win started
+2025-09-04 14:15:40,117[18764] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-09-04 14:21:06,276[18904] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20}
+2025-09-04 14:21:12,627[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:21:15,867[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:21:19,103[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:21:22,336[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:21:25,575[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:21:28,816[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:21:32,044[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:21:35,294[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:21:38,528[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:21:41,764[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:21:45,022[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:21:48,243[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:21:51,456[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:21:54,711[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:21:57,938[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:22:01,172[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:22:04,404[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:22:07,653[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:22:10,885[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:22:14,137[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:22:17,374[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:22:20,767[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:22:24,028[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:22:27,316[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:22:30,605[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:22:33,866[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:22:37,157[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:22:40,420[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:22:43,717[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:22:47,003[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:22:50,245[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:22:53,494[18904] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:23:17,107[3148] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20}
+2025-09-04 14:23:27,569[3148] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:23:30,841[3148] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:23:34,071[3148] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:23:37,308[3148] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:23:40,546[3148] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:23:43,796[3148] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:23:47,071[3148] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:23:50,293[3148] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:23:53,585[3148] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:23:56,822[3148] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:24:00,051[3148] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:24:03,276[3148] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-09-04 14:24:32,685[7524] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20}
+2025-09-04 14:24:42,803[7524] - OBS_Win - INFO - not in software yet
+2025-09-04 14:24:43,108[7524] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-04 14:24:46,661[7524] - OBS_Win - INFO - OBS_Win started
+2025-09-04 14:24:46,661[7524] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-09-04 14:25:25,821[7524] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-04 14:25:26,410[7524] - OBS_Win - INFO - OBS_Win stopped
+2025-09-04 14:25:29,665[7524] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-04 14:25:29,974[7524] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-04 14:28:05,211[20304] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1}
+2025-09-04 14:28:11,250[20304] - OBS_Win - INFO - not in software yet
+2025-09-04 14:28:11,578[20304] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-04 14:28:15,141[20304] - OBS_Win - INFO - OBS_Win started
+2025-09-04 14:28:15,141[20304] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-09-04 14:28:54,350[20304] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-04 14:28:54,918[20304] - OBS_Win - INFO - OBS_Win stopped
+2025-09-04 14:28:58,154[20304] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-04 14:28:58,456[20304] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-04 14:29:31,583[20304] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-04 14:29:41,589[20304] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-04 14:29:51,593[20304] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-04 14:30:01,601[20304] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-04 14:30:11,614[20304] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-04 14:33:35,237[6844] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1}
+2025-09-04 14:33:35,237[6844] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1}
+2025-09-04 14:33:41,302[6844] - OBS_Win - INFO - not in software yet
+2025-09-04 14:33:41,302[6844] - OBS_Win - INFO - not in software yet
+2025-09-04 14:33:41,621[6844] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-04 14:33:41,621[6844] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-04 14:33:45,179[6844] - OBS_Win - INFO - OBS_Win started
+2025-09-04 14:33:45,179[6844] - OBS_Win - INFO - OBS_Win started
+2025-09-04 14:33:45,180[6844] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-09-04 14:33:45,180[6844] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-09-04 14:34:24,289[6844] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-04 14:34:24,289[6844] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-04 14:34:24,869[6844] - OBS_Win - INFO - OBS_Win stopped
+2025-09-04 14:34:24,869[6844] - OBS_Win - INFO - OBS_Win stopped
+2025-09-04 14:34:28,132[6844] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-04 14:34:28,132[6844] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-04 14:34:28,475[6844] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-04 14:34:28,475[6844] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-04 14:35:01,701[6844] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-04 14:35:01,701[6844] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-04 14:35:12,935[6844] - EC_Lab_Win11 - INFO - test is complete
+2025-09-04 14:35:12,935[6844] - EC_Lab_Win11 - INFO - test is complete
+2025-09-04 14:35:12,935[6844] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#1_2025-09-04_14-33-41 finished
+2025-09-04 14:35:12,935[6844] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#1_2025-09-04_14-33-41 finished
+2025-09-04 14:35:13,138[6844] - OBS_Win - INFO - not in software yet
+2025-09-04 14:35:13,138[6844] - OBS_Win - INFO - not in software yet
+2025-09-04 14:35:13,449[6844] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-04 14:35:13,449[6844] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-04 14:35:17,020[6844] - OBS_Win - INFO - OBS_Win started
+2025-09-04 14:35:17,020[6844] - OBS_Win - INFO - OBS_Win started
+2025-09-04 14:35:17,020[6844] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #0...
+2025-09-04 14:35:17,020[6844] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #0...
+2025-09-04 14:36:16,690[6844] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-09-04 14:36:16,690[6844] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-09-04 14:36:20,027[6844] - OBS_Win - INFO - not in software yet
+2025-09-04 14:36:20,027[6844] - OBS_Win - INFO - not in software yet
+2025-09-04 14:36:20,443[6844] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-04 14:36:20,443[6844] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-04 14:36:23,666[6844] - OBS_Win - INFO - not in software yet
+2025-09-04 14:36:23,666[6844] - OBS_Win - INFO - not in software yet
+2025-09-04 14:36:23,995[6844] - OBS_Win - INFO - attempting to open OBS_Win, trial 2 in 3 times...
+2025-09-04 14:36:23,995[6844] - OBS_Win - INFO - attempting to open OBS_Win, trial 2 in 3 times...
+2025-09-04 14:36:27,606[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:36:27,606[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:36:30,874[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:36:30,874[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:36:34,143[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:36:34,143[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:36:37,414[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:36:37,414[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:36:40,693[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:36:40,693[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:36:44,004[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:36:44,004[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:36:47,353[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:36:47,353[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:36:50,604[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:36:50,604[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:36:53,875[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:36:53,875[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:36:57,166[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:36:57,166[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:00,384[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:00,384[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:03,619[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:03,619[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:06,827[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:06,827[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:10,034[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:10,034[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:13,279[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:13,279[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:16,515[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:16,515[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:19,756[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:19,756[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:22,995[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:22,995[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:26,232[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:26,232[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:29,475[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:29,475[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:32,709[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:32,709[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:35,935[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:35,935[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:39,147[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:39,147[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:42,378[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:42,378[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:45,603[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 14:37:45,603[6844] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 17:04:18,186[19832] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1}
+2025-09-04 17:04:24,234[19832] - OBS_Win - INFO - not in software yet
+2025-09-04 17:04:24,568[19832] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-04 17:04:28,145[19832] - OBS_Win - INFO - OBS_Win started
+2025-09-04 17:04:28,146[19832] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-09-04 17:05:07,320[19832] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-04 17:05:07,997[19832] - OBS_Win - INFO - OBS_Win stopped
+2025-09-04 17:05:11,267[19832] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-04 17:05:11,594[19832] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-04 17:05:14,853[19832] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-04 17:05:15,177[19832] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 2 in 3 times...
+2025-09-04 17:05:48,342[19832] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-04 17:05:58,343[19832] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-04 17:06:08,349[19832] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-04 17:08:31,017[19908] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1}
+2025-09-04 17:08:37,066[19908] - OBS_Win - INFO - not in software yet
+2025-09-04 17:08:37,397[19908] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-04 17:08:40,973[19908] - OBS_Win - INFO - OBS_Win started
+2025-09-04 17:08:40,973[19908] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-09-04 17:09:20,091[19908] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-04 17:09:20,704[19908] - OBS_Win - INFO - OBS_Win stopped
+2025-09-04 17:09:23,969[19908] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-04 17:09:24,299[19908] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-04 17:09:58,365[19908] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-04 17:09:58,694[19908] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-04 17:10:01,962[19908] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-04 17:10:02,306[19908] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 2 in 3 times...
+2025-09-04 17:10:06,020[19908] - EC_Lab_Win11 - INFO - test is complete
+2025-09-04 17:10:06,020[19908] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#1_2025-09-04_17-08-36 finished
+2025-09-04 17:10:06,239[19908] - OBS_Win - INFO - not in software yet
+2025-09-04 17:10:06,594[19908] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-04 17:10:10,182[19908] - OBS_Win - INFO - OBS_Win started
+2025-09-04 17:10:10,182[19908] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #0...
+2025-09-04 17:11:09,830[19908] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-09-04 17:11:13,077[19908] - OBS_Win - INFO - not in software yet
+2025-09-04 17:11:13,443[19908] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-04 17:11:16,658[19908] - OBS_Win - INFO - not in software yet
+2025-09-04 17:11:16,986[19908] - OBS_Win - INFO - attempting to open OBS_Win, trial 2 in 3 times...
+2025-09-04 17:11:20,453[19908] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 17:11:23,662[19908] - OBS_Win - WARNING - cannot find ['OBS_stop_record.png'] on screen
+2025-09-04 17:12:25,840[20116] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1}
+2025-09-04 17:12:31,853[20116] - OBS_Win - INFO - not in software yet
+2025-09-04 17:12:32,170[20116] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-04 17:12:35,728[20116] - OBS_Win - INFO - OBS_Win started
+2025-09-04 17:12:35,728[20116] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-09-04 17:13:14,945[20116] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-04 17:13:15,544[20116] - OBS_Win - INFO - OBS_Win stopped
+2025-09-04 17:13:18,827[20116] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-04 17:13:19,189[20116] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-04 17:13:52,371[20116] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-04 17:14:02,383[20116] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-04 17:14:12,385[20116] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-04 17:14:22,400[20116] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-04 17:14:32,411[20116] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-04 17:14:42,422[20116] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-04 17:14:52,426[20116] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-05 12:09:11,939[7088] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {3: 3}
+2025-09-05 12:09:17,991[7088] - OBS_Win - INFO - not in software yet
+2025-09-05 12:09:18,313[7088] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-05 12:09:21,876[7088] - OBS_Win - INFO - OBS_Win started
+2025-09-05 12:09:21,876[7088] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-09-05 12:10:01,091[7088] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-05 12:10:01,690[7088] - OBS_Win - INFO - OBS_Win stopped
+2025-09-05 12:10:04,956[7088] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-05 12:10:05,291[7088] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-05 12:10:39,704[7088] - EC_Lab_Win11 - INFO - test is complete
+2025-09-05 12:10:39,704[7088] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#3_2025-09-05_12-09-17 finished
+2025-09-05 12:10:39,908[7088] - OBS_Win - INFO - not in software yet
+2025-09-05 12:10:40,231[7088] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-05 12:10:43,799[7088] - OBS_Win - INFO - OBS_Win started
+2025-09-05 12:10:43,799[7088] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-09-05 12:11:42,103[7088] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-09-05 12:11:45,719[7088] - OBS_Win - INFO - OBS_Win stopped
+2025-09-05 12:13:00,016[7088] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {3: 3}
+2025-09-05 12:13:06,025[7088] - OBS_Win - INFO - not in software yet
+2025-09-05 12:13:06,345[7088] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-05 12:13:09,921[7088] - OBS_Win - INFO - OBS_Win started
+2025-09-05 12:13:09,921[7088] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-09-05 12:13:49,224[7088] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-05 12:13:49,824[7088] - OBS_Win - INFO - OBS_Win stopped
+2025-09-05 12:13:53,057[7088] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-05 12:13:53,365[7088] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-05 12:14:27,733[7088] - EC_Lab_Win11 - INFO - test is complete
+2025-09-05 12:14:27,733[7088] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#3_2025-09-05_12-13-05 finished
+2025-09-05 12:14:27,937[7088] - OBS_Win - INFO - not in software yet
+2025-09-05 12:14:28,256[7088] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-05 12:14:31,806[7088] - OBS_Win - INFO - OBS_Win started
+2025-09-05 12:14:31,806[7088] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-09-05 12:15:30,271[7088] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-09-05 12:15:33,864[7088] - OBS_Win - INFO - OBS_Win stopped
+2025-09-05 13:32:30,921[5424] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {3: 3}
+2025-09-05 13:32:36,987[5424] - OBS_Win - INFO - not in software yet
+2025-09-05 13:32:37,305[5424] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-05 13:32:40,883[5424] - OBS_Win - INFO - OBS_Win started
+2025-09-05 13:32:40,883[5424] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-09-05 13:33:20,147[5424] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-05 13:33:20,742[5424] - OBS_Win - INFO - OBS_Win stopped
+2025-09-05 13:33:24,003[5424] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-05 13:33:24,306[5424] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-05 13:34:31,200[5424] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-05 13:34:42,468[5424] - EC_Lab_Win11 - INFO - test is complete
+2025-09-05 13:34:42,469[5424] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#3_2025-09-05_13-32-36 finished
+2025-09-05 13:34:42,669[5424] - OBS_Win - INFO - not in software yet
+2025-09-05 13:34:42,991[5424] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-05 13:34:46,543[5424] - OBS_Win - INFO - OBS_Win started
+2025-09-05 13:34:46,543[5424] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-09-05 13:35:44,894[5424] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-09-05 13:35:48,483[5424] - OBS_Win - INFO - OBS_Win stopped
+2025-09-10 09:40:47,135[692] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {3: 3}
+2025-09-10 09:40:47,135[692] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {3: 3}
+2025-09-10 09:40:53,191[692] - OBS_Win - INFO - not in software yet
+2025-09-10 09:40:53,191[692] - OBS_Win - INFO - not in software yet
+2025-09-10 09:40:53,545[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-10 09:40:53,545[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-10 09:40:57,151[692] - OBS_Win - INFO - OBS_Win started
+2025-09-10 09:40:57,151[692] - OBS_Win - INFO - OBS_Win started
+2025-09-10 09:40:57,151[692] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-09-10 09:40:57,151[692] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-09-10 09:41:36,523[692] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-10 09:41:36,523[692] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-10 09:41:37,169[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-10 09:41:37,169[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-10 09:41:40,421[692] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-10 09:41:40,421[692] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-10 09:41:40,751[692] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-10 09:41:40,751[692] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-10 09:42:25,280[692] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-10 09:42:25,280[692] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-10 09:42:36,603[692] - EC_Lab_Win11 - INFO - test is complete
+2025-09-10 09:42:36,603[692] - EC_Lab_Win11 - INFO - test is complete
+2025-09-10 09:42:36,604[692] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#3_2025-09-10_09-40-52 finished
+2025-09-10 09:42:36,604[692] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#3_2025-09-10_09-40-52 finished
+2025-09-10 09:42:36,803[692] - OBS_Win - INFO - not in software yet
+2025-09-10 09:42:36,803[692] - OBS_Win - INFO - not in software yet
+2025-09-10 09:42:37,125[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-10 09:42:37,125[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-10 09:42:40,712[692] - OBS_Win - INFO - OBS_Win started
+2025-09-10 09:42:40,712[692] - OBS_Win - INFO - OBS_Win started
+2025-09-10 09:42:40,712[692] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-09-10 09:42:40,712[692] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-09-10 09:43:39,120[692] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-09-10 09:43:39,120[692] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-09-10 09:43:42,737[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-10 09:43:42,737[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-10 13:33:02,928[692] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {3: 3}
+2025-09-10 13:33:02,928[692] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {3: 3}
+2025-09-10 13:33:08,962[692] - OBS_Win - INFO - not in software yet
+2025-09-10 13:33:08,962[692] - OBS_Win - INFO - not in software yet
+2025-09-10 13:33:09,252[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-10 13:33:09,252[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-10 13:33:12,809[692] - OBS_Win - INFO - OBS_Win started
+2025-09-10 13:33:12,809[692] - OBS_Win - INFO - OBS_Win started
+2025-09-10 13:33:12,809[692] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-09-10 13:33:12,809[692] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-09-10 13:33:52,180[692] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-10 13:33:52,180[692] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-10 13:33:52,747[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-10 13:33:52,747[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-10 13:33:55,987[692] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-10 13:33:55,987[692] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-10 13:33:56,293[692] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-10 13:33:56,293[692] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-10 13:34:30,716[692] - EC_Lab_Win11 - INFO - test is complete
+2025-09-10 13:34:30,716[692] - EC_Lab_Win11 - INFO - test is complete
+2025-09-10 13:34:30,716[692] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#3_2025-09-10_13-33-08 finished
+2025-09-10 13:34:30,716[692] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#3_2025-09-10_13-33-08 finished
+2025-09-10 13:34:30,921[692] - OBS_Win - INFO - not in software yet
+2025-09-10 13:34:30,921[692] - OBS_Win - INFO - not in software yet
+2025-09-10 13:34:31,247[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-10 13:34:31,247[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-10 13:34:34,791[692] - OBS_Win - INFO - OBS_Win started
+2025-09-10 13:34:34,791[692] - OBS_Win - INFO - OBS_Win started
+2025-09-10 13:34:34,791[692] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-09-10 13:34:34,791[692] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-09-10 13:35:33,157[692] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-09-10 13:35:33,157[692] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-09-10 13:35:36,717[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-10 13:35:36,717[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-10 13:36:35,740[692] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {3: 3}
+2025-09-10 13:36:35,740[692] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {3: 3}
+2025-09-10 13:36:41,798[692] - OBS_Win - INFO - not in software yet
+2025-09-10 13:36:41,798[692] - OBS_Win - INFO - not in software yet
+2025-09-10 13:36:42,125[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-10 13:36:42,125[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-10 13:36:45,669[692] - OBS_Win - INFO - OBS_Win started
+2025-09-10 13:36:45,669[692] - OBS_Win - INFO - OBS_Win started
+2025-09-10 13:36:45,669[692] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-09-10 13:36:45,669[692] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-09-10 13:37:25,040[692] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-10 13:37:25,040[692] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-10 13:37:25,609[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-10 13:37:25,609[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-10 13:37:28,854[692] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-10 13:37:28,854[692] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-10 13:37:29,166[692] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-10 13:37:29,166[692] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-10 13:38:03,562[692] - EC_Lab_Win11 - INFO - test is complete
+2025-09-10 13:38:03,562[692] - EC_Lab_Win11 - INFO - test is complete
+2025-09-10 13:38:03,562[692] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#3_2025-09-10_13-36-41 finished
+2025-09-10 13:38:03,562[692] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#3_2025-09-10_13-36-41 finished
+2025-09-10 13:38:03,766[692] - OBS_Win - INFO - not in software yet
+2025-09-10 13:38:03,766[692] - OBS_Win - INFO - not in software yet
+2025-09-10 13:38:04,089[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-10 13:38:04,089[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-10 13:38:07,650[692] - OBS_Win - INFO - OBS_Win started
+2025-09-10 13:38:07,650[692] - OBS_Win - INFO - OBS_Win started
+2025-09-10 13:38:07,651[692] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-09-10 13:38:07,651[692] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-09-10 13:39:06,051[692] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-09-10 13:39:06,051[692] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-09-10 13:39:09,625[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-10 13:39:09,625[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-10 13:44:26,749[692] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {3: 3}
+2025-09-10 13:44:26,749[692] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {3: 3}
+2025-09-10 13:44:32,778[692] - OBS_Win - INFO - not in software yet
+2025-09-10 13:44:32,778[692] - OBS_Win - INFO - not in software yet
+2025-09-10 13:44:33,097[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-10 13:44:33,097[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-10 13:44:36,636[692] - OBS_Win - INFO - OBS_Win started
+2025-09-10 13:44:36,636[692] - OBS_Win - INFO - OBS_Win started
+2025-09-10 13:44:36,636[692] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-09-10 13:44:36,636[692] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-09-10 13:45:15,802[692] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-10 13:45:15,802[692] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-10 13:45:16,385[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-10 13:45:16,385[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-10 13:45:19,638[692] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-10 13:45:19,638[692] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-10 13:45:19,949[692] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-10 13:45:19,949[692] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-10 13:46:26,874[692] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-10 13:46:26,874[692] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-10 13:46:38,112[692] - EC_Lab_Win11 - INFO - test is complete
+2025-09-10 13:46:38,112[692] - EC_Lab_Win11 - INFO - test is complete
+2025-09-10 13:46:38,112[692] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#3_2025-09-10_13-44-32 finished
+2025-09-10 13:46:38,112[692] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#3_2025-09-10_13-44-32 finished
+2025-09-10 13:46:38,312[692] - OBS_Win - INFO - not in software yet
+2025-09-10 13:46:38,312[692] - OBS_Win - INFO - not in software yet
+2025-09-10 13:46:38,625[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-10 13:46:38,625[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-10 13:46:42,185[692] - OBS_Win - INFO - OBS_Win started
+2025-09-10 13:46:42,185[692] - OBS_Win - INFO - OBS_Win started
+2025-09-10 13:46:42,185[692] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-09-10 13:46:42,185[692] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-09-10 13:47:40,677[692] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-09-10 13:47:40,677[692] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-09-10 13:47:44,239[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-10 13:47:44,239[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-15 12:53:16,696[692] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {3: 3}
+2025-09-15 12:53:16,696[692] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {3: 3}
+2025-09-15 12:53:22,737[692] - OBS_Win - INFO - not in software yet
+2025-09-15 12:53:22,737[692] - OBS_Win - INFO - not in software yet
+2025-09-15 12:53:23,057[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-15 12:53:23,057[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-15 12:53:26,658[692] - OBS_Win - INFO - OBS_Win started
+2025-09-15 12:53:26,658[692] - OBS_Win - INFO - OBS_Win started
+2025-09-15 12:53:26,658[692] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-09-15 12:53:26,658[692] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-09-15 12:54:05,837[692] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-15 12:54:05,837[692] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-15 12:54:06,450[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-15 12:54:06,450[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-15 12:54:09,701[692] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-15 12:54:09,701[692] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-15 12:54:10,004[692] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-15 12:54:10,004[692] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-15 12:54:43,077[692] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-15 12:54:43,077[692] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-15 12:54:54,317[692] - EC_Lab_Win11 - INFO - test is complete
+2025-09-15 12:54:54,317[692] - EC_Lab_Win11 - INFO - test is complete
+2025-09-15 12:54:54,317[692] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#3_2025-09-15_12-53-22 finished
+2025-09-15 12:54:54,317[692] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#3_2025-09-15_12-53-22 finished
+2025-09-15 12:54:54,512[692] - OBS_Win - INFO - not in software yet
+2025-09-15 12:54:54,512[692] - OBS_Win - INFO - not in software yet
+2025-09-15 12:54:54,811[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-15 12:54:54,811[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-15 12:54:58,345[692] - OBS_Win - INFO - OBS_Win started
+2025-09-15 12:54:58,345[692] - OBS_Win - INFO - OBS_Win started
+2025-09-15 12:54:58,345[692] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-09-15 12:54:58,345[692] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-09-15 12:55:56,729[692] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-09-15 12:55:56,729[692] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-09-15 12:56:00,290[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-15 12:56:00,290[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-15 13:11:18,744[692] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {3: 3}
+2025-09-15 13:11:18,744[692] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {3: 3}
+2025-09-15 13:11:24,774[692] - OBS_Win - INFO - not in software yet
+2025-09-15 13:11:24,774[692] - OBS_Win - INFO - not in software yet
+2025-09-15 13:11:25,099[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-15 13:11:25,099[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-15 13:11:28,665[692] - OBS_Win - INFO - OBS_Win started
+2025-09-15 13:11:28,665[692] - OBS_Win - INFO - OBS_Win started
+2025-09-15 13:11:28,665[692] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-09-15 13:11:28,665[692] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-09-15 13:12:07,601[692] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-15 13:12:07,601[692] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-15 13:12:08,200[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-15 13:12:08,200[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-15 13:12:11,450[692] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-15 13:12:11,450[692] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-15 13:12:11,759[692] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-15 13:12:11,759[692] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-15 13:12:44,837[692] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-15 13:12:44,837[692] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-15 13:12:54,849[692] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-15 13:12:54,849[692] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-15 13:13:06,087[692] - EC_Lab_Win11 - INFO - test is complete
+2025-09-15 13:13:06,087[692] - EC_Lab_Win11 - INFO - test is complete
+2025-09-15 13:13:06,087[692] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#3_2025-09-15_13-11-24 finished
+2025-09-15 13:13:06,087[692] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#3_2025-09-15_13-11-24 finished
+2025-09-15 13:13:06,270[692] - OBS_Win - INFO - not in software yet
+2025-09-15 13:13:06,270[692] - OBS_Win - INFO - not in software yet
+2025-09-15 13:13:06,589[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-15 13:13:06,589[692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-15 13:13:10,112[692] - OBS_Win - INFO - OBS_Win started
+2025-09-15 13:13:10,112[692] - OBS_Win - INFO - OBS_Win started
+2025-09-15 13:13:10,112[692] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-09-15 13:13:10,112[692] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-09-15 13:14:08,305[692] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-09-15 13:14:08,305[692] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-09-15 13:14:11,866[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-15 13:14:11,866[692] - OBS_Win - INFO - OBS_Win stopped
+2025-09-22 11:32:08,129[32024] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {3: 3}
+2025-09-22 11:32:14,191[32024] - OBS_Win - INFO - not in software yet
+2025-09-22 11:32:14,500[32024] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-22 11:32:18,026[32024] - OBS_Win - INFO - OBS_Win started
+2025-09-22 11:32:18,026[32024] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-09-22 11:32:57,036[32024] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-09-22 11:32:57,617[32024] - OBS_Win - INFO - OBS_Win stopped
+2025-09-22 11:33:00,857[32024] - EC_Lab_Win11 - INFO - not in software yet
+2025-09-22 11:33:01,161[32024] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-09-22 11:33:34,181[32024] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-09-22 11:33:45,408[32024] - EC_Lab_Win11 - INFO - test is complete
+2025-09-22 11:33:45,408[32024] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#3_2025-09-22_11-32-13 finished
+2025-09-22 11:33:45,594[32024] - OBS_Win - INFO - not in software yet
+2025-09-22 11:33:45,906[32024] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-09-22 11:33:49,419[32024] - OBS_Win - INFO - OBS_Win started
+2025-09-22 11:33:49,419[32024] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-09-22 11:34:47,755[32024] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-09-22 11:34:51,297[32024] - OBS_Win - INFO - OBS_Win stopped
+2025-10-03 14:40:08,205[32024] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {3: 3}
+2025-10-03 14:40:14,235[32024] - OBS_Win - INFO - not in software yet
+2025-10-03 14:40:14,570[32024] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-10-03 14:40:18,095[32024] - OBS_Win - INFO - OBS_Win started
+2025-10-03 14:40:18,095[32024] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-10-03 14:40:57,261[32024] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-10-03 14:40:57,793[32024] - OBS_Win - INFO - OBS_Win stopped
+2025-10-03 14:41:01,025[32024] - EC_Lab_Win11 - INFO - not in software yet
+2025-10-03 14:41:01,334[32024] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-10-03 14:41:34,412[32024] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-10-03 14:41:45,617[32024] - EC_Lab_Win11 - INFO - test is complete
+2025-10-03 14:41:45,617[32024] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#3_2025-10-03_14-40-14 finished
+2025-10-03 14:41:45,814[32024] - OBS_Win - INFO - not in software yet
+2025-10-03 14:41:46,109[32024] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-10-03 14:41:49,634[32024] - OBS_Win - INFO - OBS_Win started
+2025-10-03 14:41:49,634[32024] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-10-03 14:42:48,037[32024] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-10-03 14:42:51,646[32024] - OBS_Win - INFO - OBS_Win stopped
+2025-10-04 12:25:06,038[32024] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {3: 3}
+2025-10-04 12:25:12,040[32024] - OBS_Win - INFO - not in software yet
+2025-10-04 12:25:12,339[32024] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-10-04 12:25:15,902[32024] - OBS_Win - INFO - OBS_Win started
+2025-10-04 12:25:15,902[32024] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-10-04 12:25:54,999[32024] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-10-04 12:25:55,551[32024] - OBS_Win - INFO - OBS_Win stopped
+2025-10-04 12:25:58,800[32024] - EC_Lab_Win11 - INFO - not in software yet
+2025-10-04 12:25:59,133[32024] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-10-04 12:26:32,212[32024] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-10-04 12:26:43,450[32024] - EC_Lab_Win11 - INFO - test is complete
+2025-10-04 12:26:43,450[32024] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#3_2025-10-04_12-25-11 finished
+2025-10-04 12:26:43,670[32024] - OBS_Win - INFO - not in software yet
+2025-10-04 12:26:43,993[32024] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-10-04 12:26:47,500[32024] - OBS_Win - INFO - OBS_Win started
+2025-10-04 12:26:47,500[32024] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-10-04 12:27:45,757[32024] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-10-04 12:27:49,316[32024] - OBS_Win - INFO - OBS_Win stopped
+2025-10-18 16:08:20,922[51856] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {3: 3}
+2025-10-18 16:08:27,014[51856] - OBS_Win - INFO - not in software yet
+2025-10-18 16:08:27,358[51856] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-10-18 16:08:30,911[51856] - OBS_Win - INFO - OBS_Win started
+2025-10-18 16:08:30,911[51856] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-10-18 16:09:09,897[51856] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-10-18 16:09:10,495[51856] - OBS_Win - INFO - OBS_Win stopped
+2025-10-18 16:09:13,746[51856] - EC_Lab_Win11 - INFO - not in software yet
+2025-10-18 16:09:14,060[51856] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-10-18 16:09:47,267[51856] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-10-18 16:09:58,753[51856] - EC_Lab_Win11 - INFO - test is complete
+2025-10-18 16:09:58,753[51856] - RobotTest_AcidicPlatform - INFO - test DFFC_8D_4_sample#3_2025-10-18_16-08-26 finished
+2025-10-18 16:09:58,979[51856] - OBS_Win - INFO - not in software yet
+2025-10-18 16:09:59,313[51856] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-10-18 16:10:02,949[51856] - OBS_Win - INFO - OBS_Win started
+2025-10-18 16:10:02,949[51856] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-10-18 16:11:01,371[51856] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-10-18 16:11:05,045[51856] - OBS_Win - INFO - OBS_Win stopped

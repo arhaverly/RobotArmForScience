@@ -1,0 +1,1383 @@
+2025-03-04 21:34:11,528[31132] - Database - WARNING - Database MOR_manual_SOBOL_9comps_diffHeating does not exist yet, creating now...
+2025-03-04 21:34:12,692[31132] - Database - INFO - Database MOR_manual_SOBOL_9comps_diffHeating connected successfully!
+2025-03-04 21:34:12,785[31132] - Database - INFO - Schema active_learning created successfully!
+2025-03-04 21:34:12,800[31132] - Database - INFO - Schema botorch created successfully!
+2025-03-04 21:34:12,814[31132] - Database - INFO - Schema test_raw_data created successfully!
+2025-03-04 21:34:12,824[31132] - Database - WARNING - Table recipe does not exist on server yet, creating now...
+2025-03-04 21:34:12,876[31132] - Database - INFO - Table recipe created on server successfully!
+2025-03-04 21:34:12,936[31132] - Database - WARNING - Table sample does not exist on server yet, creating now...
+2025-03-04 21:34:13,027[31132] - Database - INFO - Table sample created on server successfully!
+2025-03-04 21:34:13,120[31132] - Database - WARNING - Table performance does not exist on server yet, creating now...
+2025-03-04 21:34:13,259[31132] - Database - INFO - Table performance created on server successfully!
+2025-03-04 21:36:10,202[41572] - Database - INFO - Database MOR_manual_SOBOL_9comps_diffHeating connected successfully!
+2025-03-04 21:36:10,236[41572] - Database - INFO - Schema active_learning created successfully!
+2025-03-04 21:36:10,246[41572] - Database - INFO - Schema botorch created successfully!
+2025-03-04 21:36:10,256[41572] - Database - INFO - Schema test_raw_data created successfully!
+2025-03-04 21:36:10,402[41572] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2025-03-04 21:36:10,543[41572] - Database - INFO - Table recipe column consistency checked successfully!
+2025-03-04 21:36:10,686[41572] - Database - INFO - Table sample already exists on server, checking column consistency...
+2025-03-04 21:36:10,826[41572] - Database - INFO - Table sample column consistency checked successfully!
+2025-03-04 21:36:10,965[41572] - Database - INFO - Table performance already exists on server, checking column consistency...
+2025-03-04 21:36:11,101[41572] - Database - INFO - Table performance column consistency checked successfully!
+2025-03-04 21:36:18,081[41572] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27, 27: 28, 28: 29, 29: 30, 30: 31, 31: 32, 32: 33, 33: 34, 34: 35, 35: 36}
+2025-03-04 21:36:18,222[41572] - RobotTest_AcidicPlatform - ERROR - '<' not supported between instances of 'NoneType' and 'int'
+Traceback (most recent call last):
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 45, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 182, in run
+    self.robot_warming_up()
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 312, in robot_warming_up
+    self.arm.home()
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm6\xarm6.py", line 10, in home
+    if self.has_sample_holder or self.sample_in_flask:
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm_control.py", line 86, in has_sample_holder
+    if super().get_gripper_position()[1] < 20:
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+2025-03-04 21:37:45,096[3168] - Database - INFO - Database MOR_manual_SOBOL_9comps_diffHeating connected successfully!
+2025-03-04 21:37:45,149[3168] - Database - INFO - Schema active_learning created successfully!
+2025-03-04 21:37:45,159[3168] - Database - INFO - Schema botorch created successfully!
+2025-03-04 21:37:45,167[3168] - Database - INFO - Schema test_raw_data created successfully!
+2025-03-04 21:37:45,307[3168] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2025-03-04 21:37:45,441[3168] - Database - INFO - Table recipe column consistency checked successfully!
+2025-03-04 21:37:45,577[3168] - Database - INFO - Table sample already exists on server, checking column consistency...
+2025-03-04 21:37:45,710[3168] - Database - INFO - Table sample column consistency checked successfully!
+2025-03-04 21:37:45,841[3168] - Database - INFO - Table performance already exists on server, checking column consistency...
+2025-03-04 21:37:45,980[3168] - Database - INFO - Table performance column consistency checked successfully!
+2025-03-04 21:37:48,608[3168] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27, 27: 28, 28: 29, 29: 30, 30: 31, 31: 32, 32: 33, 33: 34, 34: 35, 35: 36}
+2025-03-04 21:37:48,742[3168] - RobotTest_AcidicPlatform - ERROR - '<' not supported between instances of 'NoneType' and 'int'
+Traceback (most recent call last):
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 45, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 182, in run
+    self.robot_warming_up()
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 312, in robot_warming_up
+    self.arm.home()
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm6\xarm6.py", line 10, in home
+    if self.has_sample_holder or self.sample_in_flask:
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm_control.py", line 86, in has_sample_holder
+    if super().get_gripper_position()[1] < 20:
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+2025-03-04 21:38:16,437[3168] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27, 27: 28, 28: 29, 29: 30}
+2025-03-04 21:38:16,438[3168] - RobotTest_AcidicPlatform - ERROR - '<' not supported between instances of 'NoneType' and 'int'
+Traceback (most recent call last):
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 45, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 182, in run
+    self.robot_warming_up()
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 312, in robot_warming_up
+    self.arm.home()
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm6\xarm6.py", line 10, in home
+    if self.has_sample_holder or self.sample_in_flask:
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm_control.py", line 86, in has_sample_holder
+    if super().get_gripper_position()[1] < 20:
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+2025-03-04 21:41:40,135[39864] - Database - INFO - Database MOR_manual_SOBOL_9comps_diffHeating connected successfully!
+2025-03-04 21:41:40,193[39864] - Database - INFO - Schema active_learning created successfully!
+2025-03-04 21:41:40,201[39864] - Database - INFO - Schema botorch created successfully!
+2025-03-04 21:41:40,210[39864] - Database - INFO - Schema test_raw_data created successfully!
+2025-03-04 21:41:40,347[39864] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2025-03-04 21:41:40,481[39864] - Database - INFO - Table recipe column consistency checked successfully!
+2025-03-04 21:41:40,615[39864] - Database - INFO - Table sample already exists on server, checking column consistency...
+2025-03-04 21:41:40,748[39864] - Database - INFO - Table sample column consistency checked successfully!
+2025-03-04 21:41:40,892[39864] - Database - INFO - Table performance already exists on server, checking column consistency...
+2025-03-04 21:41:41,034[39864] - Database - INFO - Table performance column consistency checked successfully!
+2025-03-04 21:42:20,301[39864] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27, 27: 28, 28: 29, 29: 30, 30: 31, 31: 32, 32: 33, 33: 34, 34: 35, 35: 36}
+2025-03-04 21:42:26,408[39864] - OBS_Win - INFO - not in software yet
+2025-03-04 21:42:26,738[39864] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-04 21:42:30,310[39864] - OBS_Win - INFO - OBS_Win started
+2025-03-04 21:42:30,310[39864] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-03-04 21:43:07,955[39864] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-04 21:43:08,568[39864] - OBS_Win - INFO - OBS_Win stopped
+2025-03-04 21:43:11,792[39864] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-04 21:43:12,149[39864] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-04 21:45:18,787[39864] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-04 21:48:58,576[39864] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27, 27: 28, 28: 29, 29: 30, 30: 31, 31: 32, 32: 33, 33: 34, 34: 35, 35: 36}
+2025-03-04 21:49:04,627[39864] - OBS_Win - INFO - not in software yet
+2025-03-04 21:49:04,971[39864] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-04 21:49:08,588[39864] - OBS_Win - INFO - OBS_Win started
+2025-03-04 21:49:08,589[39864] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-03-04 21:49:47,623[39864] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-04 21:49:48,254[39864] - OBS_Win - INFO - OBS_Win stopped
+2025-03-04 21:49:51,257[39864] - EC_Lab_Win11 - ERROR - test is already running!
+2025-03-04 21:49:51,257[39864] - RobotTest_AcidicPlatform - ERROR - test is already running! Restart needed!
+Traceback (most recent call last):
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 45, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 189, in run
+    self.test_main_workflow(
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 292, in test_main_workflow
+    self.ec_lab.start(test_name)
+  File "C:\Users\li\PycharmProjects\catalyst\software_control\software_control.py", line 626, in start
+    raise SystemError('test is already running! Restart needed!')
+SystemError: test is already running! Restart needed!
+2025-03-04 21:59:31,130[39864] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27, 27: 28, 28: 29, 29: 30, 30: 31, 31: 32, 32: 33, 33: 34, 34: 35, 35: 36}
+2025-03-04 21:59:37,183[39864] - OBS_Win - INFO - not in software yet
+2025-03-04 21:59:37,517[39864] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-04 21:59:41,103[39864] - OBS_Win - INFO - OBS_Win started
+2025-03-04 21:59:41,104[39864] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-03-04 22:00:19,291[39864] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-04 22:00:19,908[39864] - OBS_Win - INFO - OBS_Win stopped
+2025-03-04 22:00:22,910[39864] - EC_Lab_Win11 - ERROR - test is already running!
+2025-03-04 22:00:22,910[39864] - RobotTest_AcidicPlatform - ERROR - test is already running! Restart needed!
+Traceback (most recent call last):
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 45, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 189, in run
+    self.test_main_workflow(
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 292, in test_main_workflow
+    self.ec_lab.start(test_name)
+  File "C:\Users\li\PycharmProjects\catalyst\software_control\software_control.py", line 626, in start
+    raise SystemError('test is already running! Restart needed!')
+SystemError: test is already running! Restart needed!
+2025-03-04 22:05:50,043[22632] - Database - INFO - Database MOR_manual_SOBOL_9comps_diffHeating connected successfully!
+2025-03-04 22:05:50,106[22632] - Database - INFO - Schema active_learning created successfully!
+2025-03-04 22:05:50,116[22632] - Database - INFO - Schema botorch created successfully!
+2025-03-04 22:05:50,126[22632] - Database - INFO - Schema test_raw_data created successfully!
+2025-03-04 22:05:50,270[22632] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2025-03-04 22:05:50,405[22632] - Database - INFO - Table recipe column consistency checked successfully!
+2025-03-04 22:05:50,541[22632] - Database - INFO - Table sample already exists on server, checking column consistency...
+2025-03-04 22:05:50,678[22632] - Database - INFO - Table sample column consistency checked successfully!
+2025-03-04 22:05:50,816[22632] - Database - INFO - Table performance already exists on server, checking column consistency...
+2025-03-04 22:05:50,957[22632] - Database - INFO - Table performance column consistency checked successfully!
+2025-03-04 22:05:55,888[22632] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27, 27: 28, 28: 29, 29: 30, 30: 31, 31: 32, 32: 33, 33: 34, 34: 35, 35: 36}
+2025-03-04 22:06:01,913[22632] - OBS_Win - INFO - not in software yet
+2025-03-04 22:06:02,273[22632] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-04 22:06:05,863[22632] - OBS_Win - INFO - OBS_Win started
+2025-03-04 22:06:05,863[22632] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-03-04 22:06:43,976[22632] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-04 22:06:44,576[22632] - OBS_Win - INFO - OBS_Win stopped
+2025-03-04 22:06:47,806[22632] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-04 22:06:48,156[22632] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-04 22:07:24,133[22632] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-04 22:07:34,147[22632] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-04 22:10:05,119[40976] - Database - INFO - Database MOR_manual_SOBOL_9comps_diffHeating connected successfully!
+2025-03-04 22:10:05,175[40976] - Database - INFO - Schema active_learning created successfully!
+2025-03-04 22:10:05,183[40976] - Database - INFO - Schema botorch created successfully!
+2025-03-04 22:10:05,192[40976] - Database - INFO - Schema test_raw_data created successfully!
+2025-03-04 22:10:05,326[40976] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2025-03-04 22:10:05,457[40976] - Database - INFO - Table recipe column consistency checked successfully!
+2025-03-04 22:10:05,587[40976] - Database - INFO - Table sample already exists on server, checking column consistency...
+2025-03-04 22:10:05,714[40976] - Database - INFO - Table sample column consistency checked successfully!
+2025-03-04 22:10:05,843[40976] - Database - INFO - Table performance already exists on server, checking column consistency...
+2025-03-04 22:10:05,981[40976] - Database - INFO - Table performance column consistency checked successfully!
+2025-03-04 22:10:07,521[40976] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27, 27: 28, 28: 29, 29: 30, 30: 31, 31: 32, 32: 33, 33: 34, 34: 35, 35: 36}
+2025-03-04 22:10:13,593[40976] - OBS_Win - INFO - not in software yet
+2025-03-04 22:10:13,930[40976] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-04 22:10:17,514[40976] - OBS_Win - INFO - OBS_Win started
+2025-03-04 22:10:17,514[40976] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-03-04 22:10:55,584[40976] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-04 22:10:56,232[40976] - OBS_Win - INFO - OBS_Win stopped
+2025-03-04 22:10:59,480[40976] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-04 22:10:59,810[40976] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-04 22:12:20,902[40976] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-04 22:12:30,909[40976] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-04 22:12:40,910[40976] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-04 22:12:50,922[40976] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-04 22:13:00,930[40976] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-04 22:13:10,938[40976] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-04 22:13:32,207[40976] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-04 22:13:42,215[40976] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-04 22:13:52,221[40976] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-04 22:14:02,224[40976] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-04 22:14:12,233[40976] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-04 22:14:22,246[40976] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-04 22:14:43,516[40976] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-04 22:14:53,529[40976] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-04 22:15:26,049[40976] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-04 22:22:40,201[35028] - Database - INFO - Database MOR_manual_SOBOL_9comps_diffHeating connected successfully!
+2025-03-04 22:22:40,257[35028] - Database - INFO - Schema active_learning created successfully!
+2025-03-04 22:22:40,265[35028] - Database - INFO - Schema botorch created successfully!
+2025-03-04 22:22:40,275[35028] - Database - INFO - Schema test_raw_data created successfully!
+2025-03-04 22:22:40,415[35028] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2025-03-04 22:22:40,554[35028] - Database - INFO - Table recipe column consistency checked successfully!
+2025-03-04 22:22:40,686[35028] - Database - INFO - Table sample already exists on server, checking column consistency...
+2025-03-04 22:22:40,819[35028] - Database - INFO - Table sample column consistency checked successfully!
+2025-03-04 22:22:40,955[35028] - Database - INFO - Table performance already exists on server, checking column consistency...
+2025-03-04 22:22:41,093[35028] - Database - INFO - Table performance column consistency checked successfully!
+2025-03-04 22:22:43,780[35028] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27, 27: 28, 28: 29, 29: 30, 30: 31, 31: 32, 32: 33, 33: 34, 34: 35, 35: 36}
+2025-03-04 22:22:59,265[35028] - OBS_Win - INFO - not in software yet
+2025-03-04 22:22:59,589[35028] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-04 22:23:03,160[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-04 22:23:03,160[35028] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-03-04 22:23:42,321[35028] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-04 22:23:42,936[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-04 22:23:46,171[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-04 22:23:46,508[35028] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-04 22:48:16,231[35028] - EC_Lab_Win11 - INFO - test is complete
+2025-03-04 22:48:16,231[35028] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#1_2025-03-04_22-22-59 finished
+2025-03-04 22:48:16,430[35028] - OBS_Win - INFO - not in software yet
+2025-03-04 22:48:16,743[35028] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-04 22:48:20,297[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-04 22:48:20,297[35028] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #0...
+2025-03-04 22:49:19,807[35028] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-04 22:49:23,410[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-04 22:49:23,909[35028] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-04 22:49:27,247[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-04 22:49:27,247[35028] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #1...
+2025-03-04 22:49:59,001[35028] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-04 22:49:59,634[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-04 22:50:02,856[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-04 22:50:03,203[35028] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-04 23:14:32,223[35028] - EC_Lab_Win11 - INFO - test is complete
+2025-03-04 23:14:32,223[35028] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#2_2025-03-04_22-49-23 finished
+2025-03-04 23:14:32,423[35028] - OBS_Win - INFO - not in software yet
+2025-03-04 23:14:32,729[35028] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-04 23:14:36,288[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-04 23:14:36,288[35028] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #1...
+2025-03-04 23:15:35,570[35028] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-04 23:15:39,201[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-04 23:15:39,674[35028] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-04 23:15:43,019[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-04 23:15:43,019[35028] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #2...
+2025-03-04 23:16:15,320[35028] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-04 23:16:15,921[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-04 23:16:19,137[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-04 23:16:19,469[35028] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-04 23:40:48,809[35028] - EC_Lab_Win11 - INFO - test is complete
+2025-03-04 23:40:48,809[35028] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#3_2025-03-04_23-15-39 finished
+2025-03-04 23:40:49,010[35028] - OBS_Win - INFO - not in software yet
+2025-03-04 23:40:49,345[35028] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-04 23:40:52,904[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-04 23:40:52,904[35028] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #2...
+2025-03-04 23:41:51,752[35028] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-04 23:41:55,380[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-04 23:41:55,846[35028] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-04 23:41:59,180[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-04 23:41:59,180[35028] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-03-04 23:42:31,904[35028] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-04 23:42:32,536[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-04 23:42:35,766[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-04 23:42:36,104[35028] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 00:07:05,991[35028] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 00:07:05,991[35028] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#4_2025-03-04_23-41-55 finished
+2025-03-05 00:07:06,182[35028] - OBS_Win - INFO - not in software yet
+2025-03-05 00:07:06,499[35028] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 00:07:10,041[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 00:07:10,041[35028] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-03-05 00:08:08,425[35028] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 00:08:12,059[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 00:08:12,510[35028] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 00:08:15,881[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 00:08:15,881[35028] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #4...
+2025-03-05 00:08:48,906[35028] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 00:08:49,487[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 00:08:52,708[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 00:08:53,064[35028] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 00:33:24,216[35028] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 00:33:24,216[35028] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#5_2025-03-05_00-08-12 finished
+2025-03-05 00:33:24,419[35028] - OBS_Win - INFO - not in software yet
+2025-03-05 00:33:24,733[35028] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 00:33:28,305[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 00:33:28,305[35028] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #4...
+2025-03-05 00:34:26,327[35028] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 00:34:29,931[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 00:34:30,432[35028] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 00:34:33,787[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 00:34:33,787[35028] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #5...
+2025-03-05 00:35:07,315[35028] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 00:35:07,950[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 00:35:11,168[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 00:35:11,527[35028] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 00:59:41,191[35028] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 00:59:41,191[35028] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#6_2025-03-05_00-34-29 finished
+2025-03-05 00:59:41,393[35028] - OBS_Win - INFO - not in software yet
+2025-03-05 00:59:41,728[35028] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 00:59:45,280[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 00:59:45,280[35028] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #5...
+2025-03-05 01:00:42,887[35028] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 01:00:46,491[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 01:00:46,979[35028] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 01:00:50,350[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 01:00:50,350[35028] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #6...
+2025-03-05 01:01:24,515[35028] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 01:01:25,133[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 01:01:28,358[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 01:01:28,699[35028] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 01:26:01,314[35028] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 01:26:01,314[35028] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#7_2025-03-05_01-00-46 finished
+2025-03-05 01:26:01,533[35028] - OBS_Win - INFO - not in software yet
+2025-03-05 01:26:01,861[35028] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 01:26:05,437[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 01:26:05,437[35028] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #6...
+2025-03-05 01:27:02,400[35028] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 01:27:06,019[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 01:27:06,490[35028] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 01:27:09,858[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 01:27:09,858[35028] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #7...
+2025-03-05 01:27:44,162[35028] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 01:27:44,780[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 01:27:48,016[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 01:27:48,343[35028] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 01:52:23,731[35028] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 01:52:23,732[35028] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#8_2025-03-05_01-27-06 finished
+2025-03-05 01:52:23,945[35028] - OBS_Win - INFO - not in software yet
+2025-03-05 01:52:24,283[35028] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 01:52:27,854[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 01:52:27,854[35028] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #7...
+2025-03-05 01:53:24,456[35028] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 01:53:28,091[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 01:53:28,578[35028] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 01:53:31,940[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 01:53:31,940[35028] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #8...
+2025-03-05 01:54:06,757[35028] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 01:54:07,360[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 01:54:10,607[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 01:54:10,922[35028] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 02:18:43,650[35028] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 02:18:43,650[35028] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#9_2025-03-05_01-53-28 finished
+2025-03-05 02:18:43,862[35028] - OBS_Win - INFO - not in software yet
+2025-03-05 02:18:44,212[35028] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 02:18:47,791[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 02:18:47,791[35028] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #8...
+2025-03-05 02:19:44,564[35028] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 02:19:48,188[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 02:19:48,814[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 02:19:48,814[35028] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #9...
+2025-03-05 02:20:24,069[35028] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 02:20:24,699[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 02:20:27,935[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 02:20:28,275[35028] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 02:32:45,636[35028] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 02:32:55,649[35028] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 02:33:05,660[35028] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 02:33:15,674[35028] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 02:33:25,674[35028] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 02:33:46,995[35028] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 02:33:57,010[35028] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 02:34:07,015[35028] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 02:34:17,865[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 02:34:18,201[35028] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 02:34:21,412[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 02:34:21,741[35028] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 2 in 3 times...
+2025-03-05 02:44:58,221[35028] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 02:44:58,221[35028] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#10_2025-03-05_02-19-48 finished
+2025-03-05 02:44:58,423[35028] - OBS_Win - INFO - not in software yet
+2025-03-05 02:44:58,771[35028] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 02:45:02,362[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 02:45:02,362[35028] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #9...
+2025-03-05 02:45:59,364[35028] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 02:46:02,996[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 02:46:03,473[35028] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 02:46:06,820[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 02:46:06,820[35028] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #10...
+2025-03-05 02:46:42,563[35028] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 02:46:43,195[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 02:46:46,404[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 02:46:46,754[35028] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 03:10:35,545[35028] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 03:10:35,545[35028] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#11_2025-03-05_02-46-02 finished
+2025-03-05 03:10:35,750[35028] - OBS_Win - INFO - not in software yet
+2025-03-05 03:10:36,095[35028] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 03:10:39,651[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 03:10:39,651[35028] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #10...
+2025-03-05 03:11:37,043[35028] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 03:11:40,630[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 03:11:41,079[35028] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 03:11:44,411[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 03:11:44,411[35028] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #11...
+2025-03-05 03:12:20,415[35028] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 03:12:20,998[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 03:12:24,225[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 03:12:24,576[35028] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 03:36:57,940[35028] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 03:36:57,940[35028] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#12_2025-03-05_03-11-40 finished
+2025-03-05 03:36:58,145[35028] - OBS_Win - INFO - not in software yet
+2025-03-05 03:36:58,482[35028] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 03:37:02,065[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 03:37:02,065[35028] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #11...
+2025-03-05 03:38:00,015[35028] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 03:38:03,627[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 03:38:04,097[35028] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 03:38:07,468[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 03:38:07,468[35028] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #12...
+2025-03-05 03:38:44,117[35028] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 03:38:44,718[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 03:38:47,937[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 03:38:48,275[35028] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 04:03:22,010[35028] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 04:03:22,011[35028] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#13_2025-03-05_03-38-03 finished
+2025-03-05 04:03:22,217[35028] - OBS_Win - INFO - not in software yet
+2025-03-05 04:03:22,551[35028] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 04:03:26,107[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 04:03:26,107[35028] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #12...
+2025-03-05 04:04:24,383[35028] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 04:04:27,970[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 04:04:28,431[35028] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 04:04:31,781[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 04:04:31,781[35028] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #13...
+2025-03-05 04:05:08,775[35028] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 04:05:09,359[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 04:05:12,580[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 04:05:12,919[35028] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 04:29:46,277[35028] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 04:29:46,278[35028] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#14_2025-03-05_04-04-27 finished
+2025-03-05 04:29:46,480[35028] - OBS_Win - INFO - not in software yet
+2025-03-05 04:29:46,808[35028] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 04:29:50,381[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 04:29:50,381[35028] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #13...
+2025-03-05 04:30:49,089[35028] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 04:30:52,678[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 04:30:53,136[35028] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 04:30:56,497[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 04:30:56,497[35028] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #14...
+2025-03-05 04:31:33,880[35028] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 04:31:34,483[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 04:31:37,711[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 04:31:38,074[35028] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 04:56:10,983[35028] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 04:56:10,983[35028] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#15_2025-03-05_04-30-52 finished
+2025-03-05 04:56:11,181[35028] - OBS_Win - INFO - not in software yet
+2025-03-05 04:56:11,522[35028] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 04:56:15,104[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 04:56:15,104[35028] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #14...
+2025-03-05 04:57:14,416[35028] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 04:57:18,008[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 04:57:18,501[35028] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 04:57:21,853[35028] - OBS_Win - INFO - OBS_Win started
+2025-03-05 04:57:21,853[35028] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #15...
+2025-03-05 04:57:59,629[35028] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 04:58:00,230[35028] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 04:58:03,445[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 04:58:03,788[35028] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 05:06:01,767[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 05:06:02,080[35028] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 05:06:05,303[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 05:06:05,628[35028] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 2 in 3 times...
+2025-03-05 05:06:08,845[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 05:06:09,191[35028] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 3 in 3 times...
+2025-03-05 05:06:12,410[35028] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 05:06:12,410[35028] - EC_Lab_Win11 - WARNING - failed to open EC_Lab_Win11
+2025-03-05 05:06:12,410[35028] - RobotTest_AcidicPlatform - ERROR - failed to open EC_Lab_Win11
+Traceback (most recent call last):
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 45, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 189, in run
+    self.test_main_workflow(
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 296, in test_main_workflow
+    self.check_test_finished()
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 326, in check_test_finished
+    self.ec_lab.open_software()
+  File "C:\Users\li\PycharmProjects\catalyst\software_control\software_control_base.py", line 133, in open_software
+    raise SystemError(f'failed to open {self.name}')
+SystemError: failed to open EC_Lab_Win11
+2025-03-05 11:28:55,268[18184] - Database - INFO - Database MOR_manual_SOBOL_9comps_diffHeating connected successfully!
+2025-03-05 11:28:55,299[18184] - Database - INFO - Schema active_learning created successfully!
+2025-03-05 11:28:55,308[18184] - Database - INFO - Schema botorch created successfully!
+2025-03-05 11:28:55,317[18184] - Database - INFO - Schema test_raw_data created successfully!
+2025-03-05 11:28:55,458[18184] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2025-03-05 11:28:55,593[18184] - Database - INFO - Table recipe column consistency checked successfully!
+2025-03-05 11:28:55,720[18184] - Database - INFO - Table sample already exists on server, checking column consistency...
+2025-03-05 11:28:55,852[18184] - Database - INFO - Table sample column consistency checked successfully!
+2025-03-05 11:28:55,987[18184] - Database - INFO - Table performance already exists on server, checking column consistency...
+2025-03-05 11:28:56,123[18184] - Database - INFO - Table performance column consistency checked successfully!
+2025-03-05 11:28:59,845[18184] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-03-05 11:29:11,731[18184] - OBS_Win - INFO - OBS_Win started
+2025-03-05 11:29:11,731[18184] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #16...
+2025-03-05 11:29:53,961[18184] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 11:29:54,737[18184] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 11:29:58,027[18184] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 11:29:58,433[18184] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 11:30:34,627[18184] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 11:30:44,631[18184] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 11:30:54,640[18184] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 11:31:04,644[18184] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 11:31:14,648[18184] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 11:35:11,264[18184] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 11:35:21,271[18184] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 11:35:31,281[18184] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 11:36:50,316[18184] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 11:37:45,587[18184] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 11:38:40,814[18184] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 11:39:13,773[18184] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 11:39:23,777[18184] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 11:49:43,399[18184] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 11:49:53,411[18184] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 11:50:04,305[18184] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 11:50:04,637[18184] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 11:50:42,201[18184] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 11:50:42,201[18184] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#17_2025-03-05_11-29-10 finished
+2025-03-05 11:50:42,434[18184] - OBS_Win - INFO - not in software yet
+2025-03-05 11:50:42,771[18184] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 11:50:46,438[18184] - OBS_Win - INFO - OBS_Win started
+2025-03-05 11:50:46,438[18184] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #16...
+2025-03-05 11:51:46,756[18184] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 11:51:50,515[18184] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 11:51:51,158[18184] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 11:51:54,547[18184] - OBS_Win - INFO - OBS_Win started
+2025-03-05 11:51:54,547[18184] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #17...
+2025-03-05 11:52:33,199[18184] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 11:52:33,926[18184] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 11:52:37,202[18184] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 11:52:37,579[18184] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 12:13:21,926[18184] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 12:13:21,926[18184] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#18_2025-03-05_11-51-50 finished
+2025-03-05 12:13:22,130[18184] - OBS_Win - INFO - not in software yet
+2025-03-05 12:13:22,464[18184] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 12:13:26,113[18184] - OBS_Win - INFO - OBS_Win started
+2025-03-05 12:13:26,113[18184] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #17...
+2025-03-05 12:14:26,860[18184] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 12:14:30,608[18184] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 12:14:31,447[18184] - OBS_Win - INFO - OBS_Win started
+2025-03-05 12:14:31,447[18184] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #18...
+2025-03-05 12:15:10,607[18184] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 12:15:11,429[18184] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 12:15:14,729[18184] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 12:15:15,128[18184] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 12:36:00,047[18184] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 12:36:00,047[18184] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#19_2025-03-05_12-14-30 finished
+2025-03-05 12:36:00,279[18184] - OBS_Win - INFO - not in software yet
+2025-03-05 12:36:00,606[18184] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 12:36:04,281[18184] - OBS_Win - INFO - OBS_Win started
+2025-03-05 12:36:04,281[18184] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #18...
+2025-03-05 12:37:05,563[18184] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 12:37:09,355[18184] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 12:37:09,923[18184] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 12:37:13,348[18184] - OBS_Win - INFO - OBS_Win started
+2025-03-05 12:37:13,348[18184] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #19...
+2025-03-05 12:37:52,999[18184] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 12:37:53,883[18184] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 12:37:57,205[18184] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 12:37:57,645[18184] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 12:39:18,846[18184] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 12:58:40,276[18184] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 12:58:40,276[18184] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#20_2025-03-05_12-37-09 finished
+2025-03-05 12:58:40,482[18184] - OBS_Win - INFO - not in software yet
+2025-03-05 12:58:40,810[18184] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 12:58:44,542[18184] - OBS_Win - INFO - OBS_Win started
+2025-03-05 12:58:44,543[18184] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #19...
+2025-03-05 12:59:46,232[18184] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 12:59:50,223[18184] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 12:59:51,250[18184] - OBS_Win - INFO - OBS_Win started
+2025-03-05 12:59:51,250[18184] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #20...
+2025-03-05 13:00:31,380[18184] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 13:00:32,388[18184] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 13:00:35,755[18184] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 13:00:36,319[18184] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 13:09:19,229[18184] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 13:11:00,709[18184] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 13:11:01,035[18184] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 13:11:04,244[18184] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 13:11:04,571[18184] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 2 in 3 times...
+2025-03-05 13:11:07,764[18184] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 13:11:08,094[18184] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 3 in 3 times...
+2025-03-05 13:11:11,303[18184] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 13:11:11,304[18184] - EC_Lab_Win11 - WARNING - failed to open EC_Lab_Win11
+2025-03-05 13:11:11,304[18184] - RobotTest_AcidicPlatform - ERROR - failed to open EC_Lab_Win11
+Traceback (most recent call last):
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 45, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 189, in run
+    self.test_main_workflow(
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 296, in test_main_workflow
+    self.check_test_finished()
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 326, in check_test_finished
+    self.ec_lab.open_software()
+  File "C:\Users\li\PycharmProjects\catalyst\software_control\software_control_base.py", line 133, in open_software
+    raise SystemError(f'failed to open {self.name}')
+SystemError: failed to open EC_Lab_Win11
+2025-03-05 13:37:20,076[20784] - Database - INFO - Database MOR_manual_SOBOL_9comps_diffHeating connected successfully!
+2025-03-05 13:37:20,134[20784] - Database - INFO - Schema active_learning created successfully!
+2025-03-05 13:37:20,143[20784] - Database - INFO - Schema botorch created successfully!
+2025-03-05 13:37:20,152[20784] - Database - INFO - Schema test_raw_data created successfully!
+2025-03-05 13:37:20,319[20784] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2025-03-05 13:37:20,450[20784] - Database - INFO - Table recipe column consistency checked successfully!
+2025-03-05 13:37:20,580[20784] - Database - INFO - Table sample already exists on server, checking column consistency...
+2025-03-05 13:37:20,708[20784] - Database - INFO - Table sample column consistency checked successfully!
+2025-03-05 13:37:20,836[20784] - Database - INFO - Table performance already exists on server, checking column consistency...
+2025-03-05 13:37:20,968[20784] - Database - INFO - Table performance column consistency checked successfully!
+2025-03-05 13:37:22,150[20784] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27, 27: 28, 28: 29, 29: 30, 30: 31, 31: 32, 32: 33, 33: 34, 34: 35, 35: 36}
+2025-03-05 13:37:36,211[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 13:37:36,211[20784] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #21...
+2025-03-05 13:38:22,828[20784] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 13:38:23,545[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 13:38:26,774[20784] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 13:38:27,146[20784] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 13:59:05,601[20784] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 13:59:05,601[20784] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#22_2025-03-05_13-37-35 finished
+2025-03-05 13:59:05,814[20784] - OBS_Win - INFO - not in software yet
+2025-03-05 13:59:06,145[20784] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 13:59:09,700[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 13:59:09,700[20784] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #21...
+2025-03-05 14:00:12,022[20784] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 14:00:15,673[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 14:00:16,179[20784] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 14:00:19,554[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 14:00:19,554[20784] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #22...
+2025-03-05 14:01:00,376[20784] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 14:01:01,056[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 14:01:04,308[20784] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 14:01:04,640[20784] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 14:11:00,686[20784] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 14:11:10,699[20784] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 14:11:20,699[20784] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 14:11:30,713[20784] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 14:11:40,719[20784] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 14:21:46,499[20784] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 14:21:46,499[20784] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#23_2025-03-05_14-00-15 finished
+2025-03-05 14:21:46,700[20784] - OBS_Win - INFO - not in software yet
+2025-03-05 14:21:47,039[20784] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 14:21:50,877[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 14:21:50,878[20784] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #22...
+2025-03-05 14:22:53,928[20784] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 14:22:57,819[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 14:22:58,693[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 14:22:58,693[20784] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #23...
+2025-03-05 14:23:39,961[20784] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 14:23:40,925[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 14:23:44,255[20784] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 14:23:44,733[20784] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 14:44:22,002[20784] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 14:44:22,002[20784] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#24_2025-03-05_14-22-57 finished
+2025-03-05 14:44:22,204[20784] - OBS_Win - INFO - not in software yet
+2025-03-05 14:44:22,522[20784] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 14:44:26,318[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 14:44:26,318[20784] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #23...
+2025-03-05 14:45:29,295[20784] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 14:45:32,979[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 14:45:33,513[20784] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 14:45:36,897[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 14:45:36,897[20784] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #24...
+2025-03-05 14:46:18,610[20784] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 14:46:19,477[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 14:46:22,824[20784] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 14:46:23,235[20784] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 14:51:28,352[20784] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 15:06:59,242[20784] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 15:06:59,242[20784] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#25_2025-03-05_14-45-32 finished
+2025-03-05 15:06:59,439[20784] - OBS_Win - INFO - not in software yet
+2025-03-05 15:06:59,739[20784] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 15:07:03,658[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 15:07:03,658[20784] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #24...
+2025-03-05 15:08:07,689[20784] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 15:08:11,580[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 15:08:12,450[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 15:08:12,450[20784] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #25...
+2025-03-05 15:08:54,714[20784] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 15:08:55,546[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 15:08:58,832[20784] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 15:08:59,213[20784] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 15:29:38,598[20784] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 15:29:38,598[20784] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#26_2025-03-05_15-08-11 finished
+2025-03-05 15:29:38,801[20784] - OBS_Win - INFO - not in software yet
+2025-03-05 15:29:39,129[20784] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 15:29:42,884[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 15:29:42,885[20784] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #25...
+2025-03-05 15:30:47,128[20784] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 15:30:51,128[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 15:30:52,057[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 15:30:52,057[20784] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #26...
+2025-03-05 15:31:34,807[20784] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 15:31:35,592[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 15:31:38,897[20784] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 15:31:39,337[20784] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 15:52:21,604[20784] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 15:52:21,605[20784] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#27_2025-03-05_15-30-51 finished
+2025-03-05 15:52:21,803[20784] - OBS_Win - INFO - not in software yet
+2025-03-05 15:52:22,117[20784] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 15:52:25,916[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 15:52:25,916[20784] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #26...
+2025-03-05 15:53:30,949[20784] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 15:53:34,670[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 15:53:35,470[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 15:53:35,471[20784] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #27...
+2025-03-05 15:54:18,565[20784] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 15:54:19,351[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 15:54:22,664[20784] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 15:54:23,084[20784] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 16:15:02,303[20784] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 16:15:02,304[20784] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#28_2025-03-05_15-53-34 finished
+2025-03-05 16:15:02,511[20784] - OBS_Win - INFO - not in software yet
+2025-03-05 16:15:02,834[20784] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 16:15:06,581[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 16:15:06,582[20784] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #27...
+2025-03-05 16:16:11,724[20784] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 16:16:15,614[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 16:16:16,437[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 16:16:16,437[20784] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #28...
+2025-03-05 16:16:59,960[20784] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 16:17:00,919[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 16:17:04,259[20784] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 16:17:04,695[20784] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 16:37:46,585[20784] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 16:37:46,585[20784] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#29_2025-03-05_16-16-15 finished
+2025-03-05 16:37:46,772[20784] - OBS_Win - INFO - not in software yet
+2025-03-05 16:37:47,105[20784] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 16:37:50,909[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 16:37:50,910[20784] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #28...
+2025-03-05 16:38:56,394[20784] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 16:39:00,116[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 16:39:01,012[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 16:39:01,012[20784] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #29...
+2025-03-05 16:39:45,212[20784] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 16:39:46,029[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 16:39:49,334[20784] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 16:39:49,757[20784] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 17:00:31,597[20784] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 17:00:31,597[20784] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#30_2025-03-05_16-39-00 finished
+2025-03-05 17:00:31,806[20784] - OBS_Win - INFO - not in software yet
+2025-03-05 17:00:32,127[20784] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 17:00:35,940[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 17:00:35,941[20784] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #29...
+2025-03-05 17:01:42,058[20784] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 17:01:45,832[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 17:01:46,662[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 17:01:46,662[20784] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #30...
+2025-03-05 17:02:30,721[20784] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 17:02:31,542[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 17:02:34,854[20784] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 17:02:35,281[20784] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 17:23:17,878[20784] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 17:23:17,878[20784] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#31_2025-03-05_17-01-45 finished
+2025-03-05 17:23:18,092[20784] - OBS_Win - INFO - not in software yet
+2025-03-05 17:23:18,433[20784] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 17:23:22,230[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 17:23:22,230[20784] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #30...
+2025-03-05 17:24:22,198[20784] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 17:24:26,049[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 17:24:26,947[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 17:24:26,947[20784] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #31...
+2025-03-05 17:24:58,524[20784] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 17:24:59,321[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 17:25:02,654[20784] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 17:25:03,132[20784] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 17:45:44,914[20784] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 17:45:44,914[20784] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#32_2025-03-05_17-24-26 finished
+2025-03-05 17:45:45,115[20784] - OBS_Win - INFO - not in software yet
+2025-03-05 17:45:45,438[20784] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 17:45:49,171[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 17:45:49,171[20784] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #31...
+2025-03-05 17:46:48,877[20784] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 17:46:52,755[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 17:46:53,662[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 17:46:53,663[20784] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #32...
+2025-03-05 17:47:25,730[20784] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 17:47:26,640[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 17:47:29,949[20784] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 17:47:30,401[20784] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 18:08:13,406[20784] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 18:08:13,406[20784] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#33_2025-03-05_17-46-52 finished
+2025-03-05 18:08:13,615[20784] - OBS_Win - INFO - not in software yet
+2025-03-05 18:08:13,932[20784] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 18:08:17,715[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 18:08:17,715[20784] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #32...
+2025-03-05 18:09:16,751[20784] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 18:09:20,621[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 18:09:21,475[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 18:09:21,476[20784] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #33...
+2025-03-05 18:09:54,124[20784] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 18:09:55,079[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 18:09:58,390[20784] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 18:09:58,832[20784] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 18:30:30,650[20784] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 18:30:30,650[20784] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#34_2025-03-05_18-09-20 finished
+2025-03-05 18:30:30,854[20784] - OBS_Win - INFO - not in software yet
+2025-03-05 18:30:31,197[20784] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 18:30:34,893[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 18:30:34,893[20784] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #33...
+2025-03-05 18:31:33,211[20784] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 18:31:37,005[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 18:31:37,881[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 18:31:37,882[20784] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #34...
+2025-03-05 18:32:10,918[20784] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 18:32:11,785[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 18:32:15,083[20784] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 18:32:15,500[20784] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 18:52:57,544[20784] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 18:52:57,544[20784] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#35_2025-03-05_18-31-37 finished
+2025-03-05 18:52:57,752[20784] - OBS_Win - INFO - not in software yet
+2025-03-05 18:52:58,089[20784] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 18:53:01,791[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 18:53:01,791[20784] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #34...
+2025-03-05 18:53:59,765[20784] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 18:54:03,694[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 18:54:04,520[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 18:54:04,521[20784] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #35...
+2025-03-05 18:54:37,784[20784] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 18:54:38,652[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 18:54:41,963[20784] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 18:54:42,384[20784] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 19:15:22,823[20784] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 19:15:22,823[20784] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#36_2025-03-05_18-54-03 finished
+2025-03-05 19:15:23,034[20784] - OBS_Win - INFO - not in software yet
+2025-03-05 19:15:23,357[20784] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 19:15:26,923[20784] - OBS_Win - INFO - OBS_Win started
+2025-03-05 19:15:26,923[20784] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #35...
+2025-03-05 19:16:24,368[20784] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 19:16:28,032[20784] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 20:43:40,265[41156] - Database - INFO - Database MOR_manual_SOBOL_9comps_diffHeating connected successfully!
+2025-03-05 20:43:40,316[41156] - Database - INFO - Schema active_learning created successfully!
+2025-03-05 20:43:40,325[41156] - Database - INFO - Schema botorch created successfully!
+2025-03-05 20:43:40,333[41156] - Database - INFO - Schema test_raw_data created successfully!
+2025-03-05 20:43:40,477[41156] - Database - INFO - Table recipe already exists on server, checking column consistency...
+2025-03-05 20:43:40,615[41156] - Database - INFO - Table recipe column consistency checked successfully!
+2025-03-05 20:43:40,743[41156] - Database - INFO - Table sample already exists on server, checking column consistency...
+2025-03-05 20:43:40,879[41156] - Database - INFO - Table sample column consistency checked successfully!
+2025-03-05 20:43:41,014[41156] - Database - INFO - Table performance already exists on server, checking column consistency...
+2025-03-05 20:43:41,158[41156] - Database - INFO - Table performance column consistency checked successfully!
+2025-03-05 20:43:45,562[41156] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27, 27: 28, 28: 29, 29: 30, 30: 31, 31: 32, 32: 33, 33: 34, 34: 35, 35: 36}
+2025-03-05 20:43:51,630[41156] - OBS_Win - INFO - not in software yet
+2025-03-05 20:43:51,992[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 20:43:55,699[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-05 20:43:55,699[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-03-05 20:44:34,862[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 20:44:35,572[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 20:44:38,869[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 20:44:39,255[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 21:09:15,405[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 21:09:15,405[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#1_2025-03-05_20-43-51 finished
+2025-03-05 21:09:15,612[41156] - OBS_Win - INFO - not in software yet
+2025-03-05 21:09:15,925[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 21:09:19,543[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-05 21:09:19,543[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #0...
+2025-03-05 21:10:19,380[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 21:10:23,058[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 21:10:23,543[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 21:10:26,941[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-05 21:10:26,942[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #1...
+2025-03-05 21:10:58,809[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 21:10:59,439[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 21:11:02,666[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 21:11:02,997[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 21:29:47,073[41156] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 21:29:57,889[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 21:29:58,185[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 21:30:01,388[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 21:30:01,713[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 2 in 3 times...
+2025-03-05 21:35:30,090[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 21:35:30,090[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#2_2025-03-05_21-10-23 finished
+2025-03-05 21:35:30,291[41156] - OBS_Win - INFO - not in software yet
+2025-03-05 21:35:30,615[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 21:35:34,159[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-05 21:35:34,159[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #1...
+2025-03-05 21:36:33,508[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 21:36:37,115[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 21:36:37,567[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 21:36:40,905[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-05 21:36:40,905[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #2...
+2025-03-05 21:37:13,231[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 21:37:13,825[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 21:37:17,041[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 21:37:17,350[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 22:01:48,098[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 22:01:48,098[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#3_2025-03-05_21-36-37 finished
+2025-03-05 22:01:48,290[41156] - OBS_Win - INFO - not in software yet
+2025-03-05 22:01:48,596[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 22:01:52,136[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-05 22:01:52,136[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #2...
+2025-03-05 22:02:51,070[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 22:02:54,631[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 22:02:55,046[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 22:02:58,401[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-05 22:02:58,401[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-03-05 22:03:31,001[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 22:03:31,586[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 22:03:34,799[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 22:03:35,115[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 22:28:07,373[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 22:28:07,374[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#4_2025-03-05_22-02-54 finished
+2025-03-05 22:28:07,573[41156] - OBS_Win - INFO - not in software yet
+2025-03-05 22:28:07,886[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 22:28:11,421[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-05 22:28:11,421[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-03-05 22:29:09,990[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 22:29:13,551[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 22:29:13,994[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 22:29:17,322[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-05 22:29:17,322[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #4...
+2025-03-05 22:29:50,330[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 22:29:50,925[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 22:29:54,128[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 22:29:54,453[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 22:48:48,413[41156] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 22:48:58,427[41156] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 22:49:09,229[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 22:49:09,532[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 22:49:12,734[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 22:49:13,060[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 2 in 3 times...
+2025-03-05 22:54:30,533[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 22:54:30,533[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#5_2025-03-05_22-29-13 finished
+2025-03-05 22:54:30,725[41156] - OBS_Win - INFO - not in software yet
+2025-03-05 22:54:31,039[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 22:54:34,573[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-05 22:54:34,573[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #4...
+2025-03-05 22:55:32,806[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 22:55:36,386[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 22:55:36,813[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 22:55:40,148[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-05 22:55:40,148[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #5...
+2025-03-05 22:56:13,436[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 22:56:13,987[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 22:56:17,205[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 22:56:17,552[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 23:20:53,072[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 23:20:53,072[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#6_2025-03-05_22-55-36 finished
+2025-03-05 23:20:53,274[41156] - OBS_Win - INFO - not in software yet
+2025-03-05 23:20:53,618[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 23:20:57,171[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-05 23:20:57,171[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #5...
+2025-03-05 23:21:54,777[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 23:21:58,345[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 23:21:58,807[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 23:22:02,138[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-05 23:22:02,138[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #6...
+2025-03-05 23:22:36,160[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 23:22:36,745[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 23:22:39,959[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 23:22:40,276[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 23:28:31,571[41156] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 23:28:41,575[41156] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 23:28:51,581[41156] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 23:29:58,010[41156] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-05 23:30:08,889[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 23:30:09,208[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-05 23:30:12,421[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 23:30:12,739[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 2 in 3 times...
+2025-03-05 23:47:08,730[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-05 23:47:08,731[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#7_2025-03-05_23-21-58 finished
+2025-03-05 23:47:08,942[41156] - OBS_Win - INFO - not in software yet
+2025-03-05 23:47:09,271[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-05 23:47:12,796[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-05 23:47:12,796[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #6...
+2025-03-05 23:48:09,802[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-05 23:48:13,392[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 23:48:13,839[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-05 23:48:17,180[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-05 23:48:17,180[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #7...
+2025-03-05 23:48:51,535[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-05 23:48:52,133[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-05 23:48:55,367[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-05 23:48:55,696[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 00:13:31,146[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 00:13:31,146[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#8_2025-03-05_23-48-13 finished
+2025-03-06 00:13:31,333[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 00:13:31,657[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 00:13:35,200[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 00:13:35,200[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #7...
+2025-03-06 00:14:31,895[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 00:14:35,453[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 00:14:35,908[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 00:14:39,269[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 00:14:39,269[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #8...
+2025-03-06 00:15:14,074[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 00:15:14,640[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 00:15:17,855[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 00:15:18,183[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 00:38:00,156[41156] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-06 00:38:10,160[41156] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-06 00:38:20,164[41156] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-06 00:38:30,176[41156] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-06 00:39:13,970[41156] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-06 00:39:48,126[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 00:39:48,126[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#9_2025-03-06_00-14-35 finished
+2025-03-06 00:39:48,354[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 00:39:48,690[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 00:39:52,245[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 00:39:52,245[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #8...
+2025-03-06 00:40:48,971[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 00:40:52,591[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 00:40:53,082[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 00:40:56,451[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 00:40:56,451[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #9...
+2025-03-06 00:41:31,675[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 00:41:32,302[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 00:41:35,542[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 00:41:35,908[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 01:06:08,038[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 01:06:08,038[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#10_2025-03-06_00-40-52 finished
+2025-03-06 01:06:08,253[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 01:06:08,557[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 01:06:12,146[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 01:06:12,146[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #9...
+2025-03-06 01:07:09,210[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 01:07:12,876[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 01:07:13,532[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 01:07:13,532[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #10...
+2025-03-06 01:07:49,320[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 01:07:49,916[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 01:07:53,138[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 01:07:53,496[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 01:32:24,971[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 01:32:24,972[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#11_2025-03-06_01-07-12 finished
+2025-03-06 01:32:25,160[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 01:32:25,466[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 01:32:29,071[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 01:32:29,071[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #10...
+2025-03-06 01:33:26,631[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 01:33:30,274[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 01:33:30,757[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 01:33:34,135[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 01:33:34,135[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #11...
+2025-03-06 01:34:10,162[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 01:34:10,809[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 01:34:14,068[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 01:34:14,409[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 01:58:45,525[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 01:58:45,526[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#12_2025-03-06_01-33-30 finished
+2025-03-06 01:58:45,721[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 01:58:46,024[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 01:58:49,638[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 01:58:49,638[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #11...
+2025-03-06 01:59:47,466[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 01:59:51,124[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 01:59:51,612[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 01:59:55,003[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 01:59:55,003[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #12...
+2025-03-06 02:00:31,803[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 02:00:32,484[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 02:00:35,719[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 02:00:36,063[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 02:25:07,482[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 02:25:07,482[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#13_2025-03-06_01-59-51 finished
+2025-03-06 02:25:07,676[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 02:25:07,965[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 02:25:11,544[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 02:25:11,544[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #12...
+2025-03-06 02:26:09,954[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 02:26:13,612[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 02:26:14,115[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 02:26:17,469[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 02:26:17,469[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #13...
+2025-03-06 02:26:54,489[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 02:26:55,150[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 02:26:58,377[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 02:26:58,719[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 02:51:35,658[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 02:51:35,658[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#14_2025-03-06_02-26-13 finished
+2025-03-06 02:51:35,851[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 02:51:36,182[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 02:51:39,765[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 02:51:39,765[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #13...
+2025-03-06 02:52:38,557[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 02:52:42,187[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 02:52:42,697[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 02:52:46,051[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 02:52:46,051[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #14...
+2025-03-06 02:53:23,355[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 02:53:24,016[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 02:53:27,227[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 02:53:27,603[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 03:17:53,851[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 03:17:53,851[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#15_2025-03-06_02-52-42 finished
+2025-03-06 03:17:54,062[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 03:17:54,405[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 03:17:57,997[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 03:17:57,997[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #14...
+2025-03-06 03:18:57,405[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 03:19:01,099[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 03:19:01,606[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 03:19:04,986[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 03:19:04,987[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #15...
+2025-03-06 03:19:42,796[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 03:19:43,439[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 03:19:46,668[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 03:19:47,017[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 03:44:14,119[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 03:44:14,120[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#16_2025-03-06_03-19-01 finished
+2025-03-06 03:44:14,306[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 03:44:14,628[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 03:44:18,226[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 03:44:18,226[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #15...
+2025-03-06 03:45:17,842[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 03:45:21,496[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 03:45:22,015[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 03:45:25,392[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 03:45:25,392[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #16...
+2025-03-06 03:46:03,547[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 03:46:04,178[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 03:46:07,421[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 03:46:07,786[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 04:10:33,968[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 04:10:33,969[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#17_2025-03-06_03-45-21 finished
+2025-03-06 04:10:34,202[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 04:10:34,572[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 04:10:38,169[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 04:10:38,169[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #16...
+2025-03-06 04:11:38,299[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 04:11:41,965[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 04:11:42,464[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 04:11:45,817[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 04:11:45,817[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #17...
+2025-03-06 04:12:24,380[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 04:12:25,047[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 04:12:28,294[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 04:12:28,658[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 04:37:00,501[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 04:37:00,501[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#18_2025-03-06_04-11-41 finished
+2025-03-06 04:37:00,707[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 04:37:01,011[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 04:37:04,586[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 04:37:04,587[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #17...
+2025-03-06 04:38:05,138[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 04:38:08,802[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 04:38:09,271[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 04:38:12,621[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 04:38:12,621[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #18...
+2025-03-06 04:38:51,857[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 04:38:52,440[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 04:38:55,674[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 04:38:56,031[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 05:03:28,567[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 05:03:28,567[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#19_2025-03-06_04-38-08 finished
+2025-03-06 05:03:28,754[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 05:03:29,073[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 05:03:32,686[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 05:03:32,687[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #18...
+2025-03-06 05:04:33,859[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 05:04:37,536[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 05:04:38,068[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 05:04:41,423[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 05:04:41,423[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #19...
+2025-03-06 05:05:20,571[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 05:05:21,209[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 05:05:24,451[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 05:05:24,792[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 05:29:57,328[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 05:29:57,328[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#20_2025-03-06_05-04-37 finished
+2025-03-06 05:29:57,525[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 05:29:57,837[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 05:30:01,436[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 05:30:01,436[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #19...
+2025-03-06 05:31:02,769[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 05:31:06,420[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 05:31:06,943[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 05:31:10,333[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 05:31:10,333[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #20...
+2025-03-06 05:31:50,335[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 05:31:50,963[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 05:31:54,192[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 05:31:54,520[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 05:56:26,527[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 05:56:26,527[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#21_2025-03-06_05-31-06 finished
+2025-03-06 05:56:26,726[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 05:56:27,052[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 05:56:30,643[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 05:56:30,643[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #20...
+2025-03-06 05:57:32,645[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 05:57:36,265[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 05:57:36,942[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 05:57:36,942[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #21...
+2025-03-06 05:58:17,287[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 05:58:17,902[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 05:58:21,130[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 05:58:21,466[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 06:22:57,157[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 06:22:57,157[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#22_2025-03-06_05-57-36 finished
+2025-03-06 06:22:57,392[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 06:22:57,728[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 06:23:01,346[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 06:23:01,346[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #21...
+2025-03-06 06:24:03,798[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 06:24:07,477[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 06:24:08,157[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 06:24:08,157[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #22...
+2025-03-06 06:24:48,841[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 06:24:49,564[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 06:24:52,781[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 06:24:53,133[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 06:49:29,347[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 06:49:29,348[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#23_2025-03-06_06-24-07 finished
+2025-03-06 06:49:29,541[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 06:49:29,875[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 06:49:33,464[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 06:49:33,464[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #22...
+2025-03-06 06:50:36,236[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 06:50:39,861[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 06:50:40,363[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 06:50:43,739[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 06:50:43,739[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #23...
+2025-03-06 06:51:24,857[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 06:51:25,502[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 06:51:28,756[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 06:51:29,118[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 07:16:06,196[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 07:16:06,196[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#24_2025-03-06_06-50-39 finished
+2025-03-06 07:16:06,403[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 07:16:06,736[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 07:16:10,342[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 07:16:10,342[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #23...
+2025-03-06 07:17:13,400[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 07:17:17,033[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 07:17:17,542[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 07:17:20,918[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 07:17:20,920[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #24...
+2025-03-06 07:18:02,611[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 07:18:03,252[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 07:18:06,497[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 07:18:06,849[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 07:42:44,253[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 07:42:44,253[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#25_2025-03-06_07-17-17 finished
+2025-03-06 07:42:44,445[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 07:42:44,768[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 07:42:48,364[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 07:42:48,364[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #24...
+2025-03-06 07:43:51,988[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 07:43:55,602[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 07:43:56,127[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 07:43:59,513[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 07:43:59,513[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #25...
+2025-03-06 07:44:41,574[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 07:44:42,185[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 07:44:45,424[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 07:44:45,767[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 08:09:23,288[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 08:09:23,288[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#26_2025-03-06_07-43-55 finished
+2025-03-06 08:09:23,472[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 08:09:23,789[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 08:09:27,387[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 08:09:27,387[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #25...
+2025-03-06 08:10:31,430[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 08:10:35,064[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 08:10:35,570[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 08:10:38,940[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 08:10:38,940[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #26...
+2025-03-06 08:11:21,426[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 08:11:22,070[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 08:11:25,302[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 08:11:25,693[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 08:35:59,942[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 08:35:59,942[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#27_2025-03-06_08-10-35 finished
+2025-03-06 08:36:00,169[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 08:36:00,478[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 08:36:04,046[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 08:36:04,047[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #26...
+2025-03-06 08:37:08,541[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 08:37:12,169[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 08:37:12,670[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 08:37:16,033[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 08:37:16,033[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #27...
+2025-03-06 08:37:58,927[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 08:37:59,575[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 08:38:02,816[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 08:38:03,188[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 09:02:41,061[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 09:02:41,062[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#28_2025-03-06_08-37-12 finished
+2025-03-06 09:02:41,268[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 09:02:41,590[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 09:02:45,210[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 09:02:45,210[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #27...
+2025-03-06 09:03:50,045[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 09:03:53,699[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 09:03:54,248[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 09:03:57,606[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 09:03:57,606[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #28...
+2025-03-06 09:04:40,849[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 09:04:41,480[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 09:04:44,723[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 09:04:45,052[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 09:29:21,992[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 09:29:21,992[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#29_2025-03-06_09-03-53 finished
+2025-03-06 09:29:22,202[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 09:29:22,522[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 09:29:26,146[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 09:29:26,146[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #28...
+2025-03-06 09:30:31,431[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 09:30:35,066[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 09:30:35,556[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 09:30:38,905[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 09:30:38,905[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #29...
+2025-03-06 09:31:22,708[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 09:31:23,387[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 09:31:26,630[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 09:31:26,999[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 09:56:05,050[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 09:56:05,050[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#30_2025-03-06_09-30-35 finished
+2025-03-06 09:56:05,252[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 09:56:05,590[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 09:56:09,247[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 09:56:09,247[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #29...
+2025-03-06 09:57:14,852[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 09:57:18,568[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 09:57:19,279[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 09:57:19,279[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #30...
+2025-03-06 09:58:03,216[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 09:58:03,894[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 09:58:07,135[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 09:58:07,524[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 10:16:56,633[41156] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-03-06 10:17:07,471[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 10:17:07,798[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 10:17:11,018[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 10:17:11,340[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 2 in 3 times...
+2025-03-06 10:22:40,515[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 10:22:40,515[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#31_2025-03-06_09-57-18 finished
+2025-03-06 10:22:40,709[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 10:22:41,011[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 10:22:44,546[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 10:22:44,546[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #30...
+2025-03-06 10:23:43,949[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 10:23:47,521[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 10:23:47,967[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 10:23:51,281[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 10:23:51,281[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #31...
+2025-03-06 10:24:22,752[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 10:24:23,318[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 10:24:26,542[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 10:24:26,843[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 10:49:02,097[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 10:49:02,098[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#32_2025-03-06_10-23-47 finished
+2025-03-06 10:49:02,311[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 10:49:02,609[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 10:49:06,186[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 10:49:06,186[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #31...
+2025-03-06 10:50:05,275[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 10:50:08,850[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 10:50:09,300[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 10:50:12,637[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 10:50:12,637[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #32...
+2025-03-06 10:50:44,419[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 10:50:45,018[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 10:50:48,227[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 10:50:48,550[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 11:15:20,598[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 11:15:20,598[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#33_2025-03-06_10-50-08 finished
+2025-03-06 11:15:20,798[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 11:15:21,134[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 11:15:24,688[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 11:15:24,688[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #32...
+2025-03-06 11:16:23,323[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 11:16:26,885[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 11:16:27,347[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 11:16:30,682[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 11:16:30,682[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #33...
+2025-03-06 11:17:02,873[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 11:17:03,441[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 11:17:06,662[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 11:17:06,973[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 11:41:39,799[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 11:41:39,799[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#34_2025-03-06_11-16-26 finished
+2025-03-06 11:41:39,996[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 11:41:40,317[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 11:41:43,865[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 11:41:43,865[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #33...
+2025-03-06 11:42:42,046[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 11:42:45,630[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 11:42:46,084[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 11:42:49,427[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 11:42:49,427[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #34...
+2025-03-06 11:43:22,088[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 11:43:22,655[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 11:43:25,875[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 11:43:26,189[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 12:07:58,616[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 12:07:58,617[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#35_2025-03-06_11-42-45 finished
+2025-03-06 12:07:58,815[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 12:07:59,135[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 12:08:02,696[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 12:08:02,696[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #34...
+2025-03-06 12:09:00,346[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 12:09:03,914[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 12:09:04,360[41156] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-03-06 12:09:07,719[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 12:09:07,720[41156] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #35...
+2025-03-06 12:09:40,683[41156] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-03-06 12:09:41,268[41156] - OBS_Win - INFO - OBS_Win stopped
+2025-03-06 12:09:44,471[41156] - EC_Lab_Win11 - INFO - not in software yet
+2025-03-06 12:09:44,792[41156] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-03-06 12:34:16,287[41156] - EC_Lab_Win11 - INFO - test is complete
+2025-03-06 12:34:16,287[41156] - RobotTest_AcidicPlatform - INFO - test MOR_manual_SOBOL_9comps_diffHeating_sample#36_2025-03-06_12-09-03 finished
+2025-03-06 12:34:16,483[41156] - OBS_Win - INFO - not in software yet
+2025-03-06 12:34:16,802[41156] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-03-06 12:34:20,364[41156] - OBS_Win - INFO - OBS_Win started
+2025-03-06 12:34:20,364[41156] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #35...
+2025-03-06 12:35:17,657[41156] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-03-06 12:35:21,216[41156] - OBS_Win - INFO - OBS_Win stopped

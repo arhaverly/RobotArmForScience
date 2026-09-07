@@ -1,0 +1,1488 @@
+2025-12-17 19:51:45,296[41392] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-17 19:51:51,378[41392] - OBS_Win - INFO - not in software yet
+2025-12-17 19:51:51,719[41392] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-17 19:51:55,337[41392] - OBS_Win - INFO - OBS_Win started
+2025-12-17 19:51:55,337[41392] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-12-17 19:52:34,604[41392] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-17 19:52:35,222[41392] - OBS_Win - INFO - OBS_Win stopped
+2025-12-17 19:52:38,478[41392] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-17 19:52:38,817[41392] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-17 20:11:21,521[41392] - EC_Lab_Win11 - INFO - test is complete
+2025-12-17 20:11:21,522[41392] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#1_2025-12-17_19-51-51 finished
+2025-12-17 20:11:21,727[41392] - OBS_Win - INFO - not in software yet
+2025-12-17 20:11:22,052[41392] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-17 20:11:25,648[41392] - OBS_Win - INFO - OBS_Win started
+2025-12-17 20:11:25,648[41392] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #0...
+2025-12-17 20:12:20,177[41392] - RobotTest_AcidicPlatform - ERROR - robotic arm error!
+Traceback (most recent call last):
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 45, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 189, in run
+    self.test_main_workflow(
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 304, in test_main_workflow
+    self.arm.unload_sample(sample_rack_index=sample_rack_id)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm6\xarm6.py", line 91, in unload_sample
+    self.put_sample_back(sample_rack_index)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm6\xarm6.py", line 105, in put_sample_back
+    self.move_to_pos(sample_position, **self.config.pos_settings_dict['slow_2'])
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm6\xarm6.py", line 49, in move_to_pos
+    return self.set_position(*pos_rel, *args, **kwargs)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm_control.py", line 81, in error_checker
+    raise SystemError('robotic arm error!')
+SystemError: robotic arm error!
+2025-12-18 02:07:07,527[39300] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-18 02:07:22,623[39300] - OBS_Win - INFO - not in software yet
+2025-12-18 02:07:22,951[39300] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 02:07:26,535[39300] - OBS_Win - INFO - OBS_Win started
+2025-12-18 02:07:26,535[39300] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-12-18 02:08:05,650[39300] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-18 02:08:06,298[39300] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 02:08:09,545[39300] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 02:08:09,881[39300] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-18 02:08:13,358[39300] - EC_Lab_Win11 - INFO - channel 2 is not open
+2025-12-18 02:08:14,788[39300] - EC_Lab_Win11 - INFO - attempting to open channel 2, trial 1 in 3 times...
+2025-12-18 02:08:22,403[39300] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 02:08:25,633[39300] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 02:08:28,889[39300] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 02:08:32,137[39300] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 02:08:35,373[39300] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 02:14:04,694[27660] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-18 02:14:04,694[27660] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-18 02:14:19,707[27660] - OBS_Win - INFO - not in software yet
+2025-12-18 02:14:19,707[27660] - OBS_Win - INFO - not in software yet
+2025-12-18 02:14:20,041[27660] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 02:14:20,041[27660] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 02:14:23,617[27660] - OBS_Win - INFO - OBS_Win started
+2025-12-18 02:14:23,617[27660] - OBS_Win - INFO - OBS_Win started
+2025-12-18 02:14:23,617[27660] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-12-18 02:14:23,617[27660] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-12-18 02:15:02,793[27660] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-18 02:15:02,793[27660] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-18 02:15:03,469[27660] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 02:15:03,469[27660] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 02:15:06,740[27660] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 02:15:06,740[27660] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 02:15:07,066[27660] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-18 02:15:07,066[27660] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-18 02:15:10,537[27660] - EC_Lab_Win11 - INFO - channel 1 is not open
+2025-12-18 02:15:10,537[27660] - EC_Lab_Win11 - INFO - channel 1 is not open
+2025-12-18 02:15:11,982[27660] - EC_Lab_Win11 - INFO - attempting to open channel 1, trial 1 in 3 times...
+2025-12-18 02:15:11,982[27660] - EC_Lab_Win11 - INFO - attempting to open channel 1, trial 1 in 3 times...
+2025-12-18 02:19:29,672[27660] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 02:19:29,672[27660] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 02:19:39,682[27660] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 02:19:39,682[27660] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 02:19:49,696[27660] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 02:19:49,696[27660] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 02:19:59,697[27660] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 02:19:59,697[27660] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 02:20:09,707[27660] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 02:20:09,707[27660] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 02:20:19,720[27660] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 02:20:19,720[27660] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 02:20:29,727[27660] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 02:20:29,727[27660] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 13:14:50,918[29136] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-18 13:15:05,993[29136] - OBS_Win - INFO - not in software yet
+2025-12-18 13:15:06,335[29136] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 13:15:09,947[29136] - OBS_Win - INFO - OBS_Win started
+2025-12-18 13:15:09,947[29136] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-12-18 13:15:49,123[29136] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-18 13:15:49,706[29136] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 13:15:52,960[29136] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 13:15:53,272[29136] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-18 13:20:12,728[29136] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 13:34:52,316[29136] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 13:35:02,327[29136] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 13:35:12,335[29136] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 13:35:22,339[29136] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 13:41:56,370[29136] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 13:45:08,334[29136] - EC_Lab_Win11 - INFO - test is complete
+2025-12-18 13:45:08,334[29136] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#1_2025-12-18_13-15-05 finished
+2025-12-18 13:45:08,542[29136] - OBS_Win - INFO - not in software yet
+2025-12-18 13:45:08,897[29136] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 13:45:12,488[29136] - OBS_Win - INFO - OBS_Win started
+2025-12-18 13:45:12,488[29136] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #0...
+2025-12-18 13:46:11,713[29136] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-18 13:46:14,952[29136] - OBS_Win - INFO - not in software yet
+2025-12-18 13:46:15,296[29136] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 13:46:18,547[29136] - OBS_Win - INFO - not in software yet
+2025-12-18 14:28:56,126[39652] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-18 14:29:11,141[39652] - OBS_Win - INFO - not in software yet
+2025-12-18 14:29:11,481[39652] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 14:29:14,982[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:29:18,225[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:29:21,463[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:29:24,698[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:29:27,919[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:29:31,153[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:29:34,393[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:29:37,626[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:29:40,864[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:29:44,118[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:29:47,359[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:29:50,594[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:29:53,835[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:29:57,067[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:30:00,305[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:30:03,543[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:30:06,781[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:30:10,021[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:30:13,247[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:30:16,476[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:30:19,699[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:30:22,940[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:30:26,176[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:30:29,409[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:30:32,638[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:30:35,869[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:30:39,085[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:30:42,320[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:30:45,558[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:30:48,799[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:30:52,031[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:30:55,252[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:30:58,484[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:31:01,706[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:31:04,924[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:31:08,146[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:31:11,384[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:31:14,620[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:31:17,856[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:31:21,094[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:31:24,313[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:31:27,535[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:31:30,751[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:31:33,974[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:31:37,191[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:31:40,417[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:31:43,649[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:31:46,872[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:31:50,117[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:31:53,348[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:31:56,580[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:31:59,814[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:32:03,036[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:32:06,261[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:32:09,487[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:32:12,710[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:32:15,934[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:32:19,176[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:32:22,437[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:32:25,689[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:32:28,939[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:32:32,198[39652] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:32:35,555[39652] - OBS_Win - INFO - OBS_Win started
+2025-12-18 14:32:35,555[39652] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-12-18 14:32:59,645[39844] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-18 14:33:14,779[39844] - OBS_Win - INFO - not in software yet
+2025-12-18 14:33:15,115[39844] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 14:33:18,611[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:33:21,835[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:33:25,074[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:33:28,318[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:33:31,554[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:33:34,785[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:33:38,026[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:33:41,255[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:33:44,486[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:33:47,729[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:33:50,970[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:33:54,209[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:33:57,453[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:34:00,671[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:34:03,886[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:34:07,126[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:34:10,369[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:34:13,608[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:34:16,843[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:34:20,072[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:34:23,288[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:34:26,512[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:34:29,749[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:34:32,982[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:34:36,220[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:34:39,461[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:34:42,692[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:34:45,919[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:34:49,152[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:34:52,377[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:34:55,609[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:34:58,826[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:35:02,053[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:35:05,283[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:35:08,513[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:35:11,741[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:35:15,001[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:35:18,252[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:35:21,503[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:35:24,722[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:35:27,959[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:35:31,180[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:35:34,416[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:35:37,666[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:35:40,916[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:35:44,158[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:35:47,388[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:35:50,621[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:35:53,884[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:35:57,121[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:36:00,378[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:36:03,624[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:36:06,881[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:36:10,121[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:36:13,359[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:36:16,587[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:36:19,810[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:36:23,048[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:36:26,288[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:36:29,527[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:36:32,760[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:36:35,984[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:36:39,209[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:36:42,426[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:36:45,650[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:36:48,876[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:36:52,103[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:36:55,325[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:36:58,560[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:37:01,787[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:37:05,020[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:37:08,307[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 14:37:11,570[39844] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 16:45:06,223[45808] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-18 16:45:21,231[45808] - OBS_Win - INFO - not in software yet
+2025-12-18 16:45:21,571[45808] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 16:45:25,156[45808] - OBS_Win - INFO - OBS_Win started
+2025-12-18 16:45:25,156[45808] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-12-18 16:46:04,306[45808] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-18 16:46:04,923[45808] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 16:46:08,152[45808] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 16:46:08,479[45808] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-18 16:46:18,711[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:46:21,915[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:46:25,115[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:46:28,321[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:46:31,523[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:46:34,725[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:46:37,934[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:46:41,148[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:46:44,374[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:46:47,592[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:46:50,799[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:46:54,015[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:46:57,229[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:47:00,437[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:47:03,641[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:47:06,877[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:47:10,098[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:47:13,305[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:47:16,506[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:47:19,706[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:47:22,925[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:47:26,153[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 16:47:29,367[45808] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 17:03:06,463[40504] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-18 17:03:21,471[40504] - OBS_Win - INFO - not in software yet
+2025-12-18 17:03:21,786[40504] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 17:03:25,342[40504] - OBS_Win - INFO - OBS_Win started
+2025-12-18 17:03:25,342[40504] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-12-18 17:04:04,647[40504] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-18 17:04:05,231[40504] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 17:04:08,464[40504] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 17:04:08,770[40504] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-18 17:04:18,956[40504] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 17:04:22,157[40504] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 17:04:25,366[40504] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 17:04:28,569[40504] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 17:04:31,769[40504] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 17:04:34,976[40504] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 17:04:38,202[40504] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 17:04:41,422[40504] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-18 17:07:22,904[43512] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-18 17:07:37,931[43512] - OBS_Win - INFO - not in software yet
+2025-12-18 17:07:38,252[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 17:07:41,807[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 17:07:41,807[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-12-18 17:08:20,991[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-18 17:08:21,560[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 17:08:24,801[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 17:08:25,116[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-18 17:23:05,360[43512] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 17:23:15,364[43512] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 17:23:25,371[43512] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 17:23:36,215[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 17:23:36,519[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-18 17:23:39,756[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 17:23:40,088[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 2 in 3 times...
+2025-12-18 17:37:47,456[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-18 17:37:47,456[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#1_2025-12-18_17-07-37 finished
+2025-12-18 17:37:47,660[43512] - OBS_Win - INFO - not in software yet
+2025-12-18 17:37:47,973[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 17:37:51,531[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 17:37:51,531[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #0...
+2025-12-18 17:38:50,920[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-18 17:38:54,523[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 17:38:54,993[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 17:38:58,341[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 17:38:58,341[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #1...
+2025-12-18 17:39:30,600[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-18 17:39:31,185[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 17:39:34,438[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 17:39:34,746[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-18 18:09:06,932[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-18 18:09:06,933[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#2_2025-12-18_17-38-54 finished
+2025-12-18 18:09:07,135[43512] - OBS_Win - INFO - not in software yet
+2025-12-18 18:09:07,454[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 18:09:11,007[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 18:09:11,007[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #1...
+2025-12-18 18:10:09,844[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-18 18:10:13,437[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 18:10:13,883[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 18:10:17,230[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 18:10:17,230[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #2...
+2025-12-18 18:10:49,814[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-18 18:10:50,414[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 18:10:53,672[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 18:10:53,994[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-18 18:40:26,318[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-18 18:40:26,318[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#3_2025-12-18_18-10-13 finished
+2025-12-18 18:40:26,524[43512] - OBS_Win - INFO - not in software yet
+2025-12-18 18:40:26,847[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 18:40:30,404[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 18:40:30,404[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #2...
+2025-12-18 18:41:28,856[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-18 18:41:32,459[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 18:41:32,911[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 18:41:36,249[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 18:41:36,249[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-12-18 18:42:09,324[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-18 18:42:09,893[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 18:42:13,145[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 18:42:13,464[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-18 19:11:45,525[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-18 19:11:45,526[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#4_2025-12-18_18-41-32 finished
+2025-12-18 19:11:45,730[43512] - OBS_Win - INFO - not in software yet
+2025-12-18 19:11:46,049[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 19:11:49,586[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 19:11:49,586[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-12-18 19:12:47,689[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-18 19:12:51,289[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 19:12:51,739[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 19:12:55,086[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 19:12:55,086[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #4...
+2025-12-18 19:13:28,553[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-18 19:13:29,154[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 19:13:32,405[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 19:13:32,715[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-18 19:43:04,798[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-18 19:43:04,798[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#5_2025-12-18_19-12-51 finished
+2025-12-18 19:43:05,008[43512] - OBS_Win - INFO - not in software yet
+2025-12-18 19:43:05,326[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 19:43:08,895[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 19:43:08,895[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #4...
+2025-12-18 19:44:06,625[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-18 19:44:10,258[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 19:44:10,701[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 19:44:14,025[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 19:44:14,025[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #5...
+2025-12-18 19:44:47,808[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-18 19:44:48,389[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 19:44:51,621[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 19:44:51,936[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-18 20:13:03,551[43512] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 20:13:13,553[43512] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 20:13:23,562[43512] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 20:13:33,568[43512] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-18 20:13:44,431[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 20:13:44,750[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-18 20:14:22,227[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-18 20:14:22,227[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#6_2025-12-18_19-44-10 finished
+2025-12-18 20:14:22,425[43512] - OBS_Win - INFO - not in software yet
+2025-12-18 20:14:22,747[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 20:14:26,309[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 20:14:26,309[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #5...
+2025-12-18 20:15:23,509[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-18 20:15:27,108[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 20:15:27,555[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 20:15:30,888[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 20:15:30,888[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #6...
+2025-12-18 20:16:05,317[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-18 20:16:05,886[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 20:16:09,130[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 20:16:09,446[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-18 20:45:41,829[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-18 20:45:41,830[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#7_2025-12-18_20-15-27 finished
+2025-12-18 20:45:42,036[43512] - OBS_Win - INFO - not in software yet
+2025-12-18 20:45:42,365[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 20:45:45,934[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 20:45:45,934[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #6...
+2025-12-18 20:46:42,721[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-18 20:46:46,279[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 20:46:46,715[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 20:46:50,038[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 20:46:50,038[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #7...
+2025-12-18 20:47:24,830[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-18 20:47:25,413[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 20:47:28,655[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 20:47:28,962[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-18 21:17:00,582[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-18 21:17:00,583[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#8_2025-12-18_20-46-46 finished
+2025-12-18 21:17:00,787[43512] - OBS_Win - INFO - not in software yet
+2025-12-18 21:17:01,100[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 21:17:04,663[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 21:17:04,663[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #7...
+2025-12-18 21:18:01,277[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-18 21:18:04,924[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 21:18:05,351[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 21:18:08,695[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 21:18:08,695[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #8...
+2025-12-18 21:18:43,989[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-18 21:18:44,572[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 21:18:47,816[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 21:18:48,129[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-18 21:48:20,063[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-18 21:48:20,063[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#9_2025-12-18_21-18-04 finished
+2025-12-18 21:48:20,267[43512] - OBS_Win - INFO - not in software yet
+2025-12-18 21:48:20,572[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 21:48:24,133[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 21:48:24,133[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #8...
+2025-12-18 21:49:21,231[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-18 21:49:24,845[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 21:49:25,282[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 21:49:28,628[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 21:49:28,629[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #9...
+2025-12-18 21:50:04,197[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-18 21:50:04,779[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 21:50:08,018[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 21:50:08,335[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-18 22:19:41,956[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-18 22:19:41,956[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#10_2025-12-18_21-49-24 finished
+2025-12-18 22:19:42,155[43512] - OBS_Win - INFO - not in software yet
+2025-12-18 22:19:42,487[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 22:19:46,055[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 22:19:46,055[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #9...
+2025-12-18 22:20:43,541[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-18 22:20:47,144[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 22:20:47,594[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 22:20:50,927[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 22:20:50,927[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #10...
+2025-12-18 22:21:26,885[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-18 22:21:27,484[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 22:21:30,729[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 22:21:31,045[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-18 22:51:02,828[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-18 22:51:02,828[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#11_2025-12-18_22-20-47 finished
+2025-12-18 22:51:03,030[43512] - OBS_Win - INFO - not in software yet
+2025-12-18 22:51:03,349[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 22:51:06,906[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 22:51:06,906[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #10...
+2025-12-18 22:52:04,966[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-18 22:52:08,577[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 22:52:09,024[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 22:52:12,356[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 22:52:12,356[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #11...
+2025-12-18 22:52:48,826[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-18 22:52:49,412[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 22:52:52,650[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 22:52:52,969[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-18 23:22:24,046[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-18 23:22:24,046[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#12_2025-12-18_22-52-08 finished
+2025-12-18 23:22:24,256[43512] - OBS_Win - INFO - not in software yet
+2025-12-18 23:22:24,591[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 23:22:28,134[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 23:22:28,134[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #11...
+2025-12-18 23:23:26,413[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-18 23:23:30,014[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 23:23:30,449[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 23:23:33,772[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 23:23:33,772[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #12...
+2025-12-18 23:24:10,840[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-18 23:24:11,393[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 23:24:14,630[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 23:24:14,950[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-18 23:53:46,597[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-18 23:53:46,597[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#13_2025-12-18_23-23-30 finished
+2025-12-18 23:53:46,794[43512] - OBS_Win - INFO - not in software yet
+2025-12-18 23:53:47,115[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-18 23:53:50,669[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 23:53:50,669[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #12...
+2025-12-18 23:54:49,518[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-18 23:54:53,147[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 23:54:53,616[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-18 23:54:56,957[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-18 23:54:56,957[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #13...
+2025-12-18 23:55:34,266[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-18 23:55:34,868[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-18 23:55:38,106[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-18 23:55:38,424[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-19 00:24:58,827[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-19 00:24:58,827[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#14_2025-12-18_23-54-53 finished
+2025-12-19 00:24:59,031[43512] - OBS_Win - INFO - not in software yet
+2025-12-19 00:24:59,352[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-19 00:25:02,916[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 00:25:02,916[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #13...
+2025-12-19 00:26:02,162[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-19 00:26:05,778[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 00:26:06,235[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-19 00:26:09,572[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 00:26:09,572[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #14...
+2025-12-19 00:26:47,355[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-19 00:26:47,955[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 00:26:51,190[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-19 00:26:51,497[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-19 00:56:23,374[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-19 00:56:23,374[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#15_2025-12-19_00-26-05 finished
+2025-12-19 00:56:23,575[43512] - OBS_Win - INFO - not in software yet
+2025-12-19 00:56:23,907[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-19 00:56:27,456[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 00:56:27,456[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #14...
+2025-12-19 00:57:27,156[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-19 00:57:30,755[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 00:57:31,216[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-19 00:57:34,545[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 00:57:34,545[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #15...
+2025-12-19 00:58:12,694[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-19 00:58:13,278[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 00:58:16,520[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-19 00:58:16,842[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-19 01:02:25,711[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-19 01:02:26,041[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-19 01:02:29,294[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-19 01:02:29,624[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 2 in 3 times...
+2025-12-19 01:27:55,842[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-19 01:27:55,842[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#16_2025-12-19_00-57-30 finished
+2025-12-19 01:27:56,048[43512] - OBS_Win - INFO - not in software yet
+2025-12-19 01:27:56,367[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-19 01:27:59,926[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 01:27:59,926[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #15...
+2025-12-19 01:28:59,890[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-19 01:29:03,495[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 01:29:03,972[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-19 01:29:07,304[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 01:29:07,304[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #16...
+2025-12-19 01:29:45,767[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-19 01:29:46,365[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 01:29:49,610[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-19 01:29:49,916[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-19 01:59:21,199[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-19 01:59:21,199[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#17_2025-12-19_01-29-03 finished
+2025-12-19 01:59:21,407[43512] - OBS_Win - INFO - not in software yet
+2025-12-19 01:59:21,729[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-19 01:59:25,286[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 01:59:25,286[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #16...
+2025-12-19 02:00:25,913[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-19 02:00:29,503[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 02:00:29,960[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-19 02:00:33,294[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 02:00:33,294[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #17...
+2025-12-19 02:01:12,321[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-19 02:01:12,921[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 02:01:16,153[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-19 02:01:16,462[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-19 02:30:47,605[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-19 02:30:47,605[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#18_2025-12-19_02-00-29 finished
+2025-12-19 02:30:47,805[43512] - OBS_Win - INFO - not in software yet
+2025-12-19 02:30:48,127[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-19 02:30:51,669[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 02:30:51,669[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #17...
+2025-12-19 02:31:52,530[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-19 02:31:56,150[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 02:31:56,586[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-19 02:31:59,913[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 02:31:59,913[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #18...
+2025-12-19 02:32:39,497[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-19 02:32:40,082[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 02:32:43,322[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-19 02:32:43,637[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-19 03:02:14,600[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-19 03:02:14,600[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#19_2025-12-19_02-31-56 finished
+2025-12-19 03:02:14,804[43512] - OBS_Win - INFO - not in software yet
+2025-12-19 03:02:15,136[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-19 03:02:18,677[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 03:02:18,678[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #18...
+2025-12-19 03:03:19,946[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-19 03:03:23,531[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 03:03:23,983[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-19 03:03:27,308[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 03:03:27,308[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #19...
+2025-12-19 03:04:07,227[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-19 03:04:07,798[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 03:04:11,036[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-19 03:04:11,344[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-19 03:33:42,848[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-19 03:33:42,848[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#20_2025-12-19_03-03-23 finished
+2025-12-19 03:33:43,054[43512] - OBS_Win - INFO - not in software yet
+2025-12-19 03:33:43,371[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-19 03:33:46,925[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 03:33:46,927[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #19...
+2025-12-19 03:34:48,694[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-19 03:34:52,321[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 03:34:52,754[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-19 03:34:56,099[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 03:34:56,099[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #20...
+2025-12-19 03:35:36,459[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-19 03:35:37,044[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 03:35:40,284[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-19 03:35:40,588[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-19 04:05:12,027[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-19 04:05:12,027[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#21_2025-12-19_03-34-52 finished
+2025-12-19 04:05:12,238[43512] - OBS_Win - INFO - not in software yet
+2025-12-19 04:05:12,550[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-19 04:05:16,098[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 04:05:16,098[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #20...
+2025-12-19 04:06:18,313[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-19 04:06:21,925[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 04:06:22,389[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-19 04:06:25,720[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 04:06:25,720[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #21...
+2025-12-19 04:07:06,481[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-19 04:07:07,098[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 04:07:10,334[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-19 04:07:10,647[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-19 04:36:41,832[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-19 04:36:41,833[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#22_2025-12-19_04-06-21 finished
+2025-12-19 04:36:42,033[43512] - OBS_Win - INFO - not in software yet
+2025-12-19 04:36:42,361[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-19 04:36:45,944[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 04:36:45,944[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #21...
+2025-12-19 04:37:48,452[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-19 04:37:52,061[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 04:37:52,507[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-19 04:37:55,839[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 04:37:55,839[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #22...
+2025-12-19 04:38:36,992[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-19 04:38:37,561[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 04:38:40,803[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-19 04:38:41,113[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-19 05:08:18,019[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-19 05:08:18,019[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#23_2025-12-19_04-37-52 finished
+2025-12-19 05:08:18,230[43512] - OBS_Win - INFO - not in software yet
+2025-12-19 05:08:18,561[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-19 05:08:22,127[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 05:08:22,127[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #22...
+2025-12-19 05:09:25,285[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-19 05:09:28,869[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 05:09:29,338[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-19 05:09:32,671[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 05:09:32,671[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #23...
+2025-12-19 05:10:14,269[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-19 05:10:14,853[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 05:10:18,114[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-19 05:10:18,435[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-19 05:39:55,852[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-19 05:39:55,852[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#24_2025-12-19_05-09-28 finished
+2025-12-19 05:39:56,055[43512] - OBS_Win - INFO - not in software yet
+2025-12-19 05:39:56,385[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-19 05:39:59,958[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 05:39:59,958[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #23...
+2025-12-19 05:41:03,540[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-19 05:41:07,199[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 05:41:07,681[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-19 05:41:11,026[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 05:41:11,027[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #24...
+2025-12-19 05:41:53,158[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-19 05:41:53,726[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 05:41:56,983[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-19 05:41:57,311[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-19 06:11:35,299[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-19 06:11:35,299[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#25_2025-12-19_05-41-07 finished
+2025-12-19 06:11:35,493[43512] - OBS_Win - INFO - not in software yet
+2025-12-19 06:11:35,806[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-19 06:11:39,395[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 06:11:39,396[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #24...
+2025-12-19 06:12:43,318[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-19 06:12:46,927[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 06:12:47,392[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-19 06:12:50,726[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 06:12:50,726[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #25...
+2025-12-19 06:13:33,131[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-19 06:13:33,714[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 06:13:36,956[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-19 06:13:37,286[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-19 06:43:14,370[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-19 06:43:14,370[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#26_2025-12-19_06-12-46 finished
+2025-12-19 06:43:14,582[43512] - OBS_Win - INFO - not in software yet
+2025-12-19 06:43:14,908[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-19 06:43:18,468[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 06:43:18,468[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #25...
+2025-12-19 06:44:22,990[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-19 06:44:26,614[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 06:44:27,110[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-19 06:44:30,453[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 06:44:30,453[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #26...
+2025-12-19 06:45:13,338[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-19 06:45:13,937[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-19 06:45:17,185[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-19 06:45:17,524[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-19 07:14:55,262[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-19 07:14:55,262[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#27_2025-12-19_06-44-26 finished
+2025-12-19 07:14:55,476[43512] - OBS_Win - INFO - not in software yet
+2025-12-19 07:14:55,816[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-19 07:14:59,390[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-19 07:14:59,390[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #26...
+2025-12-19 07:16:04,226[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-19 07:16:07,859[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 01:00:12,847[43512] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-20 01:00:12,847[43512] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-20 01:00:18,920[43512] - OBS_Win - INFO - not in software yet
+2025-12-20 01:00:18,920[43512] - OBS_Win - INFO - not in software yet
+2025-12-20 01:00:19,257[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 01:00:19,257[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 01:00:22,800[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 01:00:22,800[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 01:00:22,800[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-12-20 01:00:22,800[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #0...
+2025-12-20 01:01:02,023[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 01:01:02,023[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 01:01:02,654[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 01:01:02,654[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 01:01:05,934[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 01:01:05,934[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 01:01:06,264[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 01:01:06,264[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 01:19:38,176[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 01:19:38,176[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 01:19:38,176[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#1_2025-12-20_01-00-18 finished
+2025-12-20 01:19:38,176[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#1_2025-12-20_01-00-18 finished
+2025-12-20 01:19:38,385[43512] - OBS_Win - INFO - not in software yet
+2025-12-20 01:19:38,385[43512] - OBS_Win - INFO - not in software yet
+2025-12-20 01:19:38,726[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 01:19:38,726[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 01:19:42,284[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 01:19:42,284[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 01:19:42,284[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #0...
+2025-12-20 01:19:42,284[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #0...
+2025-12-20 01:20:41,562[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 01:20:41,562[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 01:20:45,150[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 01:20:45,150[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 01:20:45,631[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 01:20:45,631[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 01:20:48,991[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 01:20:48,991[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 01:20:48,991[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #1...
+2025-12-20 01:20:48,991[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #1...
+2025-12-20 01:21:21,237[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 01:21:21,237[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 01:21:21,854[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 01:21:21,854[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 01:21:25,102[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 01:21:25,102[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 01:21:25,445[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 01:21:25,445[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 01:40:08,098[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 01:40:08,098[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 01:40:08,098[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#2_2025-12-20_01-20-45 finished
+2025-12-20 01:40:08,098[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#2_2025-12-20_01-20-45 finished
+2025-12-20 01:40:08,305[43512] - OBS_Win - INFO - not in software yet
+2025-12-20 01:40:08,305[43512] - OBS_Win - INFO - not in software yet
+2025-12-20 01:40:08,616[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 01:40:08,616[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 01:40:12,213[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 01:40:12,213[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 01:40:12,213[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #1...
+2025-12-20 01:40:12,213[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #1...
+2025-12-20 01:41:11,033[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 01:41:11,033[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 01:41:14,619[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 01:41:14,619[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 01:41:15,126[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 01:41:15,126[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 01:41:18,479[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 01:41:18,479[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 01:41:18,480[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #2...
+2025-12-20 01:41:18,480[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #2...
+2025-12-20 01:41:51,002[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 01:41:51,002[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 01:41:51,584[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 01:41:51,584[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 01:41:54,852[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 01:41:54,852[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 01:41:55,187[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 01:41:55,187[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 02:00:38,162[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 02:00:38,162[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 02:00:38,163[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#3_2025-12-20_01-41-14 finished
+2025-12-20 02:00:38,163[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#3_2025-12-20_01-41-14 finished
+2025-12-20 02:00:38,377[43512] - OBS_Win - INFO - not in software yet
+2025-12-20 02:00:38,377[43512] - OBS_Win - INFO - not in software yet
+2025-12-20 02:00:38,701[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 02:00:38,701[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 02:00:42,258[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 02:00:42,258[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 02:00:42,258[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #2...
+2025-12-20 02:00:42,258[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #2...
+2025-12-20 02:01:40,685[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 02:01:40,685[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 02:01:44,291[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 02:01:44,291[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 02:01:44,789[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 02:01:44,789[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 02:01:48,130[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 02:01:48,130[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 02:01:48,130[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-12-20 02:01:48,130[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #3...
+2025-12-20 02:02:21,174[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 02:02:21,174[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 02:02:21,808[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 02:02:21,808[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 02:02:25,071[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 02:02:25,071[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 02:02:25,382[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 02:02:25,382[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 02:21:09,457[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 02:21:09,457[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 02:21:09,457[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#4_2025-12-20_02-01-44 finished
+2025-12-20 02:21:09,457[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#4_2025-12-20_02-01-44 finished
+2025-12-20 02:21:09,657[43512] - OBS_Win - INFO - not in software yet
+2025-12-20 02:21:09,657[43512] - OBS_Win - INFO - not in software yet
+2025-12-20 02:21:09,980[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 02:21:09,980[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 02:21:13,545[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 02:21:13,545[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 02:21:13,545[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-12-20 02:21:13,545[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #3...
+2025-12-20 02:22:11,588[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 02:22:11,588[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 02:22:15,171[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 02:22:15,171[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 02:22:15,645[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 02:22:15,645[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 02:22:18,962[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 02:22:18,962[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 02:22:18,963[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #4...
+2025-12-20 02:22:18,963[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #4...
+2025-12-20 02:22:52,378[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 02:22:52,378[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 02:22:52,996[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 02:22:52,996[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 02:22:56,241[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 02:22:56,241[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 02:22:56,567[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 02:22:56,567[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 02:41:40,586[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 02:41:40,586[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 02:41:40,586[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#5_2025-12-20_02-22-15 finished
+2025-12-20 02:41:40,586[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#5_2025-12-20_02-22-15 finished
+2025-12-20 02:41:40,787[43512] - OBS_Win - INFO - not in software yet
+2025-12-20 02:41:40,787[43512] - OBS_Win - INFO - not in software yet
+2025-12-20 02:41:41,121[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 02:41:41,121[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 02:41:44,677[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 02:41:44,677[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 02:41:44,678[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #4...
+2025-12-20 02:41:44,678[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #4...
+2025-12-20 02:42:42,397[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 02:42:42,397[43512] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 02:42:45,968[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 02:42:45,968[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 02:42:46,485[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 02:42:46,485[43512] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 02:42:49,842[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 02:42:49,842[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 02:42:49,842[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #5...
+2025-12-20 02:42:49,842[43512] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #5...
+2025-12-20 02:43:23,644[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 02:43:23,644[43512] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 02:43:24,308[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 02:43:24,308[43512] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 02:43:27,570[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 02:43:27,570[43512] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 02:43:27,903[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 02:43:27,903[43512] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 02:44:14,243[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 02:44:14,243[43512] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 02:44:14,243[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#6_2025-12-20_02-42-45 finished
+2025-12-20 02:44:14,243[43512] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#6_2025-12-20_02-42-45 finished
+2025-12-20 02:44:14,457[43512] - OBS_Win - INFO - not in software yet
+2025-12-20 02:44:14,457[43512] - OBS_Win - INFO - not in software yet
+2025-12-20 02:44:14,790[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 02:44:14,790[43512] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 02:44:18,332[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 02:44:18,332[43512] - OBS_Win - INFO - OBS_Win started
+2025-12-20 02:44:18,332[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #5...
+2025-12-20 02:44:18,332[43512] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #5...
+2025-12-20 02:45:03,533[43512] - RobotTest_AcidicPlatform - ERROR - robotic arm error!
+Traceback (most recent call last):
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 45, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 189, in run
+    self.test_main_workflow(
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 304, in test_main_workflow
+    self.arm.unload_sample(sample_rack_index=sample_rack_id)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm6\xarm6.py", line 90, in unload_sample
+    self.upright_sample(reverse=True)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm_control.py", line 141, in upright_sample
+    self.move_to_pos(
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm6\xarm6.py", line 49, in move_to_pos
+    return self.set_position(*pos_rel, *args, **kwargs)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm_control.py", line 81, in error_checker
+    raise SystemError('robotic arm error!')
+SystemError: robotic arm error!
+2025-12-20 02:45:03,533[43512] - RobotTest_AcidicPlatform - ERROR - robotic arm error!
+Traceback (most recent call last):
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 45, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 189, in run
+    self.test_main_workflow(
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 304, in test_main_workflow
+    self.arm.unload_sample(sample_rack_index=sample_rack_id)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm6\xarm6.py", line 90, in unload_sample
+    self.upright_sample(reverse=True)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm_control.py", line 141, in upright_sample
+    self.move_to_pos(
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm6\xarm6.py", line 49, in move_to_pos
+    return self.set_position(*pos_rel, *args, **kwargs)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm_control.py", line 81, in error_checker
+    raise SystemError('robotic arm error!')
+SystemError: robotic arm error!
+2025-12-20 10:36:16,858[44896] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-20 10:36:25,758[44896] - OBS_Win - INFO - not in software yet
+2025-12-20 10:36:26,093[44896] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 10:36:29,776[44896] - OBS_Win - INFO - OBS_Win started
+2025-12-20 10:36:29,776[44896] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #5...
+2025-12-20 10:37:07,259[44896] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 10:37:07,941[44896] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 10:37:11,250[44896] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 10:37:11,633[44896] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 10:37:56,563[44896] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 10:38:06,573[44896] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 10:55:48,772[44896] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 10:55:48,772[44896] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#6_2025-12-20_10-36-25 finished
+2025-12-20 10:55:48,987[44896] - OBS_Win - INFO - not in software yet
+2025-12-20 10:55:49,326[44896] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 10:55:52,988[44896] - OBS_Win - INFO - OBS_Win started
+2025-12-20 10:55:52,989[44896] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #5...
+2025-12-20 10:56:50,128[44896] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 10:56:53,838[44896] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 10:56:54,435[44896] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 10:56:57,819[44896] - OBS_Win - INFO - OBS_Win started
+2025-12-20 10:56:57,819[44896] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #6...
+2025-12-20 10:57:32,332[44896] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 10:57:33,061[44896] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 10:57:36,362[44896] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 10:57:36,726[44896] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 11:01:22,336[44896] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 11:01:32,339[44896] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 11:01:43,197[44896] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 11:01:43,529[44896] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 11:01:46,763[44896] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 11:01:47,084[44896] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 2 in 3 times...
+2025-12-20 11:16:20,064[44896] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 11:16:20,064[44896] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#7_2025-12-20_10-56-53 finished
+2025-12-20 11:16:20,268[44896] - OBS_Win - INFO - not in software yet
+2025-12-20 11:16:20,574[44896] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 11:16:24,136[44896] - OBS_Win - INFO - OBS_Win started
+2025-12-20 11:16:24,137[44896] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #6...
+2025-12-20 11:17:20,974[44896] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 11:17:24,558[44896] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 11:17:25,002[44896] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 11:17:28,346[44896] - OBS_Win - INFO - OBS_Win started
+2025-12-20 11:17:28,346[44896] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #7...
+2025-12-20 11:18:03,153[44896] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 11:18:03,737[44896] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 11:18:06,966[44896] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 11:18:07,281[44896] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 11:36:57,133[44896] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 11:36:57,134[44896] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#8_2025-12-20_11-17-24 finished
+2025-12-20 11:36:57,331[44896] - OBS_Win - INFO - not in software yet
+2025-12-20 11:36:57,665[44896] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 11:37:01,230[44896] - OBS_Win - INFO - OBS_Win started
+2025-12-20 11:37:01,230[44896] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #7...
+2025-12-20 11:37:57,754[44896] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 11:38:01,321[44896] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 11:38:01,765[44896] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 11:38:05,110[44896] - OBS_Win - INFO - OBS_Win started
+2025-12-20 11:38:05,110[44896] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #8...
+2025-12-20 11:38:40,253[44896] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 11:38:40,835[44896] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 11:38:44,072[44896] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 11:38:44,392[44896] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 11:57:22,847[44896] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 11:57:22,848[44896] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#9_2025-12-20_11-38-01 finished
+2025-12-20 11:57:23,054[44896] - OBS_Win - INFO - not in software yet
+2025-12-20 11:57:23,396[44896] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 11:57:26,964[44896] - OBS_Win - INFO - OBS_Win started
+2025-12-20 11:57:26,964[44896] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #8...
+2025-12-20 11:58:24,028[44896] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 11:58:27,644[44896] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 11:58:28,093[44896] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 11:58:31,436[44896] - OBS_Win - INFO - OBS_Win started
+2025-12-20 11:58:31,436[44896] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #9...
+2025-12-20 11:59:07,063[44896] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 11:59:07,646[44896] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 11:59:10,874[44896] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 11:59:11,184[44896] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 12:17:50,140[44896] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 12:17:50,140[44896] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#10_2025-12-20_11-58-27 finished
+2025-12-20 12:17:50,340[44896] - OBS_Win - INFO - not in software yet
+2025-12-20 12:17:50,663[44896] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 12:17:54,211[44896] - OBS_Win - INFO - OBS_Win started
+2025-12-20 12:17:54,211[44896] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #9...
+2025-12-20 12:18:51,741[44896] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 12:18:55,358[44896] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 12:18:55,814[44896] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 12:18:59,157[44896] - OBS_Win - INFO - OBS_Win started
+2025-12-20 12:18:59,157[44896] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #10...
+2025-12-20 12:19:35,124[44896] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 12:19:35,725[44896] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 12:19:38,968[44896] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 12:19:39,299[44896] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 12:38:18,068[44896] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 12:38:18,068[44896] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#11_2025-12-20_12-18-55 finished
+2025-12-20 12:38:18,272[44896] - OBS_Win - INFO - not in software yet
+2025-12-20 12:38:18,600[44896] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 12:38:22,156[44896] - OBS_Win - INFO - OBS_Win started
+2025-12-20 12:38:22,156[44896] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #10...
+2025-12-20 12:39:20,083[44896] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 12:39:23,676[44896] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 12:39:24,162[44896] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 12:39:27,493[44896] - OBS_Win - INFO - OBS_Win started
+2025-12-20 12:39:27,493[44896] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #11...
+2025-12-20 12:40:03,917[44896] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 12:40:04,519[44896] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 12:40:07,778[44896] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 12:40:08,088[44896] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 12:58:47,104[44896] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 12:58:47,104[44896] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#12_2025-12-20_12-39-23 finished
+2025-12-20 12:58:47,309[44896] - OBS_Win - INFO - not in software yet
+2025-12-20 12:58:47,631[44896] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 12:58:51,200[44896] - OBS_Win - INFO - OBS_Win started
+2025-12-20 12:58:51,200[44896] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #11...
+2025-12-20 12:59:35,739[44896] - RobotTest_AcidicPlatform - ERROR - robotic arm error!
+Traceback (most recent call last):
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 45, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 189, in run
+    self.test_main_workflow(
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 304, in test_main_workflow
+    self.arm.unload_sample(sample_rack_index=sample_rack_id)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm6\xarm6.py", line 90, in unload_sample
+    self.upright_sample(reverse=True)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm_control.py", line 141, in upright_sample
+    self.move_to_pos(
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm6\xarm6.py", line 49, in move_to_pos
+    return self.set_position(*pos_rel, *args, **kwargs)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm_control.py", line 81, in error_checker
+    raise SystemError('robotic arm error!')
+SystemError: robotic arm error!
+2025-12-20 14:13:01,537[47152] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {12: 13, 13: 14, 14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-20 14:13:07,560[47152] - OBS_Win - INFO - not in software yet
+2025-12-20 14:13:07,888[47152] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 14:13:11,445[47152] - OBS_Win - INFO - OBS_Win started
+2025-12-20 14:13:11,445[47152] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #12...
+2025-12-20 14:13:51,017[47152] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 14:13:51,587[47152] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 14:13:54,836[47152] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 14:13:55,153[47152] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 14:32:33,918[47152] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 14:32:33,918[47152] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#13_2025-12-20_14-13-07 finished
+2025-12-20 14:32:34,115[47152] - OBS_Win - INFO - not in software yet
+2025-12-20 14:32:34,449[47152] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 14:32:38,011[47152] - OBS_Win - INFO - OBS_Win started
+2025-12-20 14:32:38,011[47152] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #12...
+2025-12-20 14:33:36,770[47152] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 14:33:40,352[47152] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 14:33:40,812[47152] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 14:33:44,157[47152] - OBS_Win - INFO - OBS_Win started
+2025-12-20 14:33:44,157[47152] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #13...
+2025-12-20 14:34:21,505[47152] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 14:34:22,056[47152] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 14:34:25,296[47152] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 14:34:25,615[47152] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 14:53:15,187[47152] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 14:53:15,187[47152] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#14_2025-12-20_14-33-40 finished
+2025-12-20 14:53:15,393[47152] - OBS_Win - INFO - not in software yet
+2025-12-20 14:53:15,701[47152] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 14:53:19,243[47152] - OBS_Win - INFO - OBS_Win started
+2025-12-20 14:53:19,243[47152] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #13...
+2025-12-20 14:54:03,114[47152] - RobotTest_AcidicPlatform - ERROR - robotic arm error!
+Traceback (most recent call last):
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 45, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 189, in run
+    self.test_main_workflow(
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 304, in test_main_workflow
+    self.arm.unload_sample(sample_rack_index=sample_rack_id)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm6\xarm6.py", line 90, in unload_sample
+    self.upright_sample(reverse=True)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm_control.py", line 141, in upright_sample
+    self.move_to_pos(
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm6\xarm6.py", line 49, in move_to_pos
+    return self.set_position(*pos_rel, *args, **kwargs)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm_control.py", line 81, in error_checker
+    raise SystemError('robotic arm error!')
+SystemError: robotic arm error!
+2025-12-20 15:15:55,824[46516] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {14: 15, 15: 16, 16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-20 15:16:01,876[46516] - OBS_Win - INFO - not in software yet
+2025-12-20 15:16:02,237[46516] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 15:16:05,847[46516] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 15:16:09,178[46516] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 15:16:12,493[46516] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 15:16:15,787[46516] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 15:16:19,109[46516] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 15:16:22,507[46516] - OBS_Win - INFO - OBS_Win started
+2025-12-20 15:16:22,507[46516] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #14...
+2025-12-20 15:17:03,898[46516] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 15:17:04,115[46516] - OBS_Win - INFO - not in software yet
+2025-12-20 15:17:04,471[46516] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 15:17:08,148[46516] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 15:17:11,453[46516] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 15:17:11,821[46516] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 15:20:24,605[46516] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 15:20:24,931[46516] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 15:20:28,172[46516] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 15:20:28,502[46516] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 2 in 3 times...
+2025-12-20 15:21:27,395[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:21:37,400[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:21:48,285[46516] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 15:21:48,595[46516] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 15:35:59,023[46516] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 15:35:59,023[46516] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#15_2025-12-20_15-16-01 finished
+2025-12-20 15:35:59,230[46516] - OBS_Win - INFO - not in software yet
+2025-12-20 15:35:59,547[46516] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 15:36:03,086[46516] - OBS_Win - INFO - OBS_Win started
+2025-12-20 15:36:03,086[46516] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #14...
+2025-12-20 15:37:02,807[46516] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 15:37:06,377[46516] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 15:37:06,813[46516] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 15:37:10,131[46516] - OBS_Win - INFO - OBS_Win started
+2025-12-20 15:37:10,131[46516] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #15...
+2025-12-20 15:37:48,245[46516] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 15:37:48,830[46516] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 15:37:52,071[46516] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 15:37:52,390[46516] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 15:50:39,843[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:50:49,846[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:50:59,858[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:51:09,858[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:51:19,860[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:51:29,867[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:51:39,874[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:51:49,880[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:51:59,881[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:52:09,894[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:52:19,902[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:52:29,906[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:52:39,914[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:52:49,921[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:52:59,924[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:53:09,935[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:53:19,950[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:53:29,951[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:53:39,954[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:53:49,967[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:53:59,973[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:54:09,983[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:54:19,986[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:54:30,001[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:54:40,006[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:54:50,006[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:55:00,016[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:55:10,026[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:55:20,033[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:55:30,048[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:55:40,051[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:55:50,060[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:56:00,072[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:56:10,086[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:56:20,087[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:56:30,099[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:56:40,107[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:57:12,603[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:58:07,663[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:58:17,667[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:58:27,674[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:58:37,693[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:58:47,702[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:58:57,711[46516] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 15:59:08,590[46516] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 15:59:08,906[46516] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 15:59:12,155[46516] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 15:59:12,483[46516] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 2 in 3 times...
+2025-12-20 15:59:15,713[46516] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 15:59:16,044[46516] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 3 in 3 times...
+2025-12-20 15:59:19,262[46516] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 15:59:19,263[46516] - EC_Lab_Win11 - WARNING - failed to open EC_Lab_Win11
+2025-12-20 15:59:19,263[46516] - RobotTest_AcidicPlatform - ERROR - failed to open EC_Lab_Win11
+Traceback (most recent call last):
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 45, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 189, in run
+    self.test_main_workflow(
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 296, in test_main_workflow
+    self.check_test_finished()
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 326, in check_test_finished
+    self.ec_lab.open_software()
+  File "C:\Users\li\PycharmProjects\catalyst\software_control\software_control_base.py", line 133, in open_software
+    raise SystemError(f'failed to open {self.name}')
+SystemError: failed to open EC_Lab_Win11
+2025-12-20 18:40:07,081[48732] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {16: 17, 17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-20 18:40:13,100[48732] - OBS_Win - INFO - not in software yet
+2025-12-20 18:40:13,450[48732] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 18:40:17,039[48732] - OBS_Win - INFO - OBS_Win started
+2025-12-20 18:40:17,039[48732] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #16...
+2025-12-20 18:40:59,933[48732] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 18:41:00,565[48732] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 18:41:03,812[48732] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 18:41:04,124[48732] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 18:59:52,899[48732] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 18:59:52,899[48732] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#17_2025-12-20_18-40-12 finished
+2025-12-20 18:59:53,103[48732] - OBS_Win - INFO - not in software yet
+2025-12-20 18:59:53,427[48732] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 18:59:56,988[48732] - OBS_Win - INFO - OBS_Win started
+2025-12-20 18:59:56,988[48732] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #16...
+2025-12-20 19:00:46,108[48732] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 19:00:49,708[48732] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 19:00:50,177[48732] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 19:00:53,505[48732] - OBS_Win - INFO - OBS_Win started
+2025-12-20 19:00:53,505[48732] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #17...
+2025-12-20 19:01:03,853[48732] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 19:01:04,431[48732] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 19:01:07,691[48732] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 19:01:08,020[48732] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 19:19:44,897[48732] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 19:19:44,898[48732] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#18_2025-12-20_19-00-49 finished
+2025-12-20 19:19:45,093[48732] - OBS_Win - INFO - not in software yet
+2025-12-20 19:19:45,415[48732] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 19:19:48,958[48732] - OBS_Win - INFO - OBS_Win started
+2025-12-20 19:19:48,958[48732] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #17...
+2025-12-20 19:19:59,308[48732] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 19:20:02,902[48732] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 19:20:03,382[48732] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 19:20:06,726[48732] - OBS_Win - INFO - OBS_Win started
+2025-12-20 19:20:06,726[48732] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #18...
+2025-12-20 19:20:17,646[48732] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 19:20:18,224[48732] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 19:20:21,468[48732] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 19:20:21,770[48732] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 19:38:47,524[48732] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 19:38:47,525[48732] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#19_2025-12-20_19-20-02 finished
+2025-12-20 19:38:47,731[48732] - OBS_Win - INFO - not in software yet
+2025-12-20 19:38:48,049[48732] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 19:38:51,606[48732] - OBS_Win - INFO - OBS_Win started
+2025-12-20 19:38:51,606[48732] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #18...
+2025-12-20 19:39:02,424[48732] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 19:39:06,016[48732] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 19:39:06,487[48732] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 19:39:09,805[48732] - OBS_Win - INFO - OBS_Win started
+2025-12-20 19:39:09,805[48732] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #19...
+2025-12-20 19:39:21,053[48732] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 19:39:21,633[48732] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 19:39:24,887[48732] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 19:39:25,200[48732] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 19:43:55,519[48732] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 19:51:44,788[35692] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-20 19:51:51,091[35692] - OBS_Win - INFO - not in software yet
+2025-12-20 19:51:51,436[35692] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 19:51:54,996[35692] - OBS_Win - INFO - OBS_Win started
+2025-12-20 19:51:54,996[35692] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #17...
+2025-12-20 19:51:55,419[35692] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 19:51:56,027[35692] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 19:51:59,271[35692] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 19:51:59,585[35692] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 19:52:33,296[35692] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 19:52:43,305[35692] - RobotTest_AcidicPlatform - INFO - human operating, fail to detect...
+2025-12-20 19:53:23,536[47940] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-20 19:53:33,703[47940] - OBS_Win - INFO - not in software yet
+2025-12-20 19:53:34,017[47940] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 19:53:37,577[47940] - OBS_Win - INFO - OBS_Win started
+2025-12-20 19:53:37,577[47940] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #17...
+2025-12-20 19:56:04,883[46948] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-20 19:56:04,888[46948] - RobotTest_AcidicPlatform - ERROR - Cannot go home, unload sample first!
+Traceback (most recent call last):
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 45, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 182, in run
+    self.robot_warming_up()
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 312, in robot_warming_up
+    self.arm.home()
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm6\xarm6.py", line 11, in home
+    raise SystemError('Cannot go home, unload sample first!')
+SystemError: Cannot go home, unload sample first!
+2025-12-20 19:57:05,314[42916] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-20 19:57:11,399[42916] - OBS_Win - INFO - not in software yet
+2025-12-20 19:57:11,727[42916] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 19:57:15,177[42916] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 19:57:18,416[42916] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 19:57:21,648[42916] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 19:57:24,885[42916] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 19:57:28,240[42916] - OBS_Win - INFO - OBS_Win started
+2025-12-20 19:57:28,240[42916] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #17...
+2025-12-20 20:04:09,112[47724] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-20 20:04:09,115[47724] - RobotTest_AcidicPlatform - ERROR - Cannot go home, unload sample first!
+Traceback (most recent call last):
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 45, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 182, in run
+    self.robot_warming_up()
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robot_test.py", line 312, in robot_warming_up
+    self.arm.home()
+  File "C:\Users\li\PycharmProjects\catalyst\robotic_testing\common\robotic_arms\xarm6\xarm6.py", line 11, in home
+    raise SystemError('Cannot go home, unload sample first!')
+SystemError: Cannot go home, unload sample first!
+2025-12-20 20:05:22,291[48908] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-20 20:05:32,470[48908] - OBS_Win - INFO - not in software yet
+2025-12-20 20:05:32,830[48908] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 20:05:36,443[48908] - OBS_Win - INFO - OBS_Win started
+2025-12-20 20:05:36,443[48908] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #17...
+2025-12-20 20:06:08,353[48908] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 20:06:08,568[48908] - OBS_Win - INFO - not in software yet
+2025-12-20 20:06:08,887[48908] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 20:06:12,446[48908] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 20:06:15,692[48908] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 20:06:16,007[48908] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 20:06:26,368[48908] - EC_Lab_Win11 - WARNING - cannot find ['save.png'] on screen
+2025-12-20 22:36:58,704[16120] - RobotTest_AcidicPlatform - INFO - started a batch of test, with sample_rack_id : sample_id = {17: 18, 18: 19, 19: 20, 20: 21, 21: 22, 22: 23, 23: 24, 24: 25, 25: 26, 26: 27}
+2025-12-20 22:37:10,871[16120] - OBS_Win - INFO - not in software yet
+2025-12-20 22:37:11,214[16120] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 22:37:14,770[16120] - OBS_Win - INFO - OBS_Win started
+2025-12-20 22:37:14,770[16120] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #17...
+2025-12-20 22:37:58,653[16120] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 22:37:59,255[16120] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 22:38:02,490[16120] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 22:38:02,794[16120] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 22:56:40,650[16120] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 22:56:40,650[16120] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#18_2025-12-20_22-37-10 finished
+2025-12-20 22:56:40,851[16120] - OBS_Win - INFO - not in software yet
+2025-12-20 22:56:41,188[16120] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 22:56:44,742[16120] - OBS_Win - INFO - OBS_Win started
+2025-12-20 22:56:44,742[16120] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #17...
+2025-12-20 22:57:45,704[16120] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 22:57:49,309[16120] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 22:57:49,740[16120] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 22:57:53,082[16120] - OBS_Win - INFO - OBS_Win started
+2025-12-20 22:57:53,082[16120] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #18...
+2025-12-20 22:58:32,595[16120] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 22:58:33,151[16120] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 22:58:36,383[16120] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 22:58:36,693[16120] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 23:17:14,053[16120] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 23:17:14,053[16120] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#19_2025-12-20_22-57-49 finished
+2025-12-20 23:17:14,254[16120] - OBS_Win - INFO - not in software yet
+2025-12-20 23:17:14,595[16120] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 23:17:18,152[16120] - OBS_Win - INFO - OBS_Win started
+2025-12-20 23:17:18,152[16120] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #18...
+2025-12-20 23:18:19,577[16120] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 23:18:23,181[16120] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 23:18:23,660[16120] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 23:18:26,991[16120] - OBS_Win - INFO - OBS_Win started
+2025-12-20 23:18:26,991[16120] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #19...
+2025-12-20 23:19:06,826[16120] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 23:19:07,408[16120] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 23:19:10,643[16120] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 23:19:10,968[16120] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 23:37:48,263[16120] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 23:37:48,264[16120] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#20_2025-12-20_23-18-23 finished
+2025-12-20 23:37:48,463[16120] - OBS_Win - INFO - not in software yet
+2025-12-20 23:37:48,785[16120] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 23:37:52,325[16120] - OBS_Win - INFO - OBS_Win started
+2025-12-20 23:37:52,325[16120] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #19...
+2025-12-20 23:38:54,024[16120] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 23:38:57,616[16120] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 23:38:58,076[16120] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 23:39:01,421[16120] - OBS_Win - INFO - OBS_Win started
+2025-12-20 23:39:01,421[16120] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #20...
+2025-12-20 23:39:41,717[16120] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-20 23:39:42,319[16120] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 23:39:45,565[16120] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-20 23:39:45,867[16120] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-20 23:58:23,220[16120] - EC_Lab_Win11 - INFO - test is complete
+2025-12-20 23:58:23,221[16120] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#21_2025-12-20_23-38-57 finished
+2025-12-20 23:58:23,420[16120] - OBS_Win - INFO - not in software yet
+2025-12-20 23:58:23,743[16120] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-20 23:58:27,290[16120] - OBS_Win - INFO - OBS_Win started
+2025-12-20 23:58:27,290[16120] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #20...
+2025-12-20 23:59:29,380[16120] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-20 23:59:32,965[16120] - OBS_Win - INFO - OBS_Win stopped
+2025-12-20 23:59:33,432[16120] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-20 23:59:36,776[16120] - OBS_Win - INFO - OBS_Win started
+2025-12-20 23:59:36,776[16120] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #21...
+2025-12-21 00:00:17,430[16120] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-21 00:00:17,998[16120] - OBS_Win - INFO - OBS_Win stopped
+2025-12-21 00:00:21,243[16120] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-21 00:00:21,557[16120] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-21 00:18:59,305[16120] - EC_Lab_Win11 - INFO - test is complete
+2025-12-21 00:18:59,305[16120] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#22_2025-12-20_23-59-32 finished
+2025-12-21 00:18:59,505[16120] - OBS_Win - INFO - not in software yet
+2025-12-21 00:18:59,839[16120] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-21 00:19:03,401[16120] - OBS_Win - INFO - OBS_Win started
+2025-12-21 00:19:03,401[16120] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #21...
+2025-12-21 00:20:05,988[16120] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-21 00:20:09,576[16120] - OBS_Win - INFO - OBS_Win stopped
+2025-12-21 00:20:10,048[16120] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-21 00:20:13,371[16120] - OBS_Win - INFO - OBS_Win started
+2025-12-21 00:20:13,372[16120] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #22...
+2025-12-21 00:20:54,494[16120] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-21 00:20:55,049[16120] - OBS_Win - INFO - OBS_Win stopped
+2025-12-21 00:20:58,297[16120] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-21 00:20:58,609[16120] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-21 00:39:36,161[16120] - EC_Lab_Win11 - INFO - test is complete
+2025-12-21 00:39:36,161[16120] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#23_2025-12-21_00-20-09 finished
+2025-12-21 00:39:36,355[16120] - OBS_Win - INFO - not in software yet
+2025-12-21 00:39:36,671[16120] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-21 00:39:40,194[16120] - OBS_Win - INFO - OBS_Win started
+2025-12-21 00:39:40,195[16120] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #22...
+2025-12-21 00:40:43,320[16120] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-21 00:40:46,898[16120] - OBS_Win - INFO - OBS_Win stopped
+2025-12-21 00:40:47,360[16120] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-21 00:40:50,687[16120] - OBS_Win - INFO - OBS_Win started
+2025-12-21 00:40:50,687[16120] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #23...
+2025-12-21 00:41:32,296[16120] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-21 00:41:32,868[16120] - OBS_Win - INFO - OBS_Win stopped
+2025-12-21 00:41:36,106[16120] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-21 00:41:36,432[16120] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-21 01:00:14,191[16120] - EC_Lab_Win11 - INFO - test is complete
+2025-12-21 01:00:14,191[16120] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#24_2025-12-21_00-40-46 finished
+2025-12-21 01:00:14,388[16120] - OBS_Win - INFO - not in software yet
+2025-12-21 01:00:14,711[16120] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-21 01:00:18,255[16120] - OBS_Win - INFO - OBS_Win started
+2025-12-21 01:00:18,255[16120] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #23...
+2025-12-21 01:01:21,627[16120] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-21 01:01:25,242[16120] - OBS_Win - INFO - OBS_Win stopped
+2025-12-21 01:01:25,714[16120] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-21 01:01:29,058[16120] - OBS_Win - INFO - OBS_Win started
+2025-12-21 01:01:29,058[16120] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #24...
+2025-12-21 01:02:11,223[16120] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-21 01:02:11,808[16120] - OBS_Win - INFO - OBS_Win stopped
+2025-12-21 01:02:15,043[16120] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-21 01:02:15,362[16120] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-21 01:20:52,538[16120] - EC_Lab_Win11 - INFO - test is complete
+2025-12-21 01:20:52,538[16120] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#25_2025-12-21_01-01-25 finished
+2025-12-21 01:20:52,742[16120] - OBS_Win - INFO - not in software yet
+2025-12-21 01:20:53,075[16120] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-21 01:20:56,639[16120] - OBS_Win - INFO - OBS_Win started
+2025-12-21 01:20:56,639[16120] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #24...
+2025-12-21 01:22:00,467[16120] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-21 01:22:04,077[16120] - OBS_Win - INFO - OBS_Win stopped
+2025-12-21 01:22:04,529[16120] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-21 01:22:07,891[16120] - OBS_Win - INFO - OBS_Win started
+2025-12-21 01:22:07,891[16120] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #25...
+2025-12-21 01:22:50,307[16120] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-21 01:22:50,892[16120] - OBS_Win - INFO - OBS_Win stopped
+2025-12-21 01:22:54,128[16120] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-21 01:22:54,433[16120] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-21 01:41:31,807[16120] - EC_Lab_Win11 - INFO - test is complete
+2025-12-21 01:41:31,807[16120] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#26_2025-12-21_01-22-04 finished
+2025-12-21 01:41:32,010[16120] - OBS_Win - INFO - not in software yet
+2025-12-21 01:41:32,330[16120] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-21 01:41:35,887[16120] - OBS_Win - INFO - OBS_Win started
+2025-12-21 01:41:35,887[16120] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #25...
+2025-12-21 01:42:40,281[16120] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-21 01:42:43,868[16120] - OBS_Win - INFO - OBS_Win stopped
+2025-12-21 01:42:44,337[16120] - OBS_Win - WARNING - cannot find ['OBS_start_record.png'] on screen
+2025-12-21 01:42:47,668[16120] - OBS_Win - INFO - OBS_Win started
+2025-12-21 01:42:47,668[16120] - RobotTest_AcidicPlatform - INFO - loading the sample from rack_id #26...
+2025-12-21 01:43:30,535[16120] - RobotTest_AcidicPlatform - INFO - sample successfully loaded into the cell
+2025-12-21 01:43:31,084[16120] - OBS_Win - INFO - OBS_Win stopped
+2025-12-21 01:43:34,332[16120] - EC_Lab_Win11 - INFO - not in software yet
+2025-12-21 01:43:34,657[16120] - EC_Lab_Win11 - INFO - attempting to open EC_Lab_Win11, trial 1 in 3 times...
+2025-12-21 02:02:11,761[16120] - EC_Lab_Win11 - INFO - test is complete
+2025-12-21 02:02:11,762[16120] - RobotTest_AcidicPlatform - INFO - test pH11_FirstGen_sample#27_2025-12-21_01-42-43 finished
+2025-12-21 02:02:11,970[16120] - OBS_Win - INFO - not in software yet
+2025-12-21 02:02:12,275[16120] - OBS_Win - INFO - attempting to open OBS_Win, trial 1 in 3 times...
+2025-12-21 02:02:15,830[16120] - OBS_Win - INFO - OBS_Win started
+2025-12-21 02:02:15,830[16120] - RobotTest_AcidicPlatform - INFO - unloading the sample to rack_id #26...
+2025-12-21 02:03:20,608[16120] - RobotTest_AcidicPlatform - INFO - sample successfully unloaded from the cell
+2025-12-21 02:03:24,224[16120] - OBS_Win - INFO - OBS_Win stopped

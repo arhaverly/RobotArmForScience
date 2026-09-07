@@ -1,0 +1,39 @@
+/*!
+ * MindPlus
+ * telloesp32
+ *
+ */
+
+#include <RMTT_Shell.h>
+#include <Wire.h>
+
+int custom_callback(int argc, char *argv[], char argv2[])
+{
+    // Check if the first argument is "test"
+    if (!strcmp(argv[1], "test"))
+    {
+        // Output success message to the serial interface
+        Serial.println("DIY test success");
+        return 0;  // Return 0 to indicate success
+    }
+    else
+    {
+        // Output error message or handle other cases
+        Serial.println("DIY test failed");
+        return -1;  // Return -1 to indicate failure or other return code as needed
+    }
+}
+
+
+// 主程序开始
+void setup() {
+  Serial.begin(115200);
+  Wire.begin(27, 26);
+  Wire.setClock(400000);
+  Serial1.begin(1000000, SERIAL_8N1, 23, 18);
+  Serial.println();
+  cmd_register((char*)"DIY", custom_callback);
+}
+void loop() {
+
+}

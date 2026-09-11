@@ -103,3 +103,61 @@ pos_cal = pos_cal_utils.SamplePosCal(**sample_pos_config)
 
 # other variables
 gripper_open_dist = 55
+
+
+# ----------------------------------------------------------------------
+# Safety envelope for free-form / VLA-commanded motion
+# ----------------------------------------------------------------------
+# IMPORTANT: unlike pos_dict, these ranges are in the arm's OWN base frame -- the
+# coordinates get_position() reports -- not the lab frame used by pos_dict. On this
+# platform the y values in pos_dict are lab coordinates that move_to_pos() splits into a
+# linear-track position plus an arm-frame residual, so the arm itself only ever sees the
+# residual. move_relative() drives the arm only and never the linear track.
+#
+# Arm-frame poses this platform is known to reach safely:
+#   sample grid   x 378 .. 603,  y 0    (track carries the lab y),  z -88 (+100 hover -> 12)
+#   warm_up       x 380,         y unchanged,                       z 200
+#   mid_station   x 500,         y unchanged,                       z 400
+#   flask         x 553,         y 86   (track at its 700 limit),   z 129 (+150 hover -> 279)
+#   rinsing       x 415,         y 525  (track at its 450 limit),   z 20  (+250 hover -> 270)
+#
+# Before widening any range, physically check that the volume you are opening up is clear,
+# and remember the whole envelope travels with the linear track.
+safety_dict = {
+    'x_range': (330.0, 660.0),
+    'y_range': (-120.0, 560.0),
+    'z_range': (-100.0, 500.0),
+
+    'max_reach_mm': 700.0,
+    'min_reach_mm': 200.0,
+
+    'max_step_mm': 100.0,
+    'max_step_deg': 30.0,
+    'max_plan_actions': 40,
+    'max_wait_s': 60.0,
+
+    'settings_profile': 'slow_1',
+
+    # both of these leave y as None, so they move the arm without touching the linear track
+    'named_positions': ('mid_station', 'warm_up'),
+
+    'gripper': {
+        'object_grip_opening': 0,
+        'object_detect_min': 3.0,
+    },
+    'pick_place': {
+        'descend': 60.0,
+        'lift': None,
+        'settings_profile': 'slow_2',
+    },
+    'wave': {
+        'times': 3,
+        'amplitude_deg': 25.0,
+        'joint': 6,
+        'joint_limit_deg': 170.0,
+        'settings_profile': 'default',
+    },
+}
+
+# gripper opening below which the arm assumes it is holding the sample holder
+sample_holder_gripper_threshold = 20

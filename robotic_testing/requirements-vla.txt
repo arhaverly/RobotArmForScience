@@ -1,0 +1,9 @@
+# Dependencies for driving the arm from a text instruction (robotic_testing/vla.py).
+# The full lab stack has more requirements; see requirements.txt at the repository root.
+numpy
+pydantic>=2
+google-genai
+python-dotenv
+
+# Needed to talk to real hardware. Not required for `python vla.py --simulate`.
+xarm-python-sdk

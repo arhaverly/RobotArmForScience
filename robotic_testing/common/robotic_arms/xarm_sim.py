@@ -26,6 +26,9 @@ class SimulatedXArmAPI:
         'xarm6': [500.0, 100.0, 200.0, 180.0, 0.0, 0.0],
     }
 
+    # lets callers word a confirmation prompt honestly, e.g. VLARobot.execute_plan
+    is_simulated = True
+
     def __init__(self, port=None, **kwargs):
         self.port = port
         self._pose = list(self.START_POSE['xarm6' if str(port).endswith('227') else 'xarm7'])

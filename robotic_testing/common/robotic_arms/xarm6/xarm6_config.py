@@ -123,6 +123,13 @@ gripper_open_dist = 55
 #
 # Before widening any range, physically check that the volume you are opening up is clear,
 # and remember the whole envelope travels with the linear track.
+#
+# WARNING: these ranges are station-derived and have NOT been measured on this arm.
+# The same mistake found on the xArm7 almost certainly applies here: `home` is defined
+# in joint space (ang_dict['home'] starts with J1 = 90 deg, so the arm is rotated a
+# quarter turn away from the stations) and its TCP pose is nowhere in this file, so
+# x_range below probably excludes it. Run robotic_testing/measure_envelope.py --arm xarm6
+# and replace these numbers before driving this arm freely.
 safety_dict = {
     'x_range': (330.0, 660.0),
     'y_range': (-120.0, 560.0),

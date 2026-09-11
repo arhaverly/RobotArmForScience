@@ -439,7 +439,8 @@ RULES
             return [{'action': name, 'params': params, 'ok': None} for name, params in parsed]
 
         if confirm:
-            answer = input('Execute this plan on the real arm? type yes to continue: ').strip().lower()
+            target = 'the SIMULATED arm' if getattr(self.arm, 'is_simulated', False) else 'the REAL arm'
+            answer = input(f'Execute this plan on {target}? type yes to continue: ').strip().lower()
             if answer != 'yes':
                 print('Cancelled, nothing executed.')
                 return []

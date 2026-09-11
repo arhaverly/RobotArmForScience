@@ -124,21 +124,32 @@ gripper_open_dist = 55
 # ----------------------------------------------------------------------
 # Safety envelope for free-form / VLA-commanded motion
 # ----------------------------------------------------------------------
-# These limits are what xArm.move_relative() and friends are held to. They are
-# deliberately conservative: the box below is the bounding volume of the poses this
-# platform is already known to reach safely, plus a small margin.
+# These limits are what xArm.move_relative() and friends are held to.
+#
+# The station poses below come from pos_dict:
 #
 #   sample grid   x 152 .. 553,  y 258 .. 410,  z 191  (+100 hover -> z 291)
 #   mid_station   x 348,         y 308,         z 252
 #   flask         x -52,         y 257,         z 245  (+156 hover -> z 401)
 #   rinsing       x 196,         y 323,         z 140  (+150 hover -> z 290)
 #
-# Before widening any range, physically check that the volume you are opening up is
-# clear of the cell, the racks, the rinsing station and the cabling. The z floor in
-# particular is the lowest point the arm is known to reach without hitting the bench.
+# Those are NOT the whole story, and an envelope built from them alone is wrong. `home`
+# is defined in joint space (ang_dict), so its TCP pose appears nowhere in this file:
+# measured on the real arm it sits at y ~= 2, far outside the y band the stations occupy.
+# An envelope derived from the stations therefore excludes the arm's own resting position
+# and refuses every free-form move made from it. y_range below is widened to cover home.
+#
+# Use robotic_testing/measure_envelope.py to derive these numbers from the poses the arm
+# actually reaches, rather than from the coordinates written down here. Anything inside
+# the box that the arm must not hit means pulling a range back, not widening it; the z
+# floor is the one that keeps it off the bench.
+#
+# TODO: x_range and z_range are still station-derived. Measure home and the extremes.
 safety_dict = {
     'x_range': (-130.0, 600.0),
-    'y_range': (180.0, 480.0),
+    # down to -80 to include home (y ~= 2); the station routines sweep the TCP across
+    # this whole band on every run, from home out to the rack at y ~= 408
+    'y_range': (-80.0, 480.0),
     'z_range': (140.0, 560.0),
 
     # keep the wrist out of the far edge of the working radius and away from the base column

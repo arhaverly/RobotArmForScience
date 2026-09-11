@@ -119,3 +119,63 @@ pos_cal = pos_cal_utils.SamplePosCal(**sample_pos_config)
 
 # other variables
 gripper_open_dist = 55
+
+
+# ----------------------------------------------------------------------
+# Safety envelope for free-form / VLA-commanded motion
+# ----------------------------------------------------------------------
+# These limits are what xArm.move_relative() and friends are held to. They are
+# deliberately conservative: the box below is the bounding volume of the poses this
+# platform is already known to reach safely, plus a small margin.
+#
+#   sample grid   x 152 .. 553,  y 258 .. 410,  z 191  (+100 hover -> z 291)
+#   mid_station   x 348,         y 308,         z 252
+#   flask         x -52,         y 257,         z 245  (+156 hover -> z 401)
+#   rinsing       x 196,         y 323,         z 140  (+150 hover -> z 290)
+#
+# Before widening any range, physically check that the volume you are opening up is
+# clear of the cell, the racks, the rinsing station and the cabling. The z floor in
+# particular is the lowest point the arm is known to reach without hitting the bench.
+safety_dict = {
+    'x_range': (-130.0, 600.0),
+    'y_range': (180.0, 480.0),
+    'z_range': (140.0, 560.0),
+
+    # keep the wrist out of the far edge of the working radius and away from the base column
+    'max_reach_mm': 700.0,
+    'min_reach_mm': 180.0,
+
+    # a planner has to express a long move as several short ones, which keeps every
+    # individual command small enough to interrupt and easy to reason about
+    'max_step_mm': 100.0,
+    'max_step_deg': 30.0,
+    'max_plan_actions': 40,
+    'max_wait_s': 60.0,
+
+    # free-form motion runs at half the normal speed
+    'settings_profile': 'slow_1',
+
+    # pos_dict keys a planner may drive to directly; station poses such as the immersed
+    # flask depth are deliberately left out
+    'named_positions': ('mid_station',),
+
+    'gripper': {
+        'object_grip_opening': 0,
+        'object_detect_min': 3.0,
+    },
+    'pick_place': {
+        'descend': 60.0,
+        'lift': None,
+        'settings_profile': 'slow_2',
+    },
+    'wave': {
+        'times': 3,
+        'amplitude_deg': 25.0,
+        'joint': 7,
+        'joint_limit_deg': 170.0,
+        'settings_profile': 'default',
+    },
+}
+
+# gripper opening below which the arm assumes it is holding the sample holder
+sample_holder_gripper_threshold = 20

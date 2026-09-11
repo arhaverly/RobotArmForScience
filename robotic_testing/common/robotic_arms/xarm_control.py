@@ -432,13 +432,17 @@ class xArm(XArmAPI):
         :return: (allowed, reason) -- reason is '' when allowed
         """
         safety = self._envelope()
+
+        # every violation is reported, not just the first: being told one bad axis at a
+        # time turns diagnosing a badly calibrated envelope into a guessing game
+        reasons = []
         for axis, key in ((0, 'x_range'), (1, 'y_range'), (2, 'z_range')):
             value = pose[axis] if axis < len(pose) else None
             if value is None:
                 continue
             low, high = safety[key]
             if not low <= value <= high:
-                return False, f'{AXIS_NAMES[axis]}={value:.1f} mm is outside the allowed range [{low}, {high}]'
+                reasons.append(f'{AXIS_NAMES[axis]}={value:.1f} mm is outside the allowed range [{low}, {high}]')
 
         x, y = pose[0], pose[1]
         if x is not None and y is not None:
@@ -446,10 +450,12 @@ class xArm(XArmAPI):
             max_reach = safety.get('max_reach_mm')
             min_reach = safety.get('min_reach_mm')
             if max_reach and reach > max_reach:
-                return False, f'horizontal reach {reach:.1f} mm exceeds the limit of {max_reach} mm'
+                reasons.append(f'horizontal reach {reach:.1f} mm exceeds the limit of {max_reach} mm')
             if min_reach and reach < min_reach:
-                return False, f'horizontal reach {reach:.1f} mm is inside the {min_reach} mm keep-out around the base'
-        return True, ''
+                reasons.append(
+                    f'horizontal reach {reach:.1f} mm is inside the {min_reach} mm keep-out around the base'
+                )
+        return (not reasons), '; '.join(reasons)
 
     def assert_pose_allowed(self, pose):
         allowed, reason = self.check_pose_allowed(pose)

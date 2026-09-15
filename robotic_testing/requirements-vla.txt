@@ -7,3 +7,7 @@ python-dotenv
 
 # Needed to talk to real hardware. Not required for `python vla.py --simulate`.
 xarm-python-sdk
+
+# Needed for the ESP32 stop link (robotic_testing/listen.py).
+# Not required for `python listen.py --port stdin`.
+pyserial

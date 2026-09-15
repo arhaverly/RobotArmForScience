@@ -14,6 +14,7 @@ run before anything imports it. ``make_sim_arm()`` does that for you:
     arm = make_sim_arm('xarm7')
 """
 import sys
+import time
 import types
 
 
@@ -46,6 +47,11 @@ class SimulatedXArmAPI:
         self.connected = True
         self.axis = 7
         self.commands = []
+
+        # How long a commanded move pretends to take. Zero keeps the simulator
+        # instantaneous, which is what a plan validator wants. Raise it -- listen.py does --
+        # when the point of the exercise is to interrupt a move that is already under way.
+        self.move_duration_s = 0.0
 
         class _Arm:
             version_number = (1, 1, 1)
@@ -106,26 +112,50 @@ class SimulatedXArmAPI:
         return 0, 'simulated'
 
     # --- writes -------------------------------------------------------
+    def _travel(self):
+        """
+        Let ``move_duration_s`` elapse, and report how much of the move got done.
+
+        A real arm put into the stop state abandons the move it is executing and ends up
+        somewhere along the way. Watching for state 4 here means the same is true of the
+        simulator, so a stop issued from another thread can be exercised offline.
+        """
+        if not self.move_duration_s:
+            return 1.0
+        started = time.monotonic()
+        while True:
+            elapsed = time.monotonic() - started
+            if self.state == 4:
+                return min(elapsed / self.move_duration_s, 1.0)
+            if elapsed >= self.move_duration_s:
+                return 1.0
+            time.sleep(min(0.005, self.move_duration_s - elapsed))
+
     def set_position(self, *args, **kwargs):
         args = list(args) + [None] * (6 - len(args))
         relative = kwargs.get('relative', False)
+        start = list(self._pose)
+        target = list(self._pose)
         for axis in range(6):
             value = args[axis]
             if value is None:
                 continue
-            if relative:
-                self._pose[axis] += float(value)
-            else:
-                self._pose[axis] = float(value)
+            target[axis] = start[axis] + float(value) if relative else float(value)
+        fraction = self._travel()
+        self._pose = [begin + (end - begin) * fraction for begin, end in zip(start, target)]
         self.commands.append(('set_position', args[:6], relative))
         return 0
 
     def set_servo_angle(self, servo_id=None, angle=None, **kwargs):
+        start = list(self._joints)
         if servo_id is None or servo_id == 8:
             angles = list(angle)
-            self._joints = [float(value) for value in angles] + [0.0] * (7 - len(angles))
+            target = [float(value) for value in angles] + [0.0] * (7 - len(angles))
         else:
-            self._joints[int(servo_id) - 1] = float(angle)
+            target = start[:]
+            target[int(servo_id) - 1] = float(angle)
+        fraction = self._travel()
+        self._joints = [begin + (end - begin) * fraction for begin, end in zip(start, target)]
         self.commands.append(('set_servo_angle', servo_id, angle))
         return 0
 

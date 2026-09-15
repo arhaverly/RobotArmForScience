@@ -72,6 +72,66 @@ def parse_line(raw, received_at=None):
     return Message(tokens[0].upper(), tokens[1:], raw, received_at or time.monotonic())
 
 
+def _port_hint(suggest_listing=True):
+    """
+    Platform-specific advice for finding the right port name.
+
+    ``suggest_listing`` is off when this is printed *by* --list-ports, which would
+    otherwise be told to run itself.
+    """
+    if sys.platform == 'win32':
+        listing = '  List what Windows can see:  python listen.py --list-ports\n' if suggest_listing else ''
+        return (
+            listing +
+            '  Check Device Manager > Ports (COM & LPT) for the board.\n'
+            '  Close the Arduino IDE serial monitor first -- it holds the port open.\n'
+            '  Ports above COM9 need no special spelling here: --port COM12 is fine.'
+        )
+    listing = '  List the ports:  python listen.py --list-ports\n' if suggest_listing else ''
+    return (
+        listing +
+        '  Check the cable, and that the board shows up:  ls /dev/ttyUSB* /dev/ttyACM*\n'
+        '  You may need to be in the dialout group: sudo usermod -aG dialout $USER,\n'
+        '  then log out and back in.\n'
+        '  Make sure no serial monitor or IDE has the port open.'
+    )
+
+
+def describe_ports():
+    """A printable list of the serial ports this machine can see, for --list-ports."""
+    try:
+        from serial.tools import list_ports
+    except ImportError:
+        return ('pyserial is not installed, so the serial ports cannot be listed.\n'
+                '  Install it with:  pip install pyserial')
+
+    ports = sorted(list_ports.comports(), key=lambda port: port.device)
+    # Windows lists every COM port it has ever seen and WSL invents 64 /dev/ttyS*, so the
+    # USB ones are separated out: the ESP32 is always a USB device, and always has a VID.
+    usb = [port for port in ports if port.vid is not None]
+    other = [port for port in ports if port.vid is None]
+
+    lines = []
+    if usb:
+        lines.append('USB serial ports -- the ESP32 is one of these:')
+        for port in usb:
+            ident = f'{port.vid:04x}:{port.pid:04x}' if port.pid is not None else f'{port.vid:04x}'
+            lines.append(f'  {port.device}  {port.description or "no description"}  [{ident}]')
+        lines.append('')
+        lines.append('Look for Espressif, CP210x, CH340/CH343 or "USB Serial". A native-USB')
+        lines.append('S2/S3/C3 appears as a JTAG/serial debug unit, VID 303a.')
+    else:
+        lines.append('No USB serial ports found, so the ESP32 does not appear to be connected.')
+        lines.append(_port_hint(suggest_listing=False))
+
+    if other:
+        shown = ', '.join(port.device for port in other[:4])
+        suffix = ', ...' if len(other) > 4 else ''
+        lines.append('')
+        lines.append(f'({len(other)} non-USB port(s), not the ESP32: {shown}{suffix})')
+    return '\n'.join(lines)
+
+
 # ----------------------------------------------------------------------
 # transports
 # ----------------------------------------------------------------------
@@ -113,11 +173,8 @@ class SerialTransport:
         except Exception as error:
             raise LinkError(
                 f'could not open {port} at {baud} baud: {error}\n'
-                f'  Check the board is plugged in and the port name is right '
-                f'(ls /dev/ttyUSB* /dev/ttyACM*).\n'
-                f'  On Linux you may need to be in the dialout group: '
-                f'sudo usermod -aG dialout $USER, then log out and back in.\n'
-                f'  Make sure no serial monitor or IDE has the port open.'
+                f'  Check the board is plugged in and the port name is right.\n'
+                + _port_hint()
             )
 
         if settle_s > 0:

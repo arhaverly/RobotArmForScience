@@ -64,19 +64,23 @@ normally reboots the chip. `SerialTransport` holds both lines low from before th
 opened, so connecting is invisible to the firmware and the ESP32 keeps running across a
 restart of `listen.py`.
 
-### On WSL2
+### On Windows, and on WSL2
 
-A USB serial port on the Windows host is not visible inside WSL2 without forwarding it.
-Either:
+Run `listen.py` from **Windows Python** (3.9 or newer) against the COM port directly —
+`--port COM7`; `--list-ports` will tell you which one. That is the simplest arrangement and
+the one the lab machine uses; see [LISTEN.md](LISTEN.md).
+
+If you specifically want to run inside WSL2, a USB port on the Windows host is not visible
+there without forwarding it first:
 
 ```powershell
 winget install usbipd            # once
 usbipd list                      # find the BUSID of the ESP32
-usbipd attach --wsl --busid 2-4
+usbipd attach --wsl --busid 1-3  # per session
 ```
-after which it appears as `/dev/ttyUSB0` inside WSL — or run `listen.py` from Windows
-Python against `--port COM4`. The arm itself is reached over Ethernet, which WSL2 can do
-either way.
+
+after which it appears as `/dev/ttyACM0` (native USB) or `/dev/ttyUSB0` (CP210x/CH340)
+inside WSL. The arm itself is reached over Ethernet, which works either way.
 
 ---
 
@@ -361,8 +365,9 @@ Work through this in order; each step fails in a way you can tell apart.
    confirm you see `HELLO` and nothing else. If you see `~~~~` the firmware has the wrong
    idea about the host state. **Close the serial monitor before step 4** — two programs
    cannot hold the same port.
-4. **Both, simulated arm.** `python robotic_testing/listen.py --simulate --port /dev/ttyUSB0
-   --echo`. Press the button; look for `*** STOP`.
+4. **Both, simulated arm.** `python robotic_testing/listen.py --simulate --port COM7
+   --echo` (`--list-ports` finds the port; on Linux it is `/dev/ttyUSB0` or
+   `/dev/ttyACM0`). Press the button; look for `*** STOP`.
 5. **Both, real arm.** Drop `--simulate`. Start with `--radius 60` so the first run stays
    small, and widen it once you trust it.
 
@@ -382,7 +387,8 @@ does, that a lost heartbeat does, that `STOPPED` reaches the ESP32 before the `A
 the wander box does not drift across resumes. If a check fails, this document and the code
 disagree.
 
-It needs a Unix pty, so on Windows test by hand with `--port stdin` instead.
+It needs a Unix pty, so on Windows it prints an explanation and exits; test by hand with
+`--port stdin` there instead, or run the checks under WSL.
 
 ---
 

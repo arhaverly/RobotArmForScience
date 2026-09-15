@@ -2,9 +2,14 @@
 """
 Put the arm in a listening state: idling constantly, stopping the instant the ESP32 speaks.
 
-    python listen.py --port /dev/ttyUSB0            # the real arm, the real ESP32
-    python listen.py --simulate --port stdin        # no robot, no ESP32: press Enter to stop
-    python listen.py --port /dev/ttyUSB0 --plan     # hand "MSG <text>" to the VLA planner
+    python listen.py --list-ports                # which port is the ESP32 on?
+    python listen.py --port COM7                 # the real arm, the real ESP32 (Windows)
+    python listen.py --port /dev/ttyUSB0         # the same, on Linux
+    python listen.py --simulate --port stdin     # no robot, no ESP32: press Enter to stop
+    python listen.py --port COM7 --plan          # hand "MSG <text>" to the VLA planner
+
+Runs on Python 3.9 and later, on Windows and on Linux. Only numpy is needed for
+--simulate; a real port also needs pyserial, and a real arm the xArm SDK.
 
 While listening, the arm wanders between random waypoints in a box around where it
 started, inside the safety envelope its config declares, twitching its wrist now and
@@ -26,7 +31,7 @@ if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
 from robotic_testing.common.esp32_link import (  # noqa: E402  (needs REPO_ROOT on sys.path)
-    PROTOCOL_VERSION, ESP32Link, LinkError, Trigger, open_transport,
+    PROTOCOL_VERSION, ESP32Link, LinkError, Trigger, describe_ports, open_transport,
 )
 from robotic_testing.vla import Problem, connect_arm  # noqa: E402
 
@@ -369,9 +374,12 @@ def main(argv=None):
         epilog=__doc__,
     )
     parser.add_argument('--port', default='stdin',
-                        help='serial port of the ESP32, e.g. /dev/ttyUSB0 or COM4. '
-                             'The default, "stdin", uses the keyboard instead.')
+                        help='serial port of the ESP32, e.g. COM7 or /dev/ttyUSB0; '
+                             '--list-ports shows them. The default, "stdin", uses the '
+                             'keyboard instead.')
     parser.add_argument('--baud', type=int, default=115200, help='serial baud rate (default: 115200)')
+    parser.add_argument('--list-ports', action='store_true',
+                        help='print the serial ports this machine can see, then exit')
     parser.add_argument('--simulate', action='store_true',
                         help='use a simulated arm; no robot, nothing physically moves')
     parser.add_argument('--arm', default='xarm7', choices=['xarm6', 'xarm7'],
@@ -409,6 +417,11 @@ def main(argv=None):
                              'ESP32 while listening; 0 turns both off (default: 5)')
     parser.add_argument('--seed', type=int, default=None, help='fix the wander for a repeatable demo')
     args = parser.parse_args(argv)
+
+    # answered before the arm is touched, so it works with no robot and no ESP32
+    if args.list_ports:
+        print(describe_ports())
+        return 0
 
     arm, vla = connect_arm(args.simulate, args.arm)
     if args.simulate:

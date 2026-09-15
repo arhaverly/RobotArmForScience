@@ -14,12 +14,16 @@ Needs a Unix pty, so it does not run on Windows. Test the link there by hand wit
 ``python listen.py --simulate --port stdin``.
 """
 import os
-import pty
 import re
 import subprocess
 import sys
 import threading
 import time
+
+try:
+    import pty
+except ImportError:  # Windows has no pty, and therefore no way to fake a serial port
+    pty = None
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LISTEN = os.path.join(REPO_ROOT, 'robotic_testing', 'listen.py')
@@ -81,6 +85,14 @@ class Checks:
 
 
 def main():
+    if pty is None:
+        print('This script needs a Unix pty to stand in for the ESP32, and Windows has no\n'
+              'pty. Nothing is wrong with your install -- the checks simply cannot run here.\n'
+              '\nTest the link by hand instead:\n'
+              '  python listen.py --simulate --port stdin\n'
+              '\nor run this script under WSL, where it works as documented.')
+        return 2
+
     check = Checks()
 
     # "~ is the one exemption."

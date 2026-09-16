@@ -9,6 +9,12 @@ Run it from anywhere:
     python vla.py --simulate                       # no robot involved, safe to explore
     python vla.py --simulate "pick up the object in front of you"
     python vla.py --plan '[{"action": "wave", "times": 2}]'   # skip the planner entirely
+    python vla.py --model gemini-3.8-flash          # a specific planner model
+    python vla.py --list-models                    # what this API key can plan with
+
+When a model is overloaded -- Google answers 503 and the message says the model is
+busy -- the planner waits, asks again, and then moves down a chain of models rather
+than giving up. --model overrides the chain.
 
 Nothing moves without showing you the plan and asking first. Add --dry-run to plan and
 validate without ever moving, or --yes to skip the confirmation prompt.
@@ -16,7 +22,9 @@ validate without ever moving, or --yes to skip the confirmation prompt.
 import argparse
 import json
 import os
+import re
 import sys
+import time
 
 # --- make `python vla.py` work from any directory ---------------------------
 # The lab modules are imported as `robotic_testing.*`, `utils.*` and so on, which means
@@ -34,8 +42,85 @@ if REPO_ROOT not in sys.path:
 from robotic_testing.common import windows_dlls  # noqa: F401,E402
 
 
+# The planner is asked for a plan in this order, moving to the next name when one is
+# overloaded. Google returns 503 UNAVAILABLE for "the model is overloaded" and that is
+# per-model capacity, so a chain is worth more than retrying one name harder -- and the
+# last entry is deliberately a different generation rather than a neighbouring Flash.
+DEFAULT_MODELS = ('gemini-3.5-flash', 'gemini-3.6-flash', 'gemini-2.5-flash')
+
+ATTEMPTS_PER_MODEL = 3    # then move to the next model in the chain
+BACKOFF_S = 2.0           # doubling: 2s, 4s
+
+# HTTP statuses worth waiting out. 429 is a rate limit, 503 is the overload everyone
+# hits, 500/504 are transient server-side faults.
+TRANSIENT_STATUSES = frozenset((429, 500, 502, 503, 504))
+# Statuses where trying another model cannot help: the key or the request is the problem.
+FATAL_STATUSES = frozenset((400, 401, 403))
+
+
 class Problem(Exception):
     """Something the person running this can fix. Printed without a traceback."""
+
+
+def api_status(error):
+    """The HTTP status behind a google-genai exception, or None if it has none."""
+    for attribute in ('code', 'status_code'):
+        value = getattr(error, attribute, None)
+        if isinstance(value, int):
+            return value
+    response = getattr(error, 'response', None)
+    value = getattr(response, 'status_code', None)
+    if isinstance(value, int):
+        return value
+    # Older SDKs put the status only in the text. Match a bare 3-digit code so a
+    # model name or a token count cannot be mistaken for one.
+    match = re.search(r'\b(4\d\d|5\d\d)\b', str(error))
+    return int(match.group(1)) if match else None
+
+
+def classify_api_error(error):
+    """
+    'transient' (wait and retry), 'skip' (try another model), or 'fatal' (stop).
+
+    Status first, because it is unambiguous; wording second, because the SDK does not
+    always carry one.
+    """
+    status = api_status(error)
+    if status in TRANSIENT_STATUSES:
+        return 'transient'
+    if status in FATAL_STATUSES:
+        return 'fatal'
+    if status == 404:
+        return 'skip'           # no such model for this key; another name may exist
+    text = str(error).lower()
+    if any(word in text for word in
+           ('overload', 'unavailable', 'try again', 'busy', 'rate limit', 'exhausted',
+            'deadline', 'timeout', 'temporarily')):
+        return 'transient'
+    if any(word in text for word in ('api key', 'permission', 'unauthenticated', 'quota')):
+        return 'fatal'
+    return 'skip'
+
+
+def explain_api_error(error, model):
+    """A Problem for something no amount of retrying or model-swapping will fix."""
+    status = api_status(error)
+    if status in (401, 403) or 'api key' in str(error).lower():
+        return Problem(
+            'The Gemini API rejected the key ({}).\n'
+            '  Check GEMINI_API_KEY in the .env file at the repository root.\n'
+            '  Or skip the planner entirely:  python vla.py --plan \'[{{"action": "wave"}}]\''
+            .format(error))
+    if 'quota' in str(error).lower():
+        return Problem(
+            'The Gemini API key is out of quota, so no model will answer ({}).\n'
+            '  Check the quota for the key, or use --plan to drive the arm without '
+            'the planner.'.format(error))
+    return Problem(
+        'The planner request was rejected by {} and retrying will not change that:\n'
+        '  {}\n'
+        '  See which models this key can use:  python vla.py --list-models'
+        .format(model, error))
 
 
 def explain_missing_module(error):
@@ -118,8 +203,58 @@ def show_state(arm):
     return state
 
 
-def make_planner(vla, model):
-    """Build the instruction -> plan function, or raise Problem explaining what is missing."""
+def load_api_key():
+    """GEMINI_API_KEY, from the repo's .env or the environment. None if unset."""
+    from dotenv import load_dotenv
+    load_dotenv(os.path.join(REPO_ROOT, '.env'))
+    load_dotenv()
+    return os.environ.get('GEMINI_API_KEY')
+
+
+def list_models():
+    """
+    Print the models this key can actually generate content with.
+
+    Worth having because a wrong model name and an overloaded model produce very
+    different failures, and guessing at names from documentation is how one gets
+    mistaken for the other.
+    """
+    try:
+        from google import genai
+    except ImportError as error:
+        raise explain_missing_module(error)
+
+    api_key = load_api_key()
+    if not api_key:
+        raise Problem('GEMINI_API_KEY is not set, so the API cannot be asked what it offers.')
+
+    try:
+        models = list(genai.Client(api_key=api_key).models.list())
+    except Exception as error:                      # noqa: BLE001 -- report, never traceback
+        raise explain_api_error(error, 'models.list')
+
+    usable = []
+    for model in models:
+        actions = getattr(model, 'supported_actions', None)
+        if actions and 'generateContent' not in actions:
+            continue
+        usable.append(str(getattr(model, 'name', model)).replace('models/', ''))
+
+    print('Models this key can plan with:')
+    for name in sorted(usable):
+        mark = '  <-- in the default chain' if name in DEFAULT_MODELS else ''
+        print('  {}{}'.format(name, mark))
+    print('\nUse one with:  python vla.py --model NAME')
+    print('Or a fallback chain:  python vla.py --model NAME,OTHER,THIRD')
+    return 0
+
+
+def make_planner(vla, models):
+    """
+    Build the instruction -> plan function, or raise Problem explaining what is missing.
+
+    `models` is one name or a list of them, tried in order.
+    """
     try:
         from dotenv import load_dotenv
         from google import genai
@@ -129,9 +264,7 @@ def make_planner(vla, model):
     except ImportError as error:
         raise explain_missing_module(error)
 
-    load_dotenv(os.path.join(REPO_ROOT, '.env'))
-    load_dotenv()
-    api_key = os.environ.get('GEMINI_API_KEY')
+    api_key = load_api_key()
     if not api_key:
         raise Problem(
             'GEMINI_API_KEY is not set, so the planner cannot be reached.\n'
@@ -160,7 +293,11 @@ def make_planner(vla, model):
 
     client = genai.Client(api_key=api_key)
 
-    def plan(instruction):
+    chain = [models] if isinstance(models, str) else [name for name in models if name]
+    if not chain:
+        chain = list(DEFAULT_MODELS)
+
+    def ask(model, instruction):
         response = client.models.generate_content(
             model=model,
             contents=f'{vla.system_prompt()}\n\nUSER REQUEST:\n{instruction}\n',
@@ -171,6 +308,60 @@ def make_planner(vla, model):
             ),
         )
         return RobotPlan.model_validate_json(response.text)
+
+    def plan(instruction):
+        """
+        Ask each model in the chain, waiting out the ones that are merely busy.
+
+        Nothing here changes what the arm does: a plan still comes back, or a Problem
+        explaining why none did. The arm is not touched either way, so retrying is
+        free of consequence -- the only cost is the operator's time, which is why the
+        waiting is announced rather than silent.
+        """
+        refused = []
+        for position, model in enumerate(chain):
+            for attempt in range(ATTEMPTS_PER_MODEL):
+                try:
+                    plan_object = ask(model, instruction)
+                except Exception as error:          # noqa: BLE001 -- classified below
+                    kind = classify_api_error(error)
+                    if kind == 'fatal':
+                        raise explain_api_error(error, model)
+                    last = attempt + 1 >= ATTEMPTS_PER_MODEL
+                    if kind == 'transient' and not last:
+                        delay = BACKOFF_S * (2 ** attempt)
+                        print(f'  {model} is busy; waiting {delay:.0f}s and asking again '
+                              f'({attempt + 2} of {ATTEMPTS_PER_MODEL})')
+                        time.sleep(delay)
+                        continue
+                    refused.append((model, str(error).strip().splitlines()[0]))
+                    if position + 1 < len(chain):
+                        print(f'  {model} would not answer; trying {chain[position + 1]}')
+                    break
+                else:
+                    if position:
+                        print(f'  planned with {model}')
+                    return plan_object
+
+        lines = '\n'.join(f'  {model}: {why}' for model, why in refused)
+        # A 429 is retried and fallen through rather than treated as fatal, because
+        # Gemini quotas are per-model and the next name in the chain often has room.
+        # If that is what happened, say so: telling someone to wait out Google's
+        # capacity when it is their own key's quota sends them to the wrong place.
+        cause = ('Every one of those is a quota limit on this key, not Google being '
+                 'busy.\n'
+                 if all('quota' in why.lower() or 'exhausted' in why.lower()
+                        for _, why in refused)
+                 else 'If they are all busy, this is Google\'s capacity and waiting is '
+                      'the only cure.\n')
+        raise Problem(
+            'No planner model would answer. Tried:\n{}\n\n'
+            '{}'
+            '  Name a different model:  python vla.py --model NAME\n'
+            '  See what this key can use:  python vla.py --list-models\n'
+            '  Or drive the arm without the planner:\n'
+            '    python vla.py --plan \'[{{"action": "wave", "times": 2}}]\''
+            .format(lines, cause))
 
     return plan
 
@@ -242,9 +433,22 @@ def main(argv=None):
                         help='run this JSON action list directly, without calling the planner')
     parser.add_argument('--state', action='store_true',
                         help='print the arm state and safety envelope, then exit')
-    parser.add_argument('--model', default='gemini-3.5-flash',
-                        help='planner model (default: gemini-3.5-flash)')
+    parser.add_argument('--model', action='append', metavar='NAME', default=None,
+                        help='planner model, or a comma-separated chain tried in order when '
+                             'one is overloaded. Repeat the flag to append. '
+                             '(default: %s)' % ','.join(DEFAULT_MODELS))
+    parser.add_argument('--list-models', action='store_true',
+                        help='ask the API which models this key can plan with, then exit')
     args = parser.parse_args(argv)
+
+    # Before connecting: this asks Google a question and has nothing to do with the arm.
+    if args.list_models:
+        return list_models()
+
+    models = []
+    for value in args.model or []:
+        models += [name.strip() for name in value.split(',') if name.strip()]
+    models = models or list(DEFAULT_MODELS)
 
     arm, vla = connect_arm(args.simulate, args.arm)
     show_state(arm)
@@ -262,7 +466,7 @@ def main(argv=None):
         run_plan(vla, actions, args.dry_run, args.yes)
         return 0
 
-    planner = make_planner(vla, args.model)
+    planner = make_planner(vla, models)
 
     if args.instruction:
         handle_instruction(vla, planner, args.instruction, args.dry_run, args.yes)

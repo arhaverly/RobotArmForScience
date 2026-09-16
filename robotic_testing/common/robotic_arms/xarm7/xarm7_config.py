@@ -76,6 +76,22 @@ pos_dict = {
     # [x, y, z, ]
 }
 
+# WARNING: these are joint angles, and NOTHING CHECKS THEM.
+#
+# home() commands them through set_servo_angle, which the safety envelope below does not
+# touch -- vla_control's executor says so outright ("joint-space move, so the resulting
+# TCP pose is not predicted here") and returns no pose to check. So the envelope has
+# never guarded home(), and widening or narrowing it cannot make home() safer.
+#
+# Whether these angles put the gripper above the bench or into it is a fact about how
+# this arm is mounted, and it is recorded nowhere. They were last changed for the robot
+# swap in "using 1326 robot instead" and have not been verified against this bench since.
+# On 2026-09-16 home() drove the arm into the table.
+#
+# Before trusting home() again: jog the arm to a safe resting pose by hand or in
+# UFACTORY Studio, read the joint angles off the controller, and put those here. Do not
+# guess them, and note that home() goes through 'stretch' first, so that pose has to be
+# clear of the bench too -- both the poses and the swing between them.
 ang_dict = {
     'home': [0.0, 0.0, 0.0, 0.0, 0.0, -60.0, 0.0],
     'stretch': [0.0, 0.0, 0.0, 30.0, 0.0, -30.0, 0.0],
@@ -133,23 +149,34 @@ gripper_open_dist = 55
 #   flask         x -52,         y 257,         z 245  (+156 hover -> z 401)
 #   rinsing       x 196,         y 323,         z 140  (+150 hover -> z 290)
 #
-# Those are NOT the whole story, and an envelope built from them alone is wrong. `home`
-# is defined in joint space (ang_dict), so its TCP pose appears nowhere in this file:
-# measured on the real arm it sits at y ~= 2, far outside the y band the stations occupy.
-# An envelope derived from the stations therefore excludes the arm's own resting position
-# and refuses every free-form move made from it. y_range below is widened to cover home.
+# `home` is defined in joint space (ang_dict), so its TCP pose appears nowhere in this
+# file: measured on the real arm it sits at y ~= 2, outside the band the stations occupy.
 #
-# Use robotic_testing/measure_envelope.py to derive these numbers from the poses the arm
-# actually reaches, rather than from the coordinates written down here. Anything inside
-# the box that the arm must not hit means pulling a range back, not widening it; the z
-# floor is the one that keeps it off the bench.
+# y_range was once widened to -80 to cover that, on the reasoning that the station
+# routines sweep the TCP across the whole band anyway. That was wrong twice over, and it
+# is reverted here:
 #
-# TODO: x_range and z_range are still station-derived. Measure home and the extremes.
+#   - What a joint-space routine sweeps through is not what a straight Cartesian line
+#     between two points in a box passes through. Declaring the bounding box of a
+#     trusted path safe hands out the whole volume, including the part over the bench.
+#   - It treated "home is outside the envelope" as a fault in the envelope. Whether
+#     home is somewhere the arm should be is a question about this bench, answered by
+#     measuring, not by widening a limit until the complaint stops.
+#
+# So y_range is back to the station-derived band. The consequence is deliberate: a
+# free-form move commanded from home is refused, because the envelope does not vouch
+# for where home is. Refusing to move is the safe answer to not knowing.
+#
+# Use robotic_testing/measure_envelope.py to derive these numbers from poses the arm
+# actually reaches. It only reads the arm and commands no motion. Anything inside the
+# box that the arm must not hit means pulling a range back, not widening it; the z floor
+# is the one that keeps it off the bench.
+#
+# TODO: x_range and z_range are still station-derived, and none of this constrains a
+# joint-space move -- see the note on ang_dict above.
 safety_dict = {
     'x_range': (-130.0, 600.0),
-    # down to -80 to include home (y ~= 2); the station routines sweep the TCP across
-    # this whole band on every run, from home out to the rack at y ~= 408
-    'y_range': (-80.0, 480.0),
+    'y_range': (180.0, 480.0),
     'z_range': (140.0, 560.0),
 
     # keep the wrist out of the far edge of the working radius and away from the base column

@@ -109,6 +109,10 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+# any local interpreter, whatever it is called: a venv records absolute
+# paths from the machine that made it and is useless on any other
+venv*/
+.venv*/
 
 # Spyder project settings
 .spyderproject

@@ -16,6 +16,14 @@ started, inside the safety envelope its config declares, twitching its wrist now
 then. The moment a byte arrives from the ESP32 the arm is halted -- before the message
 has even finished arriving, let alone been parsed -- and the session waits for a RESUME.
 
+Idling ends when something asks for it to end, and not otherwise. A waypoint the arm
+cannot reach, a controller that faults, a pose read that fails, a cable pulled and pushed
+back in: none of those are somebody asking the arm to stop, so the session clears what it
+can and goes back to idling by itself, backing off a little further each time it cannot.
+Only the ESP32, the operator or a time limit leaves the arm stopped. Pass --no-auto-resume
+for the older behaviour, where anything at all going wrong ended the idle until a human
+sent RESUME.
+
 The protocol the ESP32 has to speak, and a sketch that speaks it, are in
 robotic_testing/ESP32_PROTOCOL.md.
 """
@@ -38,7 +46,8 @@ from robotic_testing.vla import Problem, connect_arm  # noqa: E402
 
 class ListeningSession:
     """
-    The state machine: LISTENING while the arm idles, STOPPED once the ESP32 has spoken.
+    The state machine: LISTENING while the arm idles, STOPPED once the ESP32 has spoken,
+    RECOVERING while a stop that nobody asked for is being undone.
 
     The stop itself is deliberately not part of this loop. It happens on the link's reader
     thread, in :meth:`on_trigger`, so that nothing -- not the queue, not the GIL waiting on
@@ -47,14 +56,20 @@ class ListeningSession:
     whether to resume.
     """
 
+    #: how long to wait before trying to idle again, by attempt. The last entry repeats,
+    #: so a condition that is not clearing is retried twice a minute rather than forgotten
+    RETRY_BACKOFF_S = (1.0, 2.0, 5.0, 10.0, 30.0)
+
     def __init__(self, arm, link, make_motion, stop_mode='hard', on_message=None,
-                 status_every_s=5.0):
+                 status_every_s=5.0, auto_resume=True, max_fault_clears=10):
         self.arm = arm
         self.link = link
         self.make_motion = make_motion
         self.stop_mode = stop_mode
         self.on_message = on_message
         self.status_every_s = status_every_s
+        self.auto_resume = auto_resume
+        self.max_fault_clears = max_fault_clears
 
         self.state = 'STOPPED'
         self.motion = None
@@ -63,6 +78,16 @@ class ListeningSession:
         self._quit = False
         self._hard_stopped = False
         self._last_status = 0.0
+
+        # why idling stopped, when it was not because anybody asked
+        self.last_failure = None
+        self.restarts = 0
+        self.fault_clears = 0
+        self._retry_at = None
+        self._retry_index = 0
+        # a link that went quiet: waiting for it to come back rather than for a human
+        self._waiting_for_link = False
+        self._heartbeats_at_loss = 0
 
         # written on the reader thread, read on the main thread
         self._stop_lock = threading.Lock()
@@ -110,21 +135,50 @@ class ListeningSession:
     # state changes -- main thread only
     # ------------------------------------------------------------------
 
-    def enter_listening(self):
-        """Clear any latched stop, start a fresh wander, and arm the trigger."""
+    def enter_listening(self, clear_faults=True):
+        """
+        Clear any latched stop, start a fresh wander, and arm the trigger.
+
+        On failure the state is left alone and the reason is kept in ``last_failure``: a
+        RESUME that cannot be honoured is a NACK to the ESP32, whereas a stop that nobody
+        asked for is something to retry, and only the caller knows which this is.
+
+        :param clear_faults: also clear a controller fault that was not our own stop.
+            Counted against ``max_fault_clears``, because clearing the same fault for ever
+            without a human looking at the arm is not a safe kind of persistence.
+        :return: True once the arm is moving
+        """
         from robotic_testing.common.robotic_arms.xarm_control import SafetyError
 
+        self.last_failure = None
         if self._hard_stopped:
-            self.arm.reset_safety_state()
+            try:
+                self.arm.reset_safety_state()
+            except Exception as error:
+                self.last_failure = SafetyError(f'the latched stop could not be cleared: {error}')
+                print(f'\nCannot idle: {self.last_failure}')
+                return False
             self._hard_stopped = False
 
         try:
             motion = self.make_motion()
             motion.check_ready()
-        except SafetyError as error:
+        except Exception as error:
+            self.last_failure = error
+            # An arm that is merely faulted is a different thing from an arm that must not
+            # idle from where it stands. The first is what RESUME has always been
+            # documented to clear; the second needs a human to move something, and no
+            # amount of retrying will do it for them.
+            faulted = clear_faults and self._faulted()
+            if faulted and self.fault_clears < self.max_fault_clears:
+                return self._clear_fault_and_listen(error)
             print(f'\nCannot idle: {error}')
-            self.link.send('NACK', 'RESUME', str(error).split(';')[0])
-            self.state = 'STOPPED'
+            if faulted:
+                print(f'  This session has already cleared {self.fault_clears} fault(s), '
+                      f'which is the limit (--max-fault-clears), so this one is being left '
+                      f'alone -- something needs looking at on the arm. It will keep '
+                      f'trying; a RESUME, or a controller somebody has cleared, is all it '
+                      f'needs.')
             return False
 
         with self._stop_lock:
@@ -140,7 +194,34 @@ class ListeningSession:
         print('\nLISTENING -- the arm is moving. Anything the ESP32 sends stops it.')
         print(motion.describe())
         self.link.send('STATE', 'LISTENING')
+        self._retry_at = None
+        self._retry_index = 0
+        self._waiting_for_link = False
         return True
+
+    def _faulted(self):
+        """Whether the arm's own complaint is the sort ``reset_safety_state`` undoes."""
+        try:
+            self.arm.assert_ready()
+        except Exception:
+            return True
+        return False
+
+    def _clear_fault_and_listen(self, error):
+        """Clear a controller fault, once, and try to idle again."""
+        self.fault_clears += 1
+        print(f'\nThe arm is faulted ({error}).')
+        print(f'  Clearing it and trying again (clear {self.fault_clears} of '
+              f'{self.max_fault_clears} allowed this session).')
+        try:
+            self.arm.reset_safety_state()
+            self._hard_stopped = False
+        except Exception as failure:
+            self.last_failure = failure
+            print(f'  The arm would not clear: {failure}')
+            return False
+        # once only: if it is still not ready after a clear, something real is wrong
+        return self.enter_listening(clear_faults=False)
 
     def _halt_motion(self):
         """Wind up the wander thread and fold its move count into the session total."""
@@ -154,17 +235,77 @@ class ListeningSession:
         self.total_moves += motion.moves
 
     def enter_stopped(self, note=None):
+        """Stop, and stay stopped until somebody says otherwise."""
         self._halt_motion()
         self.link.disarm_trigger()
         self.state = 'STOPPED'
+        self._retry_at = None
         # announced rather than left to be inferred: the firmware uses this to know it
         # should stop heartbeating, and the periodic tick only runs while listening
         self.link.send('STATE', self.state)
         if note:
             print(note)
-        pose = self.arm.get_cartesian_pos()
-        print(f'STOPPED at x={pose[0]:.1f} y={pose[1]:.1f} z={pose[2]:.1f} mm. '
-              f'Send RESUME to carry on, or press Ctrl-C to quit.')
+        pose = self._pose()
+        where = (f'at x={pose[0]:.1f} y={pose[1]:.1f} z={pose[2]:.1f} mm'
+                 if pose else 'where it was (its pose could not be read)')
+        print(f'STOPPED {where}. Send RESUME to carry on, or press Ctrl-C to quit.')
+
+    def enter_recovering(self, note=None):
+        """
+        Stop for now, but plan to come back: the arm idles again as soon as it can.
+
+        This is the path for a stop that nobody asked for -- a waypoint the arm could not
+        reach, a faulted controller, a pose read that failed, a cable that fell out. The
+        listening state is supposed to end when the ESP32 or the operator says so, so a
+        stop that neither of them asked for is a delay rather than the end of the session.
+
+        The arm is left still throughout. Coming back means going through
+        :meth:`enter_listening` again, which re-runs every precondition, so recovering is
+        never a way round a check -- only a way of not needing a human to retry one.
+        """
+        self._halt_motion()
+        self.link.disarm_trigger()
+        if not self.auto_resume:
+            self.enter_stopped(note=note)
+            return
+
+        delay = self.RETRY_BACKOFF_S[min(self._retry_index, len(self.RETRY_BACKOFF_S) - 1)]
+        self._retry_index += 1
+        self._retry_at = time.monotonic() + delay
+        self.state = 'RECOVERING'
+        # the reference firmware treats any STATE that is not LISTENING as stopped, which
+        # is exactly right here: the arm is still, so there is nothing to heartbeat over
+        self.link.send('STATE', self.state)
+        if note:
+            print(note)
+        print(f'The arm is still. Trying to idle again in {delay:.0f} s '
+              f'(attempt {self._retry_index}). Send STOP to leave it stopped, '
+              f'or RESUME to try now.')
+
+    def _attempt_recovery(self):
+        """Have another go at idling, having waited out the backoff."""
+        self._retry_at = None
+        attempt = self._retry_index                 # enter_listening resets this on success
+        if self.enter_listening():
+            self.restarts += 1
+            print(f'  (idling again by itself, after {attempt} attempt(s))')
+            return True
+        self.enter_recovering()
+        return False
+
+    def _pose(self):
+        """
+        The current TCP pose, or None if the arm could not be asked.
+
+        Reading the pose is a network round trip to the controller, and a failed read is
+        not a reason to bring the session down -- the whole point of the session is to be
+        the thing that is still there to stop the arm.
+        """
+        try:
+            return self.arm.get_cartesian_pos()
+        except Exception as error:
+            print(f'  (could not read the arm pose: {error})')
+            return None
 
     def report_stop(self):
         """
@@ -206,24 +347,34 @@ class ListeningSession:
         verb = message.verb
 
         if verb in ('STOP', 'HALT', 'ESTOP'):
+            # somebody asking for a stop is the one thing that cancels a pending retry
+            self._cancel_recovery()
             self.link.send('ACK', verb)
 
         elif verb in ('RESUME', 'GO', 'START'):
             if self.enter_listening():
                 self.link.send('ACK', verb)
+            else:
+                reason = str(self.last_failure or 'unknown').split(';')[0]
+                self.link.send('NACK', verb, reason)
+                # a RESUME that could not be honoured now may well be honourable in a
+                # moment -- the arm may be mid-fault, or a read may have failed
+                self.enter_recovering()
 
         elif verb == 'HELLO':
             print(f'\nESP32 booted: {message.text or "(no version given)"}')
             self.link.send('READY', PROTOCOL_VERSION, self._arm_name())
-            self.enter_listening()
+            if not self.enter_listening():
+                self.enter_recovering()
 
         elif verb == 'PING':
             self.link.send('PONG')
             print('  (PING also stops the arm -- only the ~ heartbeat does not)')
 
         elif verb in ('STATE', 'POSE'):
-            pose = self.arm.get_cartesian_pos()
-            self.link.send('POSE', f'{pose[0]:.1f}', f'{pose[1]:.1f}', f'{pose[2]:.1f}')
+            pose = self._pose()
+            if pose:
+                self.link.send('POSE', f'{pose[0]:.1f}', f'{pose[1]:.1f}', f'{pose[2]:.1f}')
             self.link.send('STATE', self.state)
 
         elif verb == 'HOME':
@@ -242,8 +393,18 @@ class ListeningSession:
             self._quit = True
 
         elif verb == 'LINKLOST':
+            # The stop stands: an ESP32 that cannot speak cannot stop the arm, so idling
+            # on with a dead link would be idling with nothing watching. But a quiet link
+            # is not a person asking for a stop either, so the arm goes back to idling on
+            # its own once the board proves it is alive again -- which for firmware that
+            # heartbeats means the next `~`, and for one that rebooted means its HELLO.
+            self._waiting_for_link = self.auto_resume
+            self._heartbeats_at_loss = self.link.heartbeats
             print(f'\nThe link to the ESP32 went quiet ({message.text}). '
-                  f'Check the cable and the board, then send RESUME.')
+                  f'Check the cable and the board.')
+            print('  The arm stays still while the link is down'
+                  + (', and starts idling again by itself when the ESP32 speaks again.'
+                     if self.auto_resume else '. Send RESUME once it is back.'))
 
         elif verb == 'GARBAGE':
             print(f'\nA line arrived with no newline in sight, so it was dropped: {message.raw!r}')
@@ -254,8 +415,19 @@ class ListeningSession:
             print(f'\nThe ESP32 said {message.raw!r}, which is not part of the protocol.')
             self.link.send('NACK', verb, 'unknown-verb')
 
+    def _cancel_recovery(self):
+        """Forget any pending retry: from here on the arm stays stopped until told."""
+        self._retry_at = None
+        self._retry_index = 0
+        self._waiting_for_link = False
+        if self.state == 'RECOVERING':
+            self.enter_stopped()
+
     def go_home(self):
         from robotic_testing.common.robotic_arms.xarm_control import SafetyError
+        # going home is an instruction, so it also settles what happens afterwards:
+        # the arm waits at home rather than wandering off again on a pending retry
+        self._cancel_recovery()
         if self._hard_stopped:
             self.arm.reset_safety_state()
             self._hard_stopped = False
@@ -281,19 +453,36 @@ class ListeningSession:
         if self.status_every_s <= 0 or now - self._last_status < self.status_every_s:
             return
         self._last_status = now
-        pose = self.arm.get_cartesian_pos()
-        print(f'  listening... {self.motion.moves} moves, '
-              f'at x={pose[0]:.0f} y={pose[1]:.0f} z={pose[2]:.0f} mm, '
-              f'{self.link.heartbeats} heartbeats')
+        motion = self.motion
+        pose = self._pose()
+        where = (f'at x={pose[0]:.0f} y={pose[1]:.0f} z={pose[2]:.0f} mm, ' if pose else '')
+        # Two different things worth saying, and they mean different things. A skipped
+        # candidate cost nothing -- it was turned down while choosing, before anything
+        # moved. An abandoned waypoint is one the arm was already walking to, so it is
+        # visible hesitation. Either climbing steadily means the box and what the arm can
+        # really reach from there barely overlap, which a smaller --radius usually fixes.
+        rejected = ''
+        if motion is not None:
+            skipped = sum(motion.refused.values())
+            if skipped:
+                breakdown = ', '.join(f'{count} on {name}'
+                                      for name, count in motion.refused.items() if count)
+                rejected += f', {skipped} candidate(s) skipped ({breakdown})'
+            if motion.rejections:
+                rejected += f', {motion.rejections} waypoint(s) abandoned'
+        print(f'  listening... {motion.moves if motion else 0} moves, {where}'
+              f'{self.link.heartbeats} heartbeats{rejected}')
         # the ESP32 heartbeat tells the host the board is alive; this is the same promise
         # in the other direction, so the firmware can run its own watchdog on the host
         self.link.send('STATE', self.state)
-        self.link.send('POSE', f'{pose[0]:.1f}', f'{pose[1]:.1f}', f'{pose[2]:.1f}')
+        if pose:
+            self.link.send('POSE', f'{pose[0]:.1f}', f'{pose[1]:.1f}', f'{pose[2]:.1f}')
 
     def run(self, deadline=None):
         print(f'\nLink: {self.link.transport.description}')
         self.link.send('READY', PROTOCOL_VERSION, self._arm_name())
-        self.enter_listening()
+        if not self.enter_listening():
+            self.enter_recovering()
 
         while not self._quit:
             if deadline is not None and time.monotonic() > deadline:
@@ -311,12 +500,26 @@ class ListeningSession:
             if self._stop_event.is_set():
                 self.report_stop()
 
-            # the wander can also end by itself: a fault, or a run of moves the arm
-            # could not actually reach
+            # The wander can also end by itself: the arm faulted, or something it needed
+            # to read failed. Nobody asked for that stop, so it is not the end of the
+            # session -- the arm is left still and the session goes back to idling.
             if self.state == 'LISTENING' and self.motion is not None and not self.motion.running:
                 error = self.motion.error
-                self.enter_stopped(note=f'\nThe idle motion stopped on its own: {error}'
-                                   if error else '\nThe idle motion ended.')
+                self.enter_recovering(note=f'\nThe idle motion stopped on its own: {error}'
+                                      if error else '\nThe idle motion ended.')
+
+            # a link that went quiet and has started heartbeating again is a link nobody
+            # needs to be told about twice
+            if (self._waiting_for_link and self.state == 'STOPPED'
+                    and self.link.heartbeats > self._heartbeats_at_loss):
+                self._waiting_for_link = False
+                print('\nThe ESP32 is heartbeating again.')
+                if not self.enter_listening():
+                    self.enter_recovering()
+
+            if (self.state == 'RECOVERING' and self._retry_at is not None
+                    and time.monotonic() >= self._retry_at):
+                self._attempt_recovery()
 
             if message is None:
                 if self.state == 'LISTENING':
@@ -334,7 +537,8 @@ class ListeningSession:
             self.total_moves += self.motion.moves
         self.link.disarm_trigger()
         self.link.send('BYE')
-        print(f'\nDone: {self.total_moves} idle moves, {self.stops} stop(s). '
+        restarts = f', {self.restarts} automatic restart(s)' if self.restarts else ''
+        print(f'\nDone: {self.total_moves} idle moves, {self.stops} stop(s){restarts}. '
               f'The arm has been left where it is.')
 
 
@@ -396,6 +600,11 @@ def main(argv=None):
                         help='pos_settings_dict key for idle moves '
                              '(default: the arm config free-form profile)')
     parser.add_argument('--no-wiggle', action='store_true', help='do not twist the wrist while idling')
+    parser.add_argument('--no-ik-check', action='store_true',
+                        help="do not ask the controller's own kinematics about a waypoint "
+                             'before walking to it. The configured envelope and the path '
+                             'check still apply; use this only if a controller turns out to '
+                             'refuse poses it will then happily move to')
     parser.add_argument('--heartbeat-timeout', type=float, default=1.5,
                         help='stop the arm if the ESP32 sends no ~ for this long, once it has '
                              'sent at least one, in seconds (default: 1.5)')
@@ -415,6 +624,14 @@ def main(argv=None):
     parser.add_argument('--status-every', type=float, default=5.0, metavar='SECONDS',
                         help='how often to print a status line and send STATE/POSE to the '
                              'ESP32 while listening; 0 turns both off (default: 5)')
+    parser.add_argument('--no-auto-resume', action='store_true',
+                        help='leave the arm stopped after anything goes wrong, rather than '
+                             'clearing what can be cleared and idling again by itself. The '
+                             'ESP32 and the operator can always stop it either way')
+    parser.add_argument('--max-fault-clears', type=int, default=10, metavar='N',
+                        help='how many times a faulted controller may be cleared '
+                             'automatically before the session leaves it alone for a human '
+                             'to look at (default: 10)')
     parser.add_argument('--seed', type=int, default=None, help='fix the wander for a repeatable demo')
     args = parser.parse_args(argv)
 
@@ -439,7 +656,8 @@ def main(argv=None):
     def make_motion():
         return IdleMotion(arm, radius_mm=args.radius, step_mm=args.step,
                           wiggle_chance=0.0 if args.no_wiggle else 0.35,
-                          settings_profile=args.speed_profile, origin=origin, seed=args.seed)
+                          settings_profile=args.speed_profile, origin=origin,
+                          ask_controller=not args.no_ik_check, seed=args.seed)
 
     # fail before the arm starts moving, not on the first message
     on_message = make_planner_handler(vla, args.model) if args.plan else None
@@ -450,7 +668,9 @@ def main(argv=None):
         raise Problem(str(error))
 
     session = ListeningSession(arm, None, make_motion, stop_mode=args.stop_mode,
-                               on_message=on_message, status_every_s=args.status_every)
+                               on_message=on_message, status_every_s=args.status_every,
+                               auto_resume=not args.no_auto_resume,
+                               max_fault_clears=args.max_fault_clears)
     link = ESP32Link(transport, on_trigger=session.on_trigger,
                      heartbeat_timeout_s=args.heartbeat_timeout,
                      require_heartbeat=args.require_heartbeat, echo=args.echo)

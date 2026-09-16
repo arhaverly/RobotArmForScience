@@ -5,6 +5,14 @@ around a small box, continuously, until the ESP32 sends something. The moment it
 arm stops — the stop is issued on the serial reader thread, before the message has even
 finished arriving, let alone been parsed.
 
+It keeps wandering until something asks it to stop. A waypoint the arm turns out not to be
+able to reach is not commanded and another one is picked; a controller that faults is
+cleared and idling starts again; a cable pulled out and pushed back in resumes on its own.
+None of those is somebody asking for a stop, so none of them ends the session. See
+[§7 below](#7-when-it-doesnt-work) for what that looks like, and `--no-auto-resume` if you
+want the older behaviour where anything going wrong left the arm stopped until a human
+sent `RESUME`.
+
 This document is about *running* it, on the Windows 10 lab machine. The wire contract the
 firmware has to speak — the verbs, the heartbeat, the framing, a complete reference sketch
 — is [`ESP32_PROTOCOL.md`](ESP32_PROTOCOL.md).
@@ -137,7 +145,8 @@ Worth knowing while you play with it:
 
 * **Every verb stops the arm first.** `POSE`, `PING`, even a typo — they are all bytes. The
   verb only decides what happens *after* the stop. `~` is the sole exemption.
-* **`RESUME` is what starts it moving again**, and it is what re-arms the trigger.
+* **`RESUME` is what starts it moving again**, and it is what re-arms the trigger. It is
+  only needed after a stop somebody asked for; the host retries the ones nobody asked for.
 * **The wander box never drifts.** It is anchored at where the arm was when the process
   started, not where it was last halted, so a long shift of stops and resumes cannot walk
   the arm across the bench. Restart the process and the box re-anchors.
@@ -156,7 +165,7 @@ python robotic_testing\check_esp32_link.py
 
 On **Windows this cannot run** — it fakes a serial port with a Unix pty, and Windows has
 none. It says so and exits rather than throwing a traceback. Test by hand with
-`--simulate --port stdin` instead, or run it under WSL, where it passes 10/10:
+`--simulate --port stdin` instead, or run it under WSL, where it passes 12/12:
 
 ```
 PASS  six seconds of ~ heartbeats never stops the arm
@@ -165,12 +174,14 @@ PASS  a message stops the arm
 PASS  and STOPPED reaches the ESP32 before ACK
 PASS  a bare newline stops the arm
 PASS  a lost heartbeat stops the arm
+PASS  a link that comes back starts the arm idling again with no RESUME
+PASS  a stop somebody asked for is not undone by the automatic restart
 PASS  an over-long line stops the arm
 PASS  and is reported as a likely baud mismatch
 PASS  the wander box is the same after every resume
 PASS  the trigger is re-armed by RESUME, so the next message stops it too
 
-10/10 checks passed
+12/12 checks passed
 ```
 
 Each check is one sentence from the protocol document; a failure means the document and the
@@ -207,8 +218,16 @@ code disagree. Run it after touching `listen.py` or `esp32_link.py`.
 | `--radius` | `150.0` | half-width of the wander box, mm. Start smaller than this on a new setup |
 | `--step` | `40.0` | length of one idle move, mm |
 | `--no-wiggle` | off | keep the wrist still |
+| `--no-ik-check` | off | stop asking the controller's own kinematics about a waypoint before walking to it. The envelope and path checks still apply. Only needed if a controller refuses poses it will then happily move to |
 | `--speed-profile` | arm config | a `pos_settings_dict` key, e.g. `slow_2` |
 | `--seed` | random | fix the wander for a repeatable demo |
+
+**Carrying on by itself**
+
+| Flag | Default | |
+|---|---|---|
+| `--no-auto-resume` | off | leave the arm stopped after anything goes wrong, instead of clearing what can be cleared and idling again. The ESP32 and the operator can stop it either way |
+| `--max-fault-clears` | `10` | how many times a faulted controller may be cleared automatically before the session leaves it for a human to look at |
 
 **Session**
 
@@ -234,7 +253,12 @@ envelope — it can never talk the arm outside it.
 | `*** STOP -- a message arrived over USB` | the ESP32 spoke; the arm was already halted before this printed |
 | `the controller was halted 0.04 ms after the trigger` | byte → stop command accepted. Not the mechanical deceleration |
 | `STOPPED at x=… Send RESUME to carry on` | waiting. Nothing will move until `RESUME` |
-| `The link to the ESP32 went quiet` | heartbeat watchdog fired. Check the cable, then `RESUME` |
+| `The link to the ESP32 went quiet` | heartbeat watchdog fired. Check the cable; it starts idling again by itself once the board speaks |
+| `The arm is still. Trying to idle again in 5 s` | something went wrong that nobody asked for. The arm is stopped meanwhile, and every precondition is re-checked before it moves |
+| `(idling again by itself, after 2 attempt(s))` | it recovered. Nothing was skipped to get there |
+| `listening... 40 moves, …, 3 candidate(s) skipped (3 on path)` | a waypoint was turned down while choosing, before anything moved. Normal — the wander box is a box and what the arm can reach is not. A steadily climbing count means a smaller `--radius` |
+| `…, 2 waypoint(s) abandoned` | the arm was already walking there when the next step was refused, so it went somewhere else instead. Visible as a pause. Rare; if it is not, the envelope and the arm disagree about something |
+| `note: only 12% of that box can actually be reached` | the box barely overlaps what the arm can reach from there. It will still idle, but hesitantly |
 | `A line arrived with no newline in sight` | almost always a baud mismatch |
 | `esp32 <- …` / `esp32 -> …` | host to board, and (with `--echo`) board to host |
 
@@ -255,7 +279,10 @@ of this link. See [§8 of the protocol doc](ESP32_PROTOCOL.md).
 | The arm stops the instant it starts | the ESP32 is chattering. While the host is `LISTENING` the firmware must send nothing but `~` |
 | `GARBAGE` / `NACK check-baud-rate` | baud mismatch, or `Serial.setDebugOutput(true)` is spraying the WiFi log down the protocol port |
 | Stops every second or so, `LINKLOST` | heartbeats are not arriving. Raise `--heartbeat-timeout`, or check the firmware is heartbeating while `LISTENING` |
-| `Cannot idle: …` on `RESUME` | the arm cannot safely idle from where it is — holding something, or parked at the envelope edge. Send `HOME` first |
+| `Cannot idle: …` on `RESUME` | the arm cannot safely idle from where it is — holding something, or parked at the envelope edge. Send `HOME` first. It keeps retrying on its own, so a transient one needs nothing from you |
+| The arm pauses a lot, `waypoint(s) not usable` climbing | the box overlaps the keep-out around the base column, or reaches past what the arm can actually get to with that tool orientation. Use a smaller `--radius`, or start it further from the base |
+| It keeps clearing faults and idling again, and you want it to stop | `--no-auto-resume`, or send `STOP` — an asked-for stop is never undone |
+| `This session has already cleared 10 fault(s)` | the arm is faulting repeatedly. That is a real problem on the arm; the host has stopped papering over it |
 | No `~` in the status line but nothing stops | the firmware never sent a first heartbeat, so the watchdog is unarmed by design. `--require-heartbeat` makes that an error instead |
 | Nothing after `Connecting to the real xarm7...` | the arm is reached over **Ethernet**, not USB. Check you can ping `192.168.1.209` |
 | `No module named 'xarm'` | `python -m pip install xarm-python-sdk`, or add `--simulate` |
@@ -271,6 +298,14 @@ Do not let this link change where people are allowed to stand.
 
 Before the first run with a real arm: check the box `listen.py` prints is somewhere you are
 happy for the arm to move unattended, and start with a `--radius` smaller than the default.
+
+The automatic restarts are worth understanding before you leave it running. The host will
+clear a controller fault and start the arm moving again without being asked — that is the
+point of it — so an arm that faulted because it hit something will try again. Every attempt
+re-runs the full precondition check (not holding anything, inside the envelope, a reachable
+waypoint and a clear path to it), and repeated faults stop being cleared after
+`--max-fault-clears`, but neither of those is a substitute for the physical E-stop or for
+watching it. If you do not want a robot that restarts itself, run with `--no-auto-resume`.
 
 ---
 

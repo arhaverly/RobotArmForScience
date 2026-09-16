@@ -131,6 +131,27 @@ def main():
     printed, _ = run(drop_heartbeat, ['--heartbeat-timeout', '1.0'])
     check('a lost heartbeat stops the arm', 'no heartbeat' in printed, printed[-400:])
 
+    # "the arm goes back to idling on its own once the board proves it is alive again"
+    def heartbeat_returns(master):
+        time.sleep(BOOT_S)
+        beat(master, 1.5)
+        time.sleep(2.0)          # the cable is out: the watchdog fires and the arm stops
+        beat(master, 3.0)        # and back in again
+    printed, _ = run(heartbeat_returns, ['--heartbeat-timeout', '1.0'])
+    check('a link that comes back starts the arm idling again with no RESUME',
+          'heartbeating again' in printed and printed.count('LISTENING --') == 2,
+          printed[-600:])
+
+    # "Only the ESP32, the operator or a time limit leaves the arm stopped."
+    def stop_stays_stopped(master):
+        time.sleep(BOOT_S)
+        os.write(master, b'STOP\r\n')
+        beat(master, 4.0)        # a live link, so nothing is being recovered from
+    printed, _ = run(stop_stays_stopped, ['--heartbeat-timeout', '1.0'])
+    check('a stop somebody asked for is not undone by the automatic restart',
+          printed.count('LISTENING --') == 1 and 'idling again' not in printed,
+          printed[-600:])
+
     # "Longer than that with no \n and the host drops the line and reports GARBAGE"
     def over_long(master):
         time.sleep(BOOT_S)

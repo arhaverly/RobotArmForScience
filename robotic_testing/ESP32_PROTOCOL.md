@@ -149,6 +149,7 @@ verbs may be added.
 | `READY <proto> <arm>` | host is up. `<proto>` is `1`, `<arm>` is `xarm7` or `xarm6` |
 | `STATE LISTENING` | the arm is moving and the trigger is armed. **Start heartbeating** |
 | `STATE STOPPED` | the arm is still, waiting for `RESUME`. Stop heartbeating |
+| `STATE RECOVERING` | the arm is still, and the host is about to try idling again by itself. Stop heartbeating; wait for `STATE LISTENING` |
 | `STOPPED <ms>` | a stop completed. `<ms>` is from your byte to the arm being still |
 | `POSE <x> <y> <z>` | gripper position in mm, arm base frame |
 | `ACK <verb>` | your message was understood and acted on |
@@ -161,26 +162,54 @@ verbs may be added.
 ## 7. State machine
 
 ```
-              ┌────────── power on ──────────┐
-              ▼                              │
-        ┌───────────┐   HELLO / RESUME   ┌───┴───────┐
-        │  STOPPED  │ ─────────────────▶ │ LISTENING │
-        │ arm still │                    │ arm moves │
-        │           │ ◀───────────────── │ heartbeat │
-        └───────────┘   any byte but ~   └───────────┘
-                        heartbeat lost
-                        idle motion faulted
+                  ┌────────── power on ──────────┐
+                  ▼                              │
+            ┌───────────┐   HELLO / RESUME   ┌───┴───────┐
+            │  STOPPED  │ ─────────────────▶ │ LISTENING │
+            │ arm still │                    │ arm moves │
+            │  waiting  │ ◀───────────────── │ heartbeat │
+            └───────────┘   any byte but ~   └───────────┘
+                  ▲                                ▲  │
+             STOP │                    idling      │  │  arm faulted,
+            HOME  │                    possible    │  │  pose unreadable,
+                  │                    again       │  │  RESUME refused
+                  │         ┌──────────────┐       │  │
+                  └─────────│  RECOVERING  │───────┘  │
+                            │  arm still   │ ◀────────┘
+                            └──────────────┘
+                              1, 2, 5, 10, 30 s
 ```
 
-The ESP32 mirrors this from the `STATE` lines the host sends. Both transitions are
+Which of the two still states the host goes to is decided by *who asked for the stop*:
+
+| The stop came from | Where it goes | Why |
+|---|---|---|
+| a byte from the ESP32, `STOP`/`HALT`/`ESTOP`, `HOME`, `--for` | `STOPPED` | somebody asked, so the arm waits to be told otherwise |
+| the arm faulting, a failed pose read, nowhere reachable to go | `RECOVERING` | nobody asked; the host clears what it can and idles again |
+| the heartbeat watchdog | `STOPPED`, then `LISTENING` when the board speaks again | a board that cannot speak cannot stop the arm, so the stop stands while the link is down — but a link coming back is not a stop request either |
+
+`RECOVERING` waits 1, 2, 5, 10 then 30 s between attempts, and every attempt re-runs every
+precondition — it is a way of not needing a human to retry a check, never a way round one.
+A controller fault is cleared automatically at most ten times per session
+(`--max-fault-clears`); after that the host keeps trying but leaves the fault alone, because
+an arm that faults over and over needs eyes on it. `--no-auto-resume` removes all of this:
+every stop then goes to `STOPPED`, which is how the host behaved before.
+
+**Firmware does not need to know about `RECOVERING`.** Anything that is not
+`STATE LISTENING` means the arm is still and there is nothing to heartbeat over, which is
+what the reference sketch below already does.
+
+The ESP32 mirrors this from the `STATE` lines the host sends. Every transition is
 announced, so the firmware never has to guess:
 
 * entering `LISTENING` → `STATE LISTENING`
 * entering `STOPPED` → `STOPPED <ms>`, then `STATE STOPPED` on the next status tick
+* entering `RECOVERING` → `STATE RECOVERING`
 
 `RESUME` is refused with a `NACK` if the arm cannot safely idle from where it is — holding
 an object, gripper closed on the sample holder, or parked against the edge of the safety
-envelope. The host prints the reason.
+envelope. The host prints the reason, and then keeps trying on its own, so a `NACK RESUME`
+for something transient does not need a second `RESUME`.
 
 ---
 
@@ -217,17 +246,25 @@ milliseconds. `STOPPED <ms>` then reports the real, longer figure. Default is `h
 
 | Situation | What the host does |
 |---|---|
-| Cable unplugged, ESP32 crashed | heartbeat watchdog fires → stop, `LINKLOST` printed. Reconnect and `RESUME` |
+| Cable unplugged, ESP32 crashed | heartbeat watchdog fires → stop, `LINKLOST` printed. Reconnecting is enough: the next `~` (or the `HELLO` from a board that rebooted) starts it idling again |
 | ESP32 resets and re-announces | `HELLO` stops the arm, host replies `READY` and resumes |
 | Garbage on the line | stops the arm, `GARBAGE` + `NACK check-baud-rate` |
 | Serial port disappears | stop, `LINKLOST`; the session stays up so the arm stays still |
 | `listen.py` killed | the arm is left wherever it is. It does **not** keep moving — nothing else is commanding it |
-| Arm faults, or idle motion can't find a reachable waypoint | the wander thread ends, the host reports why and goes to `STOPPED` |
+| Idle motion can't find a reachable waypoint | it does not move there, picks another one, and carries on. The waypoint count in the status line says how often that happened; a lot of them means `--radius` is bigger than the arm's reachable volume around that spot |
+| Arm faults | the wander thread ends, the host reports why, clears the fault and starts idling again — up to `--max-fault-clears` times a session |
 | Message arrives in the gap before the trigger is armed | it is still stopped before the message is acted on; the invariant holds either way |
 
 After a hard stop the controller is latched in its stop state. `RESUME` clears it
 (`reset_safety_state()`) before moving again — the firmware does not have to do anything
 special.
+
+**Every move the host commands is one the arm has already agreed to.** Before it walks to a
+waypoint the host checks the waypoint against the configured envelope, checks the straight
+line to it (the envelope has a keep-out around the base column, so both ends of a move can
+be legal while the middle is not), and asks the controller's own kinematics whether it can
+reach the pose at all. A waypoint that fails any of those is never commanded, so it costs
+nothing — no fault, no stop, no `LINKLOST`, and nothing for the firmware to notice.
 
 ---
 

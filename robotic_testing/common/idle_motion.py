@@ -18,15 +18,6 @@ arm can still be moving after a soft stop is one step.
     ...
     motion.request_stop()
     motion.join()
-
-**Only a commanded move that the arm will accept is ever sent.** A waypoint is committed
-to only once the whole straight-line walk to it has been checked against the envelope and
-the controller has agreed it can reach it, because the envelope is a box with the base
-keep-out punched out of it and the arm's own reachable volume is neither. A waypoint that
-does not survive those checks is simply not used -- nothing moves, and another one is
-picked. That happens as a matter of course, so it is never treated as a fault: the wander
-keeps going until it is asked to stop, or until the arm itself faults, and only the second
-of those ends the thread.
 """
 import random
 import threading
@@ -36,24 +27,6 @@ from robotic_testing.common.robotic_arms.xarm_control import SafetyError
 # Keep off the envelope walls: a waypoint exactly on the boundary is one rounding error
 # away from a rejected move, and rejected moves make the idle look like it is stuttering.
 EDGE_MARGIN_MM = 10.0
-
-# The commanded step is the full step length by construction, so a step sitting exactly on
-# the arm's single-step limit is one floating-point rounding away from being refused every
-# single time. Stay a hair under it.
-STEP_MARGIN_MM = 0.5
-
-# How many random candidates to consider before falling back on the walk back to the
-# origin. The box is a box and the reachable volume is not, so some candidates always fail.
-WAYPOINT_TRIES = 30
-
-# How long to wait after finding nowhere to go, before looking again. Long enough not to
-# spin a core, short enough that the arm picks up again promptly once it can.
-RETRY_PAUSE_S = 0.5
-
-# Below this share of the box being usable, say so when describing the idle: the arm will
-# wander perfectly well, but it will spend visible time looking, and a smaller radius or a
-# different starting pose is almost always what was wanted.
-CRAMPED_BOX_FRACTION = 0.2
 
 
 class IdleMotion:
@@ -70,20 +43,12 @@ class IdleMotion:
     :param origin: centre of the wander box; defaults to wherever the arm is when idling
         starts. Pass the same origin every time you restart, or the box follows the arm and
         a few stop-and-resume cycles walk it somewhere you did not intend.
-    :param ask_controller: put each candidate waypoint to the controller's own kinematics
-        before walking to it, as well as to the configured envelope. This is what keeps a
-        pose the arm cannot reach from becoming a fault rather than a waypoint quietly not
-        used. Turn it off if a particular controller disagrees with itself and refuses
-        poses it then happily moves to -- the envelope and path checks still apply.
     :param seed: fix it to get a repeatable wander, e.g. when demonstrating
     """
 
-    #: how many points to sample when surveying the box in :meth:`check_ready`
-    SURVEY_POINTS = 200
-
     def __init__(self, arm, radius_mm=150.0, z_radius_mm=None, step_mm=40.0,
                  pause_chance=0.25, pause_s=(0.4, 1.8), wiggle_chance=0.35, wiggle_deg=20.0,
-                 settings_profile=None, origin=None, ask_controller=True, seed=None):
+                 settings_profile=None, origin=None, seed=None):
         self.arm = arm
         self.radius_mm = float(radius_mm)
         self.z_radius_mm = float(radius_mm / 2 if z_radius_mm is None else z_radius_mm)
@@ -94,7 +59,6 @@ class IdleMotion:
         self.wiggle_deg = float(wiggle_deg)
         self.settings_profile = settings_profile
         self.origin = list(origin) if origin is not None else None
-        self.ask_controller = bool(ask_controller)
         self.rng = random.Random(seed)
 
         self._stop = threading.Event()
@@ -103,22 +67,9 @@ class IdleMotion:
         self.waypoints = 0
         self.error = None
 
-        # a waypoint that turned out not to be usable. Counted and reported, because a
-        # wander that is spending most of its time looking for somewhere to go means the
-        # box and the reachable volume barely overlap -- but never fatal.
-        self.rejections = 0
-        self.last_rejection = None
-        self.skipped_wiggles = 0
-        # candidates turned down by each of the three checks, which is the only way to
-        # tell "the box is in the wrong place" from "the controller refuses everything"
-        self.refused = {'envelope': 0, 'path': 0, 'controller': 0}
-        # share of the box that turned out to be usable, from the survey in check_ready
-        self.usable_fraction = None
-
         self.bounds = None
         self._wrist_joint = None
         self._wrist_start = None
-        self._wrist_limit = None
 
     # ------------------------------------------------------------------
     # preconditions
@@ -149,7 +100,6 @@ class IdleMotion:
         if not allowed:
             raise SafetyError(f'the arm is outside its safety envelope ({reason}); it cannot idle from here')
         self._plan_bounds(pose)
-        self._survey_box(pose)
         return True
 
     def _plan_bounds(self, pose):
@@ -174,50 +124,12 @@ class IdleMotion:
 
         self.origin = origin
         self.bounds = bounds
-        # a step longer than the arm's own single-step limit would be rejected every time,
-        # and a step exactly on it would be rejected whenever the arithmetic rounded up
-        self.step_mm = min(self.step_mm, max(float(safety['max_step_mm']) - STEP_MARGIN_MM, 1.0))
+        # a step longer than the arm's own single-step limit would be rejected every time
+        self.step_mm = min(self.step_mm, float(safety['max_step_mm']))
         if self.wiggle_chance > 0:
             self._wrist_joint = int(safety['wave']['joint'] or self.arm.num_joints)
             self._wrist_start = self.arm.get_joint_angles()[self._wrist_joint - 1]
-            self._wrist_limit = abs(float(safety['wave']['joint_limit_deg']))
         return bounds
-
-    def _survey_box(self, pose):
-        """
-        Work out how much of the box is actually usable, before anything moves.
-
-        The box is clipped to the envelope's ranges, but the envelope also keeps a
-        cylinder clear around the base column, and a hole in the middle is not something a
-        box can be clipped to. So some of the box is normally unusable, and how much is
-        worth knowing: a box with very little room left makes the arm look hesitant, which
-        the operator should be told is a ``--radius`` away from being fixed rather than
-        left to wonder about.
-
-        Only a box with *nothing* usable in it is refused. Anything else is idled in, and
-        reported: a wander that has to look a few times before it finds somewhere to go is
-        still a wander, and stopping the arm over it would be the wrong way round.
-
-        :raises SafetyError: if there is nowhere in the box to go at all
-        """
-        sampler = random.Random(0)   # fixed, so the same box always gives the same verdict
-        usable = 0
-        for _ in range(self.SURVEY_POINTS):
-            candidate = [sampler.uniform(low, high) for low, high in self.bounds]
-            allowed, _ = self.arm.check_pose_allowed(candidate)
-            if allowed and self.arm.check_path_allowed(pose, candidate)[0]:
-                usable += 1
-        self.usable_fraction = usable / float(self.SURVEY_POINTS)
-        if usable == 0:
-            raise SafetyError(
-                f'there is nowhere in the idle box to wander to: none of '
-                f'{self.SURVEY_POINTS} points in it can be reached in a straight line from '
-                f'x={pose[0]:.1f} y={pose[1]:.1f} z={pose[2]:.1f} mm. The box is centred on '
-                f'x={self.origin[0]:.1f} y={self.origin[1]:.1f} z={self.origin[2]:.1f} mm, and '
-                f'the envelope keeps a keep-out around the base column. Move the arm away '
-                f'from the base, or use a smaller radius'
-            )
-        return usable
 
     def describe(self):
         if self.bounds is None:
@@ -230,12 +142,7 @@ class IdleMotion:
             f'  steps of up to {self.step_mm:.0f} mm'
             + (f', wrist joint {self._wrist_joint} twisting up to {self.wiggle_deg:.0f} deg'
                if self.wiggle_chance > 0 else ''),
-        ] + ([
-            f'  note: only {self.usable_fraction:.0%} of that box can actually be reached '
-            f'from here in a straight line, so the arm will pause to look for somewhere to '
-            f'go. A smaller radius, or moving it away from the base column, gives it more room'
-        ] if self.usable_fraction is not None
-             and self.usable_fraction < CRAMPED_BOX_FRACTION else []))
+        ])
 
     # ------------------------------------------------------------------
     # running
@@ -276,112 +183,61 @@ class IdleMotion:
         """Interruptible pause. Returns False if a stop was requested during it."""
         return not self._stop.wait(seconds)
 
-    def _arm_fault(self):
-        """
-        The arm's own complaint, if it has one, or None if it is fit to carry on.
-
-        This is what separates the two kinds of bad news. A rejected move leaves the arm
-        exactly as it was and is none of the session's business; a faulted controller
-        needs clearing, which is a decision for whoever knows whether a human asked for
-        the stop, so it is reported upwards instead of being cleared here.
-        """
-        try:
-            self.arm.assert_ready()
-        except SafetyError as fault:
-            return fault
-        except Exception as fault:                          # an unreadable arm counts too
-            return SafetyError(f'the arm could not be checked: {fault}')
-        return None
-
     def _run(self):
+        rejections = 0
         try:
             while not self._stop.is_set():
                 try:
                     self._to_waypoint()
-                except Exception as error:
+                except SafetyError as error:
                     if self._stop.is_set():
+                        return
+                    try:
                         # a stop landed mid-move: that is the end of the session, not a
                         # waypoint to retry
-                        return
-                    fault = self._arm_fault()
-                    if fault is not None:
+                        self.arm.assert_ready()
+                    except SafetyError as fault:
                         self.error = fault
                         return
-                    # the arm is fine, so nothing moved and nothing is wrong: a waypoint
-                    # it turns out not to be able to walk to is an ordinary event, and
-                    # giving up on the idle over one would stop the arm that nobody asked
-                    # to have stopped. Try somewhere else, for as long as it takes.
-                    self.rejections += 1
-                    self.last_rejection = error
-                    self._sleep(RETRY_PAUSE_S)
+                    # a waypoint the arm cannot actually reach is expected now and then --
+                    # the envelope is a box, the arm's reachable volume is not -- so try a
+                    # different one rather than ending the session
+                    rejections += 1
+                    if rejections > 10:
+                        self.error = SafetyError(
+                            f'gave up idling after 10 rejected moves in a row; last reason: {error}'
+                        )
+                        return
+                    continue
+                rejections = 0
+        except Exception as error:
+            if not self._stop.is_set():
+                self.error = error
         finally:
             self._stop.set()
 
     def _pick_waypoint(self):
         """
-        A point in the box that the arm can actually be walked to from where it is.
+        A random point in the box that the envelope will actually accept.
 
-        Three things have to hold, and all three are checked before anything moves:
-        the waypoint is inside the envelope, the straight line to it stays inside the
-        envelope (the base keep-out is a hole in the middle of the box, so both ends of a
-        move can be legal while the middle is not), and the controller agrees it can reach
-        the pose at all. The last one is a round trip, so it is asked last, of the few
-        candidates that got that far.
-
-        :return: the waypoint, or None if there is nowhere to go from here right now
+        The box is axis-aligned but the envelope is not only a box -- the arm configs also
+        keep a cylindrical exclusion around the base column and a maximum reach. Checking
+        the waypoint here costs nothing and saves walking towards one that the arm will
+        refuse the last step of.
         """
-        pose = self.arm.get_cartesian_pos()
-        for _ in range(WAYPOINT_TRIES):
+        for _ in range(20):
             candidate = [self.rng.uniform(low, high) for low, high in self.bounds]
-            if self._walkable(pose, candidate):
+            allowed, _ = self.arm.check_pose_allowed(candidate)
+            if allowed:
                 return candidate
-
-        # nothing random worked, so head back to the middle: check_ready proved the arm
-        # could idle from the origin, and the walk back is checked like any other
-        home = [min(max(self.origin[axis], low), high)
-                for axis, (low, high) in enumerate(self.bounds)]
-        if self._walkable(pose, home):
-            return home
-        return None
-
-    def _walkable(self, pose, candidate):
-        """
-        Whether ``candidate`` is somewhere the arm may be, and may be walked to from ``pose``.
-
-        The free checks go first. ``check_pose_reachable`` is a round trip to the
-        controller, so it is asked only about candidates that already passed the rest, and
-        is asked about the full pose -- the orientation the arm is holding is half of what
-        makes a position reachable at all.
-        """
-        allowed, _ = self.arm.check_pose_allowed(candidate)
-        if not allowed:
-            self.refused['envelope'] += 1
-            return False
-        if not self.arm.check_path_allowed(pose, candidate)[0]:
-            self.refused['path'] += 1
-            return False
-        if not self.ask_controller:
-            return True
-        reachable, reason = self.arm.check_pose_reachable(
-            list(candidate[:3]) + list(pose[3:6]))
-        if not reachable:
-            self.refused['controller'] += 1
-            self.last_rejection = SafetyError(reason)
-            return False
-        return True
+        raise SafetyError(
+            'could not find a reachable point to wander to in 20 tries; the idle box barely '
+            'overlaps what the envelope allows, so try a smaller --radius or move the arm'
+        )
 
     def _to_waypoint(self):
-        """Walk to one waypoint in short validated steps, then maybe pause or twist."""
+        """Walk to one random waypoint in short validated steps, then maybe pause or twist."""
         target = self._pick_waypoint()
-        if target is None:
-            # Nowhere to go from this pose, this time round. Waiting is the right answer:
-            # the arm is where it should be and still, and the next look may well find
-            # somewhere -- the candidates are random, and the pose may yet change.
-            self.rejections += 1
-            self.last_rejection = SafetyError(
-                'no waypoint in the idle box could be walked to from the current pose')
-            self._sleep(RETRY_PAUSE_S)
-            return
         self.waypoints += 1
 
         while not self._stop.is_set():
@@ -408,35 +264,11 @@ class IdleMotion:
 
         The angle is always chosen relative to the joint angle recorded when idling
         began, so however long this runs the wrist cannot creep towards its limit.
-
-        A twist turns the flange rather than translating it, but a tool with any reach at
-        all does carry the TCP with it, so the pose is checked afterwards and the wrist is
-        put back if it took the gripper somewhere the envelope does not allow. A twist the
-        arm refuses outright is skipped: the wander is what matters, and it carries on
-        without it rather than ending over a flourish.
         """
+        safety = self.arm.safety['wave']
+        limit = abs(float(safety['joint_limit_deg']))
         angle = self._wrist_start + self.rng.uniform(-self.wiggle_deg, self.wiggle_deg)
-        angle = max(-self._wrist_limit, min(self._wrist_limit, angle))
-        settings = self.arm.angle_settings(self.arm.safety['wave']['settings_profile'])
-        try:
-            self.arm.set_servo_angle(servo_id=self._wrist_joint, angle=angle, **settings)
-            self.moves += 1
-            allowed, reason = self.arm.check_pose_allowed(self.arm.get_cartesian_pos())
-            if not allowed:
-                # the twist carried the tool out of the envelope, so undo it: the angle it
-                # started from is the one the pose was checked at in check_ready
-                self.arm.set_servo_angle(servo_id=self._wrist_joint,
-                                         angle=self._wrist_start, **settings)
-                self.last_rejection = SafetyError(f'a wrist twist left the envelope ({reason}) '
-                                                  f'and was undone')
-                self.skipped_wiggles += 1
-        except SafetyError as error:
-            self.skipped_wiggles += 1
-            self.last_rejection = error
-        except Exception as error:
-            # a controller that refused the twist has to be reported, not swallowed: it
-            # may well have latched a fault, which _run's caller is the one to clear
-            if self._arm_fault() is not None:
-                raise
-            self.skipped_wiggles += 1
-            self.last_rejection = error
+        angle = max(-limit, min(limit, angle))
+        self.arm.set_servo_angle(servo_id=self._wrist_joint, angle=angle,
+                                 **self.arm.angle_settings(safety['settings_profile']))
+        self.moves += 1

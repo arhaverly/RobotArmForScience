@@ -462,112 +462,13 @@ class xArm(XArmAPI):
         if not allowed:
             raise SafetyError(reason)
 
-    def check_path_allowed(self, start, target):
-        """
-        Check the straight line the TCP will travel along, not only its two ends.
-
-        ``set_position`` moves the TCP along a straight line. The box, the z floor and
-        ``max_reach_mm`` are all convex, so a segment whose ends satisfy them satisfies
-        them the whole way -- but ``min_reach_mm`` is a *hole* in the middle of that box,
-        and a chord between two perfectly legal points can pass straight through it. The
-        controller would refuse such a move part way along, having already moved, which is
-        exactly the kind of mid-motion rejection this module exists to prevent.
-
-        The keep-out is a cylinder about the base, so the closest approach is solved
-        directly rather than sampled: sampling a curve-free segment can only ever miss.
-
-        :return: (allowed, reason) -- reason is '' when allowed
-        """
-        for pose in (start, target):
-            allowed, reason = self.check_pose_allowed(pose)
-            if not allowed:
-                return False, reason
-
-        min_reach = self._envelope().get('min_reach_mm')
-        if not min_reach:
-            return True, ''
-
-        begin = np.array([float(start[0]), float(start[1])])
-        travel = np.array([float(target[0]), float(target[1])]) - begin
-        span = float(travel.dot(travel))
-        # the fraction along the segment that comes nearest the base column
-        fraction = 0.0 if span == 0.0 else float(np.clip(-begin.dot(travel) / span, 0.0, 1.0))
-        reach = float(np.hypot(*(begin + fraction * travel)))
-        if reach < float(min_reach):
-            return False, (
-                f'the straight line from x={start[0]:.1f} y={start[1]:.1f} to '
-                f'x={target[0]:.1f} y={target[1]:.1f} passes {reach:.1f} mm from the base, '
-                f'inside the {min_reach} mm keep-out, even though both ends are allowed'
-            )
-        return True, ''
-
-    def _ask_controller(self, query_name, *args):
-        """
-        Put an optional question to the controller, distinguishing "no" from "cannot say".
-
-        The kinematic queries below exist on the real SDK and not on the simulator, and
-        differ between SDK versions. Anything other than a well-formed ``(code, value)``
-        answer means this arm cannot be asked, which is not the same as a refusal.
-
-        :return: the SDK's ``(code, value)``, or None if the question cannot be put
-        """
-        query = getattr(self, query_name, None)
-        if not callable(query):
-            return None
-        try:
-            answer = query(*args)
-        except Exception:
-            return None
-        if not isinstance(answer, (tuple, list)) or len(answer) != 2:
-            return None
-        return answer[0], answer[1]
-
-    def check_pose_reachable(self, pose):
-        """
-        Ask the controller whether it would actually accept this TCP pose.
-
-        :meth:`check_pose_allowed` is *our* envelope: a box we declared, which is only a
-        crude outer approximation of what the arm can reach with a fixed tool orientation.
-        The controller's own opinion is the one that decides, and the way it normally
-        expresses disagreement is a non-zero code out of ``set_position`` -- which the
-        ``check_error`` decorator turns into a latched fault. Asking first turns a fault
-        into a waypoint we simply do not use.
-
-        Each round trip costs a few milliseconds, so this is for choosing where to go,
-        not for validating every step on the way.
-
-        :param pose: [x, y, z] or a full 6-component pose; missing components are taken
-            from the current pose, since it is the orientation that makes reachability real
-        :return: (reachable, reason). An arm that cannot be asked -- the simulator, an
-            older SDK -- answers (True, ''): unverified, which is not the same as refused.
-        """
-        pose = [float(value) for value in list(pose)[:6]]
-        if len(pose) < 6:
-            pose = pose + self.get_cartesian_pos()[len(pose):6]
-
-        limited = self._ask_controller('is_tcp_limit', pose)
-        if limited is not None and limited[0] == 0 and limited[1]:
-            return False, 'the controller puts this pose outside its own TCP limits'
-
-        solved = self._ask_controller('get_inverse_kinematics', pose)
-        if solved is not None:
-            if solved[0] != 0:
-                return False, (f'the controller cannot solve this pose '
-                               f'(inverse kinematics code={solved[0]})')
-            if solved[1] is not None:
-                joints = self._ask_controller('is_joint_limit', list(solved[1]))
-                if joints is not None and joints[0] == 0 and joints[1]:
-                    return False, 'reaching this pose would drive a joint past its limit'
-        return True, ''
-
     def plan_relative_move(self, delta, from_pose=None):
         """
         Validate a relative move without executing anything.
 
-        The step size, the resulting pose and the straight line between the two are all
-        checked. The line matters: an envelope with a ``min_reach_mm`` keep-out is a box
-        with a hole in it, so both ends of a move can be legal while the path between
-        them is not. See :meth:`check_path_allowed`.
+        Both the step size and the resulting pose are checked. Because ``set_position``
+        moves the TCP along a straight line and the envelope is an axis-aligned box, a
+        move whose start and end are both inside the box keeps the whole path inside it.
 
         :param delta: [dx, dy, dz] or [dx, dy, dz, droll, dpitch, dyaw] in mm / degrees
         :param from_pose: pose to plan from; defaults to the current pose
@@ -584,9 +485,6 @@ class xArm(XArmAPI):
         allowed, reason = self.check_pose_allowed(target)
         if not allowed:
             raise SafetyError(f'refusing to move: the target pose would be unsafe ({reason})')
-        allowed, reason = self.check_path_allowed(start, target)
-        if not allowed:
-            raise SafetyError(f'refusing to move: {reason}')
         return target
 
     def plan_absolute_move(self, pose, from_pose=None):

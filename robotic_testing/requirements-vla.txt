@@ -1,6 +1,11 @@
 # Dependencies for driving the arm from a text instruction (robotic_testing/vla.py).
 # The full lab stack has more requirements; see requirements.txt at the repository root.
 #
+# If pip here reports "the ssl module in Python is not available", or an import fails
+# with "DLL load failed", the interpreter is broken rather than the packages missing --
+# a venv built from a conda Python on Windows cannot reach its own stdlib DLLs. Fix it
+# once with:  python robotic_testing/setup_windows_env.py
+#
 # Python 3.9 or newer, on Windows or Linux. On 3.9, pip resolves numpy to the 2.0.x line;
 # that is expected and fine. robotic_testing/listen.py needs only numpy for --simulate.
 numpy

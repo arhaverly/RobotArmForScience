@@ -38,6 +38,9 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
+# Before any third-party import: see robotic_testing/common/windows_dlls.py.
+from robotic_testing.common import windows_dlls  # noqa: F401,E402
+
 from robotic_testing.common.esp32_link import (  # noqa: E402  (needs REPO_ROOT on sys.path)
     PROTOCOL_VERSION, ESP32Link, LinkError, Trigger, describe_ports, open_transport,
 )

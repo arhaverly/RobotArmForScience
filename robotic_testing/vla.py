@@ -27,6 +27,12 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
+# A venv built from a conda interpreter on Windows cannot import ssl or sqlite3 until
+# its base DLL directories are added to the search path, which means no planner and no
+# pip. Importing this does that and is a no-op on every other platform; it sits here,
+# above the third-party imports, because it has to run before the first `import ssl`.
+from robotic_testing.common import windows_dlls  # noqa: F401,E402
+
 
 class Problem(Exception):
     """Something the person running this can fix. Printed without a traceback."""
@@ -54,6 +60,18 @@ def explain_missing_module(error):
             f'The planner needs a package that is not installed ({root}).\n'
             f'  Install the planner dependencies:  pip install -r robotic_testing/requirements-vla.txt\n'
             f'  Or skip the planner and pass a plan directly with --plan'
+        )
+    # A stdlib C extension that will not load is not a missing package, and no amount
+    # of pip will help -- pip itself needs _ssl to reach the network, so the advice
+    # below would send someone in a circle. This is the conda-venv DLL problem; see
+    # robotic_testing/common/windows_dlls.py.
+    if root.startswith('_') or 'DLL load failed' in str(error):
+        return Problem(
+            f'This Python cannot import part of its own standard library ({root}).\n'
+            f'That is an interpreter problem, not a missing package -- pip cannot fix it,\n'
+            f'and on a conda-based venv pip will fail the same way.\n'
+            f'  Repair this environment:  python robotic_testing/setup_windows_env.py\n'
+            f'  See what is broken first:  python robotic_testing/setup_windows_env.py --check'
         )
     return Problem(
         f'A required package is not installed: {root}\n'

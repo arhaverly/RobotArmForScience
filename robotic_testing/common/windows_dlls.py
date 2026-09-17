@@ -46,11 +46,43 @@ import sys
 # DLLs; the others are cheap to check and are where conda's own activation script
 # points, so a stray dependency in one of them resolves too.
 _CONDA_DLL_SUBDIRS = (
+    (),                                 # the prefix root itself -- see below
     ('Library', 'bin'),
     ('Library', 'mingw-w64', 'bin'),
+    ('Library', 'mingw64', 'bin'),
     ('Library', 'usr', 'bin'),
+    ('Library', 'lib'),
     ('DLLs',),
 )
+
+# The root matters and is easy to miss. conda's own python.exe sits directly in the
+# prefix, and Windows always searches the directory of the running executable, so a DLL
+# next to python.exe resolves for conda's interpreter without anyone configuring
+# anything. A venv's python.exe lives in .venv\Scripts instead, so that directory is no
+# longer searched -- which is exactly how `sqlite3` can work in the base interpreter and
+# fail in a venv built from it.
+
+# What each stdlib extension needs, for finding a DLL that is not where it was expected.
+# Patterns, because the version is in the file name and it moves.
+MODULE_DLLS = {
+    '_ssl': ('libssl*.dll', 'libcrypto*.dll'),
+    '_hashlib': ('libcrypto*.dll',),
+    '_sqlite3': ('sqlite3.dll',),
+    '_lzma': ('liblzma*.dll',),
+    '_bz2': ('libbz2*.dll', 'bzip2*.dll'),
+    '_ctypes': ('libffi*.dll',),
+}
+MODULE_DLLS['ssl'] = MODULE_DLLS['_ssl']
+MODULE_DLLS['hashlib'] = MODULE_DLLS['_hashlib']
+MODULE_DLLS['sqlite3'] = MODULE_DLLS['_sqlite3']
+MODULE_DLLS['lzma'] = MODULE_DLLS['_lzma']
+MODULE_DLLS['bz2'] = MODULE_DLLS['_bz2']
+MODULE_DLLS['ctypes'] = MODULE_DLLS['_ctypes']
+
+# Directories not worth walking when hunting for a DLL: package caches and other
+# environments hold copies that this interpreter must not be pointed at, and
+# site-packages is large and never holds the stdlib's own dependencies.
+_SEARCH_SKIP = frozenset(('pkgs', 'envs', 'site-packages', '__pycache__', '.git', 'conda-meta'))
 
 _added = None       # cache: the work is done once per process
 
@@ -102,6 +134,40 @@ def ensure_dll_directories():
             continue        # vanished between the isdir() and here; not worth failing over
         _added.append(path)
     return _added
+
+
+def find_dll_directories(module, prefix=None, limit=20000):
+    """
+    Hunt for the DLLs `module` needs under `prefix`, and return their directories.
+
+    Used when a module still fails after the conventional directories have been added:
+    either the file is somewhere unexpected, in which case this finds it, or it is not
+    installed at all, in which case an empty result says so and no amount of path
+    configuration will help.
+
+    The walk is bounded and skips package caches and other environments, whose copies
+    belong to a different interpreter and must not be handed to this one.
+    """
+    import fnmatch
+
+    patterns = MODULE_DLLS.get(module) or MODULE_DLLS.get('_' + module)
+    if not patterns:
+        return []
+    root = prefix if prefix is not None else base_prefix()
+
+    found = []
+    seen = 0
+    for directory, subdirectories, files in os.walk(root):
+        subdirectories[:] = [name for name in subdirectories if name not in _SEARCH_SKIP]
+        seen += len(files)
+        if seen > limit:
+            break
+        for pattern in patterns:
+            if any(fnmatch.fnmatch(name, pattern) for name in files):
+                if directory not in found:
+                    found.append(directory)
+                break
+    return found
 
 
 def describe():

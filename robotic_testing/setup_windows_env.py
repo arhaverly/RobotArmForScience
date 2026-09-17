@@ -91,8 +91,12 @@ def _add_base_dll_directories():
     if os.name != 'nt' or not hasattr(os, 'add_dll_directory'):
         return
     root = getattr(sys, 'base_prefix', sys.prefix)
-    for parts in {subdirs!r}:
-        path = os.path.join(root, *parts)
+    directories = [os.path.join(root, *parts) for parts in {subdirs!r}]
+    # Found by searching the base prefix, because a DLL was not in any of the
+    # conventional places above. Absolute, so they do not move with sys.base_prefix;
+    # re-run the setup script if this environment is rebuilt elsewhere.
+    directories += {extra!r}
+    for path in directories:
         if os.path.isdir(path):
             try:
                 os.add_dll_directory(path)
@@ -158,6 +162,47 @@ class Environment:
         lines = [line for line in result.stderr.decode('utf-8', 'replace').splitlines()
                  if line.strip()]
         return lines[-1] if lines else 'exited {}'.format(result.returncode)
+
+    def presence(self, module):
+        """
+        'present', 'absent', or 'unknown' -- is this module here, without importing it?
+
+        Asked separately from importing, because the two are different questions and the
+        error text cannot be trusted to tell them apart. When _sqlite3 fails to load,
+        `notebook` falls back to pysqlite2 and dies with "No module named 'pysqlite2'",
+        which reads exactly like notebook itself being absent and is not.
+
+        find_spec on the *full* dotted name, not the top-level package, because
+        `notebook.notebookapp` genuinely does not exist in notebook 7 while `notebook`
+        does -- and that is an absence, not a breakage. find_spec imports the parent
+        package to look inside it, so when the parent is the broken thing the lookup
+        raises; that is 'unknown', and the import error is the better answer anyway.
+        """
+        result = subprocess.run(
+            [self.python, '-c',
+             'import importlib.util, sys\n'
+             'try:\n'
+             '    spec = importlib.util.find_spec({!r})\n'
+             'except BaseException:\n'
+             '    sys.exit(2)\n'
+             'sys.exit(0 if spec is not None else 1)\n'.format(module)],
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        state = {0: 'present', 1: 'absent'}.get(result.returncode, 'unknown')
+        # The lookup raised. If the parent package is not there either, the whole name
+        # is simply absent; if it is there, the parent is the broken thing.
+        if state == 'unknown' and '.' in module:
+            if self.presence(module.split('.')[0]) == 'absent':
+                return 'absent'
+        return state
+
+    def verdict(self, module):
+        """('ok'|'absent'|'broken', detail) for one module."""
+        failure = self.probe(module)
+        if failure is None:
+            return 'ok', ''
+        if self.presence(module) == 'absent':
+            return 'absent', ''
+        return 'broken', failure
 
     @property
     def version(self):
@@ -284,37 +329,61 @@ def report(target, why):
     print('\nStandard library, in a fresh interpreter')
     broken = []
     for module in STDLIB_PROBES:
-        failure = target.probe(module)
-        if failure:
+        state, detail = target.verdict(module)
+        if state == 'broken':
             broken.append(module)
-            print('  {:<9} FAILED  {}'.format(module, failure))
+            print('  {:<9} FAILED  {}'.format(module, detail))
         else:
-            print('  {:<9} ok'.format(module))
+            print('  {:<9} {}'.format(module, state))
 
     # The notebook chain is reported separately because a missing Jupyter is a
     # different problem from a broken one, and only the second is ours to fix.
-    installed = target.probe('notebook') is None or target.probe('ipykernel') is None
-    if installed:
-        print('\nThe Jupyter import chain, which is what PyCharm runs')
-        for module, description in JUPYTER_PROBES:
-            failure = target.probe(module)
-            if failure is None:
-                print('  ok      {}  -- {}'.format(module, description))
-            elif 'No module named' in failure:
-                print('  absent  {}  -- {} (not installed)'.format(module, description))
-            else:
-                broken.append(module)
-                print('  FAILED  {}  -- {}'.format(module, description))
-                print('          {}'.format(failure))
-    else:
-        print('\nJupyter is not installed in this environment, so the notebook cannot')
-        print('run here regardless of DLLs:  "{}" -m pip install jupyter ipykernel'
-              .format(target.python))
+    print('\nThe Jupyter import chain, which is what PyCharm runs')
+    any_jupyter = False
+    for module, description in JUPYTER_PROBES:
+        state, detail = target.verdict(module)
+        if state == 'ok':
+            any_jupyter = True
+            print('  ok      {}  -- {}'.format(module, description))
+        elif state == 'absent':
+            print('  absent  {}  -- {} (not installed here)'.format(module, description))
+        else:
+            any_jupyter = True
+            broken.append(module)
+            print('  FAILED  {}  -- {}'.format(module, description))
+            print('          {}'.format(detail))
+    if not any_jupyter:
+        print('\n  Nothing of Jupyter is installed in this environment, so the notebook')
+        print('  cannot run here regardless of DLLs:')
+        print('    "{}" -m pip install jupyter ipykernel'.format(target.python))
 
     return broken
 
 
-def install(target):
+def discover(target, modules):
+    """
+    Search the target's base prefix for the DLLs `modules` need.
+
+    Returns (directories, unfound). A module in `unfound` has no such DLL anywhere
+    under the base prefix, which is a different problem: the file is missing, not
+    misplaced, and no search path can conjure it.
+    """
+    base = target.base_prefix
+    directories, unfound = [], []
+    for module in modules:
+        if module not in windows_dlls.MODULE_DLLS:
+            continue        # not a stdlib extension we know the dependencies of
+        found = windows_dlls.find_dll_directories(module, base)
+        if not found:
+            unfound.append(module)
+            continue
+        for directory in found:
+            if directory not in directories:
+                directories.append(directory)
+    return directories, unfound
+
+
+def install(target, extra=()):
     """Write sitecustomize.py into the target environment. Returns its path."""
     path = target.sitecustomize
 
@@ -333,7 +402,8 @@ def install(target):
 
     with open(path, 'w', encoding='utf-8') as handle:
         handle.write(SITECUSTOMIZE.format(
-            marker=MARKER, subdirs=windows_dlls._CONDA_DLL_SUBDIRS))
+            marker=MARKER, subdirs=windows_dlls._CONDA_DLL_SUBDIRS,
+            extra=list(extra)))
     return path
 
 
@@ -382,26 +452,65 @@ def main(argv=None):
         print('    python robotic_testing/setup_windows_env.py --env <that path>')
         return 0
 
+    # Search for what the broken modules need before writing anything, so the file is
+    # written once, with every directory it turned out to need.
+    print('\nLooking for the DLLs the broken modules need, under\n  {}'.format(
+        target.base_prefix))
+    extra, unfound = discover(target, broken)
+    conventional = windows_dlls.candidate_directories(target.base_prefix)
+    news = [directory for directory in extra if directory not in conventional]
+    for directory in extra:
+        print('  found in  {}{}'.format(
+            directory, '' if directory in conventional else '   <-- not a conventional place'))
+    if not extra:
+        print('  nothing found')
+    for module in unfound:
+        print('  {}: no matching DLL anywhere under the base prefix'.format(module))
+
     print()
-    path = install(target)
+    path = install(target, extra=news)
     print('Installed:\n  {}'.format(path))
+    if news:
+        print('  including {} director{} found by searching'.format(
+            len(news), 'y' if len(news) == 1 else 'ies'))
 
     print('\nRe-checking in a fresh interpreter')
     still = []
     for module in STDLIB_PROBES + tuple(module for module, _ in JUPYTER_PROBES):
-        failure = target.probe(module)
-        if failure is None:
-            print('  {:<45} ok'.format(module))
-        elif 'No module named' in failure:
-            print('  {:<45} absent (not installed)'.format(module))
-        else:
+        state, detail = target.verdict(module)
+        if state == 'broken':
             still.append(module)
-            print('  {:<45} FAILED  {}'.format(module, failure))
+            print('  {:<45} FAILED  {}'.format(module, detail))
+        else:
+            print('  {:<45} {}'.format(module, state))
 
     if still:
         print('\nStill broken: {}'.format(', '.join(still)))
-        print('The DLLs those need are not under {}.'.format(target.base_prefix))
-        print('Rebuilding the venv on a python.org interpreter avoids this entirely:')
+        if unfound:
+            # The honest diagnosis: this is not a search-path problem at all.
+            print()
+            print('The DLLs for {} are not present anywhere under'.format(
+                ', '.join(unfound)))
+            print('{}, so no search path can fix it -- the file is'.format(
+                target.base_prefix))
+            print('missing from the conda installation, not misplaced within it.')
+            print()
+            print('Repair conda\'s copy (fastest, keeps this venv and everything in it):')
+            for module in unfound:
+                package = {'sqlite3': 'sqlite', '_sqlite3': 'sqlite',
+                           'ssl': 'openssl', '_ssl': 'openssl',
+                           'hashlib': 'openssl', '_hashlib': 'openssl',
+                           'lzma': 'xz', '_lzma': 'xz',
+                           'bz2': 'bzip2', '_bz2': 'bzip2',
+                           'ctypes': 'libffi', '_ctypes': 'libffi'}.get(module)
+                if package:
+                    print('    conda install -n base --force-reinstall {}'.format(package))
+            print()
+            print('Then re-run this script. If conda cannot be repaired, rebuild the venv')
+            print('on a python.org interpreter, which ships these DLLs itself:')
+        else:
+            print('The DLLs those need were not found where this could point at them.')
+            print('Rebuilding the venv on a python.org interpreter avoids this entirely:')
         print('    py -3.11 -m venv .venv')
         print('    .\\.venv\\Scripts\\Activate.ps1')
         print('    python -m pip install -r robotic_testing\\requirements-vla.txt')

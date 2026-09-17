@@ -1,9 +1,17 @@
+import socket
 import time
 import traceback
 import numpy as np
 import importlib
 from xarm import version
 from xarm.wrapper import XArmAPI
+
+# The controller's main control port, and how long to wait for it to answer before
+# concluding it is not going to. The SDK's own connect retries a TCP handshake that
+# never completes, which presents as a silent hang of several minutes -- in a notebook,
+# as a cell that simply never returns.
+CONTROL_PORT = 502
+REACHABLE_TIMEOUT_S = 5.0
 
 
 # order of the 6 components of a cartesian TCP pose, as returned by XArmAPI.get_position()
@@ -42,10 +50,50 @@ class SafetyError(SystemError):
     """Raised when a requested motion is rejected before anything moves."""
 
 
+def assert_controller_reachable(address, timeout=REACHABLE_TIMEOUT_S):
+    """
+    Check the controller answers a TCP connection before handing off to the SDK.
+
+    Advisory, and deliberately fails open: anything other than a refused or timed-out
+    connection lets the real connect proceed and report for itself. The one thing this
+    exists to prevent is the silent multi-minute stall when the control box is powered
+    off or off the network, which the SDK reports by not returning.
+
+    A controller whose connection slots are already taken still answers here -- that
+    case fails quickly on its own, with WinError 10053 -- so this is not a check for
+    "is the arm free", only for "is the arm there".
+
+    :raises SystemError: if the address cannot be reached at all
+    """
+    if not isinstance(address, str) or not address:
+        return          # not a hostname/IP we can pre-check; let the SDK decide
+    try:
+        connection = socket.create_connection((address, CONTROL_PORT), timeout=timeout)
+    except (socket.timeout, OSError) as error:
+        raise SystemError(
+            'The arm controller at {}:{} did not answer within {:g}s ({}).\n'
+            'The SDK would retry this silently for minutes, so it is reported here '
+            'instead.\n'
+            '  Check the control box is powered on and its emergency stop is released.\n'
+            '  Check this machine can reach it:   Test-NetConnection {} -Port {}\n'
+            '  If it answers but the arm is held by another process, list the holders:\n'
+            '    Get-NetTCPConnection -RemoteAddress {}'.format(
+                address, CONTROL_PORT, timeout, error,
+                address, CONTROL_PORT, address))
+    except Exception:
+        return          # something unexpected about the check itself; do not block on it
+    else:
+        connection.close()
+
+
 class xArm(XArmAPI):
     def __init__(self, config_path, **kwargs):
         # import config python file, config_path example: 'robotic_testing.xarm7.xarm7_config'
         self.config = importlib.import_module(config_path)
+
+        # Before the SDK: an unreachable controller is the difference between a clear
+        # message now and a cell that hangs with no output at all.
+        assert_controller_reachable(self.config.port)
 
         super().__init__(port=self.config.port, **kwargs)
 

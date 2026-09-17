@@ -249,11 +249,13 @@ def list_models():
     return 0
 
 
-def make_planner(vla, models):
+def make_planner(vla, models=None):
     """
     Build the instruction -> plan function, or raise Problem explaining what is missing.
 
-    `models` is one name or a list of them, tried in order.
+    `models` is one name, a list of them tried in order, or None for the default chain
+    -- None being the useful default from a notebook, where nobody wants to name a model
+    to ask a question.
     """
     try:
         from dotenv import load_dotenv
@@ -293,9 +295,12 @@ def make_planner(vla, models):
 
     client = genai.Client(api_key=api_key)
 
-    chain = [models] if isinstance(models, str) else [name for name in models if name]
-    if not chain:
+    if models is None:
         chain = list(DEFAULT_MODELS)
+    elif isinstance(models, str):
+        chain = [models]
+    else:
+        chain = [name for name in models if name] or list(DEFAULT_MODELS)
 
     def ask(model, instruction):
         response = client.models.generate_content(

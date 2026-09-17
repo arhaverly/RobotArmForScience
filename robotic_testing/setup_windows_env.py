@@ -339,6 +339,29 @@ def resolve_target(env, here):
 
 # ----------------------------------------------------------------------
 
+def is_dll_failure(detail):
+    """Is this failure about finding a DLL, which is the only thing here can fix?"""
+    text = (detail or '').lower()
+    return 'dll load failed' in text or 'specified module could not be found' in text
+
+
+def report_pip_check(target):
+    """Let pip say whether the installed packages agree with each other."""
+    result = subprocess.run(
+        [target.python, '-m', 'pip', 'check'],
+        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    text = result.stdout.decode('utf-8', 'replace').strip()
+    if result.returncode == 0:
+        # pip only knows about declared requirements. An old notebook against a newer
+        # traitlets satisfies every pin and still cannot start, so silence here is not
+        # evidence of a healthy stack and saying "no broken requirements" would read
+        # as one.
+        return
+    print('\n  pip check says:')
+    for line in text.splitlines()[:12]:
+        print('    {}'.format(line))
+
+
 def report(target, why):
     """Print what a fresh interpreter in the target environment can and cannot do."""
     print('Target environment -- {}'.format(why))
@@ -368,11 +391,11 @@ def report(target, why):
     print('                {}'.format(target.sitecustomize))
 
     print('\nStandard library, in a fresh interpreter')
-    broken = []
+    broken = {}
     for module in STDLIB_PROBES:
         state, detail = target.verdict(module)
         if state == 'broken':
-            broken.append(module)
+            broken[module] = detail
             print('  {:<9} FAILED  {}'.format(module, detail))
         else:
             print('  {:<9} {}'.format(module, state))
@@ -390,13 +413,27 @@ def report(target, why):
             print('  absent  {}  -- {} (not installed here)'.format(module, description))
         else:
             any_jupyter = True
-            broken.append(module)
+            broken[module] = detail
             print('  FAILED  {}  -- {}'.format(module, description))
             print('          {}'.format(detail))
     if not any_jupyter:
         print('\n  Nothing of Jupyter is installed in this environment, so the notebook')
         print('  cannot run here regardless of DLLs:')
         print('    "{}" -m pip install jupyter ipykernel'.format(target.python))
+
+    others = {module: detail for module, detail in broken.items() if not is_dll_failure(detail)}
+    if others:
+        # Worth separating loudly. Everything else this script does is about where DLLs
+        # live, and none of it will help a package that is missing or a version pair
+        # that does not agree.
+        print('\nNot a DLL problem -- these are packages disagreeing with each other:')
+        for module, detail in others.items():
+            print('  {}'.format(module))
+            print('    {}'.format(detail))
+        print('\n  A missing jupyter_server, or a traitlets too new for an old notebook,')
+        print('  both show up here. Installing a consistent Jupyter stack fixes both:')
+        print('    "{}" -m pip install -U notebook jupyter_server'.format(target.python))
+        report_pip_check(target)
 
     return broken
 
@@ -556,17 +593,27 @@ def main(argv=None):
         return 0
 
     broken = report(target, why)
+    dll_broken = [module for module, detail in broken.items() if is_dll_failure(detail)]
+    package_broken = [module for module in broken if module not in dll_broken]
 
     if args.check:
         print()
-        if broken:
-            print('Broken: {}'.format(', '.join(broken)))
+        if dll_broken:
+            print('DLLs broken: {}'.format(', '.join(dll_broken)))
             print('Fix it with:  python robotic_testing/setup_windows_env.py')
-            return 1
-        print('Nothing to fix.')
-        return 0
+        if package_broken:
+            print('Packages broken: {} -- see the pip command above; this script'
+                  .format(', '.join(package_broken)))
+            print('does not install packages.')
+        if not broken:
+            print('Nothing to fix.')
+        return 1 if broken else 0
 
-    if not broken:
+    if not dll_broken:
+        if package_broken:
+            print('\nNo DLL problem left -- the remaining failures are the package')
+            print('problems above, which pip fixes, not this script.')
+            return 1
         print('\nNothing to fix: this environment already imports everything it needs.')
         print('If PyCharm still fails, it is running a different interpreter than this')
         print('one. Check it with a notebook cell:')
@@ -579,7 +626,7 @@ def main(argv=None):
     # written once, with every directory it turned out to need.
     print('\nLooking for the DLLs the broken modules need, under\n  {}'.format(
         target.base_prefix))
-    extra, unfound = discover(target, broken)
+    extra, unfound = discover(target, dll_broken)
     conventional = windows_dlls.candidate_directories(target.base_prefix)
     news = [directory for directory in extra if directory not in conventional]
     for directory in extra:
@@ -602,8 +649,11 @@ def main(argv=None):
     for module in STDLIB_PROBES + tuple(module for module, _ in JUPYTER_PROBES):
         state, detail = target.verdict(module)
         if state == 'broken':
-            still.append(module)
-            print('  {:<45} FAILED  {}'.format(module, detail))
+            if is_dll_failure(detail):
+                still.append(module)
+                print('  {:<45} FAILED  {}'.format(module, detail))
+            else:
+                print('  {:<45} package problem (see above)'.format(module))
         else:
             print('  {:<45} {}'.format(module, state))
 

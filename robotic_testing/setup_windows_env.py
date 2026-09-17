@@ -104,10 +104,40 @@ def _add_base_dll_directories():
                 pass
 
 
+def _preload(patterns):
+    """
+    Load these DLLs by absolute path, before anything imports the module needing them.
+
+    add_dll_directory is not always enough. It covers the *direct* dependencies of an
+    extension module, but a dependency of a dependency can still come up missing --
+    which is how _sqlite3 fails with "DLL load failed" while sqlite3.dll sits in a
+    directory that was added, and while _ssl loads from that same directory.
+
+    Loading by full path sidesteps the search entirely: once a DLL is in the process,
+    the loader satisfies later references to it by name without touching the
+    filesystem. So this pins them first and the search never has to succeed.
+    """
+    import ctypes
+    import glob
+
+    root = getattr(sys, 'base_prefix', sys.prefix)
+    for parts in {subdirs!r}:
+        directory = os.path.join(root, *parts)
+        if not os.path.isdir(directory):
+            continue
+        for pattern in patterns:
+            for path in sorted(glob.glob(os.path.join(directory, pattern))):
+                try:
+                    ctypes.WinDLL(path)
+                except OSError:
+                    pass        # a wrong-architecture or already-loaded copy; move on
+
+
 # Anything raised here would break every interpreter start in this environment,
 # including the one needed to undo it, so nothing is allowed to escape.
 try:
     _add_base_dll_directories()
+    _preload({preload!r})
 except Exception:
     pass
 '''
@@ -115,6 +145,17 @@ except Exception:
 # The stdlib extensions that conda keeps DLLs for. _sqlite3 is the one that stops
 # Jupyter; _ssl is the one that stops pip and the planner.
 STDLIB_PROBES = ('ssl', 'sqlite3', 'hashlib', 'lzma', 'bz2', 'ctypes')
+
+# Pinned into the process at startup, in this order. The stdlib's own dependencies
+# first, then the runtime libraries those are themselves built against -- which are
+# the transitive ones that go missing and cannot be named from the failure message.
+PRELOAD = (
+    'zlib.dll', 'zlib1.dll', 'libz*.dll',
+    'vcruntime140*.dll', 'msvcp140*.dll', 'concrt140*.dll',
+    'libcrypto*.dll', 'libssl*.dll',
+    'sqlite3.dll',
+    'liblzma*.dll', 'libbz2*.dll', 'bzip2*.dll', 'libffi*.dll',
+)
 
 # The notebook server's own import chain, which is what actually fails in PyCharm.
 # Reported only when the package is installed at all: not every environment has
@@ -383,6 +424,88 @@ def discover(target, modules):
     return directories, unfound
 
 
+def copy_beside_interpreter(target, modules):
+    """
+    Copy the DLLs `modules` need into the directory holding the target's python.exe.
+
+    The last resort, and the one thing that cannot fail to be searched: Windows always
+    looks in the directory of the running executable, for an extension module's
+    dependencies and for *their* dependencies too. add_dll_directory does not reach
+    that far, which is the gap this closes.
+
+    Copies rather than links, because a venv is disposable and a stale copy here is
+    harmless -- and because it is trivially undone by deleting the files listed.
+
+    :return: list of (source, destination) pairs actually copied
+    """
+    import glob
+    import shutil
+
+    beside = os.path.dirname(target.python)
+    base = target.base_prefix
+    patterns = []
+    for module in modules:
+        patterns += list(windows_dlls.MODULE_DLLS.get(module, ()))
+    patterns += list(PRELOAD)      # the transitive runtime libraries too
+
+    copied = []
+    for parts in windows_dlls._CONDA_DLL_SUBDIRS:
+        directory = os.path.join(base, *parts)
+        if not os.path.isdir(directory):
+            continue
+        for pattern in patterns:
+            for source in sorted(glob.glob(os.path.join(directory, pattern))):
+                destination = os.path.join(beside, os.path.basename(source))
+                if os.path.exists(destination):
+                    continue        # already there; never overwrite the venv's own
+                try:
+                    shutil.copy2(source, destination)
+                except OSError:
+                    continue
+                copied.append((source, destination))
+    return copied
+
+
+def diagnose_dlls(target, modules):
+    """
+    Ask the target which of these DLLs can actually be loaded, and why not.
+
+    Run when a module is still failing after everything else: "DLL load failed" never
+    names the file that is missing, but loading each candidate by hand does.
+    """
+    patterns = []
+    for module in modules:
+        patterns += list(windows_dlls.MODULE_DLLS.get(module, ()))
+    patterns += list(PRELOAD)
+
+    script = (
+        'import ctypes, glob, os, sys\n'
+        'root = getattr(sys, "base_prefix", sys.prefix)\n'
+        'seen = set()\n'
+        'for parts in %r:\n'
+        '    d = os.path.join(root, *parts)\n'
+        '    if not os.path.isdir(d):\n'
+        '        continue\n'
+        '    for pattern in %r:\n'
+        '        for path in sorted(glob.glob(os.path.join(d, pattern))):\n'
+        '            name = os.path.basename(path).lower()\n'
+        '            if name in seen:\n'
+        '                continue\n'
+        '            seen.add(name)\n'
+        '            try:\n'
+        '                ctypes.WinDLL(path)\n'
+        '            except OSError as error:\n'
+        '                print("  CANNOT LOAD  %%s\\n               %%s" %% (path, error))\n'
+        'if not seen:\n'
+        '    print("  no candidate DLLs found at all")\n'
+        % (windows_dlls._CONDA_DLL_SUBDIRS, tuple(patterns))
+    )
+    result = subprocess.run([target.python, '-c', script],
+                            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    return (result.stdout.decode('utf-8', 'replace').strip() or
+            '  every candidate DLL loaded on its own')
+
+
 def install(target, extra=()):
     """Write sitecustomize.py into the target environment. Returns its path."""
     path = target.sitecustomize
@@ -403,7 +526,7 @@ def install(target, extra=()):
     with open(path, 'w', encoding='utf-8') as handle:
         handle.write(SITECUSTOMIZE.format(
             marker=MARKER, subdirs=windows_dlls._CONDA_DLL_SUBDIRS,
-            extra=list(extra)))
+            extra=list(extra), preload=PRELOAD))
     return path
 
 
@@ -485,7 +608,47 @@ def main(argv=None):
             print('  {:<45} {}'.format(module, state))
 
     if still:
+        # sitecustomize was not enough. Fall back to the one directory Windows cannot
+        # be talked out of searching: the one holding python.exe.
+        print('\nStill failing, so copying those DLLs beside the interpreter --')
+        print('the one directory Windows always searches, transitive dependencies')
+        print('included, which add_dll_directory does not cover.')
+        copied = copy_beside_interpreter(target, still)
+        if copied:
+            print('  copied {} file(s) into {}'.format(
+                len(copied), os.path.dirname(target.python)))
+            for _, destination in copied[:12]:
+                print('    {}'.format(os.path.basename(destination)))
+            if len(copied) > 12:
+                print('    ... and {} more'.format(len(copied) - 12))
+            print('  (undo by deleting those files; nothing else was changed)')
+        else:
+            print('  nothing to copy -- every candidate was already there')
+
+        print('\nRe-checking once more')
+        remaining = []
+        for module in still:
+            state, detail = target.verdict(module)
+            if state == 'broken':
+                remaining.append(module)
+                print('  {:<45} FAILED  {}'.format(module, detail))
+            else:
+                print('  {:<45} {}'.format(module, state))
+        still = remaining
+
+    if not still:
+        print('\nFixed. Now restart anything already running in this environment.')
+        print('PyCharm caches the dead server, so the notebook keeps failing until you do:')
+        print('  1. open the Jupyter tool window at the bottom')
+        print('  2. press the square stop button')
+        print('  3. re-run a cell')
+        return 0
+
+    if still:
         print('\nStill broken: {}'.format(', '.join(still)))
+        print('\nLoading each candidate DLL by hand, to find the one that is missing')
+        print('("DLL load failed" never names it):')
+        print(diagnose_dlls(target, still))
         if unfound:
             # The honest diagnosis: this is not a search-path problem at all.
             print()
@@ -518,11 +681,6 @@ def main(argv=None):
         return 1
 
     print('\nDone. This environment is fixed for good -- no need to run this again.')
-    print('Now restart anything already running in it. PyCharm caches the dead')
-    print('server, so the notebook keeps failing until you do:')
-    print('  1. open the Jupyter tool window at the bottom')
-    print('  2. press the square stop button')
-    print('  3. re-run a cell')
     return 0
 
 

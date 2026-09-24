@@ -18,15 +18,7 @@ from utils.sensitives import ip_ot2, ip_rt, crest_gmail, crest_app_pw
 def get_project_path():
     path = os.getcwd()
     while os.path.basename(path) != 'catalyst':
-        parent = os.path.dirname(path)
-        if parent == path:
-            # Reached the filesystem root without finding a 'catalyst' ancestor above the
-            # working directory -- climbing further would just repeat the root forever
-            # (os.path.dirname of a drive root returns the same root). Fall back to this
-            # file's own location, which is always <project root>/utils/utils.py.
-            path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            break
-        path = parent
+        path = os.path.dirname(path)
     # if in win, replace \ with /
     path = path.replace('\\', '/')
     return path

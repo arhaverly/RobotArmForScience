@@ -7,6 +7,9 @@ onto the imaging spot. It comes down beside the spot, on the metal-end side (awa
 lowers the electrode to just above the rack, slides it in under the camera and puts it down there.
 Taking it back is the same in reverse.
 
+The electrode is put down until it rests on the rack, and only then let go, slowly: a fast release, or one
+a few mm above the rack, makes the round tube roll so the sample no longer faces up.
+
 The moves between mid_station and the imaging rack cross high above the bench (``safe_z``), turning the
 gripper a quarter turn on the way. Everything else -- picking up, the flask, mid_station, putting back --
 uses the arm's own routines, exactly as the immersion sweep in AIsorb_arm.ipynb does.
@@ -19,7 +22,7 @@ import time
 class ImagingRack:
     def __init__(self, arm, spot, coated_end='right', safe_z=500.0, hover_mm=100.0, slide_mm=70.0,
                  slide_height_mm=25.0, travel_speed=100.0, slide_speed=30.0, place_speed=10.0,
-                 confirm_before_placing=True):
+                 confirm_before_placing=True, release_gripper_speed=1000, settle_s=0.5, lift_off_speed=5.0):
         """
         :param arm: the connected arm (rt.arm)
         :param spot: [x, y, z] where the gripper lets go of the electrode on the imaging rack, in mm
@@ -32,6 +35,10 @@ class ImagingRack:
         :param slide_speed: mm/s going low over the rack and sliding in or out under the camera
         :param place_speed: mm/s for the last part down into the slot, and back up from it
         :param confirm_before_placing: stop above the imaging rack and wait for a yes
+        :param release_gripper_speed: how fast the fingers open when letting go of the electrode (r/min; the
+            gripper's range is 1000-5000, and the arm's usual open_gripper uses 5000)
+        :param settle_s: seconds to wait after letting go, before the gripper moves away
+        :param lift_off_speed: mm/s for lifting the open gripper off the electrode, before sliding out
         """
         if coated_end not in ('left', 'right'):
             raise ValueError("coated_end must be 'left' or 'right'")
@@ -49,6 +56,12 @@ class ImagingRack:
         for speed in (travel_speed, slide_speed, place_speed):
             self.at_speed(speed)            # raises now if a speed is out of range, before anything moves
         self.confirm_before_placing = confirm_before_placing
+        if not 1000 <= release_gripper_speed <= 5000:
+            raise ValueError('release_gripper_speed must be between 1000 and 5000 r/min')
+        self.release_gripper_speed = release_gripper_speed
+        self.settle_s = settle_s
+        self.lift_off_speed = lift_off_speed
+        self.at_speed(lift_off_speed)
         self.mid = list(self.cfg.pos_dict['mid_station'])
 
     # ------------------------------------------------------------------ helpers
@@ -69,11 +82,17 @@ class ImagingRack:
             print('   ->', name)
             self.arm.move_to_pos(pose, **self.at_speed(speed))
 
+    def let_go(self):
+        """Open the fingers slowly, so the electrode is not dragged or rolled, and let it settle."""
+        self.arm.set_gripper_position(self.cfg.gripper_open_dist, wait=True, speed=self.release_gripper_speed,
+                                      auto_enable=True)
+        time.sleep(self.settle_s)
+
     def describe(self):
         return (f'Imaging rack, coated end on the {self.coated_end}: lets go at '
                 f'x = {self.x:.1f}, y = {self.y:.1f}, z = {self.z:.1f}; '
                 f'{self.travel_speed} mm/s high above the bench, {self.slide_speed} mm/s sliding in, '
-                f'{self.place_speed} mm/s into the slot; '
+                f'{self.place_speed} mm/s into the slot; lets go slowly ({self.release_gripper_speed} r/min); '
                 f'{"stops to ask before putting a sample down" if self.confirm_before_placing else "does not stop to ask"}.')
 
     # ------------------------------------------------------------------ the moves
@@ -99,7 +118,7 @@ class ImagingRack:
         """In the slot -> up a little -> slide out, away from the camera -> high across, turning back -> mid_station."""
         mid, s = self.mid, self.travel_speed
         return [
-            ('up a little', [self.x, self.y, self.slide_z, *self.rpy], self.place_speed),
+            ('lift off, straight up', [self.x, self.y, self.slide_z, *self.rpy], self.lift_off_speed),
             ('slide out, away from the camera', [self.side_x, self.y, self.slide_z, *self.rpy], self.slide_speed),
             ('straight up', [self.side_x, self.y, self.safe_z, *self.rpy], s),
             ('across, turning back', [mid[0], mid[1], self.safe_z, *mid[3:]], s),
@@ -162,7 +181,7 @@ class ImagingRack:
                 self.arm.put_sample_back(sample)
                 raise SystemExit(f'Sample {sample} is back in its own slot; nothing was left on the imaging rack.')
         self.go(self._into_slot())
-        self.arm.open_gripper()
+        self.let_go()
         print(f'[*] sample {sample} left on the imaging rack; back to mid_station')
         self.go(self._out_to_mid())
 

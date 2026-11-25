@@ -7,8 +7,9 @@ onto the imaging spot. It comes down beside the spot, on the metal-end side (awa
 lowers the electrode to just above the rack, slides it in under the camera and puts it down there.
 Taking it back is the same in reverse.
 
-The electrode is put down until it rests on the rack, and only then let go, slowly: a fast release, or one
-a few mm above the rack, makes the round tube roll so the sample no longer faces up.
+The electrode is put down until it rests on the rack, and only then let go, gently: the fingers open in
+small steps for the first few mm, where they stop gripping, and only then the rest of the way. A fast
+release, or one at the wrong height, makes the round tube roll so the sample no longer faces up.
 
 The moves between mid_station and the imaging rack cross high above the bench (``safe_z``), turning the
 gripper a quarter turn on the way. Everything else -- picking up, the flask, mid_station, putting back --
@@ -22,7 +23,8 @@ import time
 class ImagingRack:
     def __init__(self, arm, spot, coated_end='right', safe_z=500.0, hover_mm=100.0, slide_mm=70.0,
                  slide_height_mm=25.0, travel_speed=100.0, slide_speed=30.0, place_speed=10.0,
-                 confirm_before_placing=True, release_gripper_speed=1000, settle_s=0.5, lift_off_speed=5.0):
+                 confirm_before_placing=True, release_gripper_speed=1000, release_gentle_mm=6.0,
+                 release_step_mm=1.0, release_step_pause_s=0.3, settle_s=0.5, lift_off_speed=5.0):
         """
         :param arm: the connected arm (rt.arm)
         :param spot: [x, y, z] where the gripper lets go of the electrode on the imaging rack, in mm
@@ -37,7 +39,11 @@ class ImagingRack:
         :param confirm_before_placing: stop above the imaging rack and wait for a yes
         :param release_gripper_speed: how fast the fingers open when letting go of the electrode (r/min; the
             gripper's range is 1000-5000, and the arm's usual open_gripper uses 5000)
-        :param settle_s: seconds to wait after letting go, before the gripper moves away
+        :param release_gentle_mm: how far the fingers open in small steps when letting go, before opening the
+            rest of the way (in the gripper's position units, the same as gripper_open_dist)
+        :param release_step_mm: the size of each of those small steps
+        :param release_step_pause_s: seconds to wait after each small step
+        :param settle_s: seconds to wait after the small steps, before opening the rest of the way
         :param lift_off_speed: mm/s for lifting the open gripper off the electrode, before sliding out
         """
         if coated_end not in ('left', 'right'):
@@ -59,6 +65,11 @@ class ImagingRack:
         if not 1000 <= release_gripper_speed <= 5000:
             raise ValueError('release_gripper_speed must be between 1000 and 5000 r/min')
         self.release_gripper_speed = release_gripper_speed
+        if release_step_mm <= 0 or release_gentle_mm < 0:
+            raise ValueError('release_step_mm must be above 0, and release_gentle_mm 0 or above')
+        self.release_gentle_mm = release_gentle_mm
+        self.release_step_mm = release_step_mm
+        self.release_step_pause_s = release_step_pause_s
         self.settle_s = settle_s
         self.lift_off_speed = lift_off_speed
         self.at_speed(lift_off_speed)
@@ -83,16 +94,25 @@ class ImagingRack:
             self.arm.move_to_pos(pose, **self.at_speed(speed))
 
     def let_go(self):
-        """Open the fingers slowly, so the electrode is not dragged or rolled, and let it settle."""
-        self.arm.set_gripper_position(self.cfg.gripper_open_dist, wait=True, speed=self.release_gripper_speed,
-                                      auto_enable=True)
+        """
+        Let go of the electrode gently, so it is not dragged or rolled: open the fingers in small steps for the
+        first few mm (where they stop gripping), let it settle, then open the rest of the way slowly.
+        """
+        arm = self.arm
+        fully_open = self.cfg.gripper_open_dist
+        pos = start = arm.gripper_opening             # about 9 when the fingers hold an electrode
+        while pos < min(start + self.release_gentle_mm, fully_open):
+            pos = min(pos + self.release_step_mm, fully_open)
+            arm.set_gripper_position(pos, wait=True, speed=self.release_gripper_speed, auto_enable=True)
+            time.sleep(self.release_step_pause_s)
         time.sleep(self.settle_s)
+        arm.set_gripper_position(fully_open, wait=True, speed=self.release_gripper_speed, auto_enable=True)
 
     def describe(self):
         return (f'Imaging rack, coated end on the {self.coated_end}: lets go at '
                 f'x = {self.x:.1f}, y = {self.y:.1f}, z = {self.z:.1f}; '
                 f'{self.travel_speed} mm/s high above the bench, {self.slide_speed} mm/s sliding in, '
-                f'{self.place_speed} mm/s into the slot; lets go slowly ({self.release_gripper_speed} r/min); '
+                f'{self.place_speed} mm/s into the slot; lets go gently ({self.release_gentle_mm:g} in steps of {self.release_step_mm:g}, then slowly); '
                 f'{"stops to ask before putting a sample down" if self.confirm_before_placing else "does not stop to ask"}.')
 
     # ------------------------------------------------------------------ the moves
